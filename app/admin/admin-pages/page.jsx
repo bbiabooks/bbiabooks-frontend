@@ -74,7 +74,7 @@ const DashboardPage = () => {
         // Fetch all user from the backend API
         const fetchUser = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/users/${userId}`, {
+                const response = await fetch(`${URL}/api/users/${userId}`, {
                     method: "GET",
                     headers: {
                         Authorization: `Bearer ${token}`,
