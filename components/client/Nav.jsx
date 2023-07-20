@@ -82,14 +82,6 @@ const Nav = () => {
             </p>
           </button>
           <button
-            className="mr-4 text-cyan-600 font-bold hover:text-orange-300 text-sm"
-            onClick={ handleViewTransactions }
-          >
-            <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
-              Transactions
-            </p>
-          </button>
-          <button
             className="mr-6 text-cyan-600 font-bold hover:text-orange-300 text-sm"
             onClick={ () => handleUserProfile(userId) }
           >

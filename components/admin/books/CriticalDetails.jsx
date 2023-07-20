@@ -75,7 +75,7 @@ const CriticalDetails = ({
                             <p className="text-base font-semibold">ISBN:</p> { book.ISBN }
                         </div>
                         <div className="mb-4">
-                            <p className="text-base font-semibold">Publication Date:</p> { book.publicationDate }
+                            <p className="text-base font-semibold">Publication Date:</p> { book.publicationDate.slice(0, 10) }
                         </div>
                         <div className="mb-4">
                             <p className="text-base font-semibold">Edition:</p> { book.edition }
