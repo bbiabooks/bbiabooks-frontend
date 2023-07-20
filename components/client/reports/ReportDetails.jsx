@@ -22,7 +22,7 @@ const ReportDetails = ({
     }
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen m-12">
             <div className="flex justify-start mb-4">
                 <button
                     disabled={ isLoading }
