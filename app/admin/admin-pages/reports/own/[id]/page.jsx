@@ -65,7 +65,7 @@ const OwnReportDetailsPage = ({ params }) => {
             <OwnReportDetails
                 report={ report }
                 isLoading={ isLoading }
-                handleReportList={ handleViewDashboard }
+                handleViewDashboard={ handleViewDashboard }
             />
         </div>
     );
