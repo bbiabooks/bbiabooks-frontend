@@ -45,7 +45,7 @@ const UserProfilePage = ({ params }) => {
 
     const handleDashboard = () => {
         setIsLoading(true);
-        router.push(`/admin/admin-pages`);
+        router.push(`/client/client-pages`);
     };
 
     // Effect to automatically remove the success/error message after 3 seconds
