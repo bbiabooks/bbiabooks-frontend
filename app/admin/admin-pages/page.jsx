@@ -156,7 +156,7 @@ const DashboardPage = () => {
     const handleViewActivity = (id) => {
         if (userKey === "Admin" || userKey === "Librarian" || userKey === "Accountant") {
             setIsLoading(true);
-            router.push(`/admin/admin-pages/reports/${id}`);
+            router.push(`/admin/admin-pages/reports/own/${id}`);
         } else {
             handleUnauthorizedAction();
         }

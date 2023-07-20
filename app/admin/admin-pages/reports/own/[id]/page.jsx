@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { useAuthContext } from "@utils/AuthContext";
 import { URL } from "@utils/URL";
 import { useRouter } from "next/navigation";
-import ReportDetails from "@components/client/reports/ReportDetails";
+import OwnReportDetails from "@components/admin/reports/OwnReportDetails";
 
-const ReportDetailsPage = ({ params }) => {
+const OwnReportDetailsPage = ({ params }) => {
     const router = useRouter();
     const { token } = useAuthContext();
     const [report, setReport] = useState(null);
@@ -39,9 +39,9 @@ const ReportDetailsPage = ({ params }) => {
         fetchReport();
     }, [params.id, token]);
 
-    const handleViewHome = () => {
+    const handleViewDashboard = () => {
         setIsLoading(true);
-        router.push(`/client/client-pages`);
+        router.push(`/admin/admin-pages`);
     };
 
     // Effect to automatically remove the error message after 3 seconds
@@ -62,13 +62,13 @@ const ReportDetailsPage = ({ params }) => {
                     { errorMessage }
                 </div>
             ) }
-            <ReportDetails
+            <OwnReportDetails
                 report={ report }
                 isLoading={ isLoading }
-                handleViewHome={ handleViewHome }
+                handleReportList={ handleViewDashboard }
             />
         </div>
     );
 };
 
-export default ReportDetailsPage;
+export default OwnReportDetailsPage;

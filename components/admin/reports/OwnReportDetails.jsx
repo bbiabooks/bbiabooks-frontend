@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-const ReportDetails = ({
+const OwnReportDetails = ({
     report,
-    handleViewHome,
+    handleViewDashboard,
     isLoading, }) => {
 
     if (!report) {
@@ -22,13 +22,13 @@ const ReportDetails = ({
     }
 
     return (
-        <div className="min-h-screen m-12">
+        <div className="min-h-screen">
             <div className="flex justify-start mb-4">
                 <button
                     disabled={ isLoading }
                     className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
                         } text-white font-bold py-2 px-4 rounded-full flex space-x-2` }
-                    onClick={ handleViewHome }
+                    onClick={ handleViewDashboard }
                 >
                     <Image
                         src="/back.svg"
@@ -81,4 +81,4 @@ const ReportDetails = ({
     );
 };
 
-export default ReportDetails;
+export default OwnReportDetails;
