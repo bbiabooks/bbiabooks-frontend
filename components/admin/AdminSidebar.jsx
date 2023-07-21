@@ -4,6 +4,7 @@ import Link from "next/link";
 import ConfirmationModal from '@components/main/ConfirmationModal';
 import { useAuthContext } from '@utils/AuthContext';
 import { useEffect, useState } from 'react';
+import { URL } from "@utils/URL";
 
 const AdminSidebar = () => {
     const [user, setUser] = useState([]);
@@ -17,7 +18,7 @@ const AdminSidebar = () => {
         // Fetch all user from the backend API
         const fetchUser = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/users/${userId}`, {
+                const response = await fetch(`${URL}/api/users/${userId}`, {
                     method: "GET",
                     headers: {
                         Authorization: `Bearer ${token}`,
