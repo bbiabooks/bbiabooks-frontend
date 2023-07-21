@@ -81,7 +81,7 @@ const LoanDetails = ({
                         <div className="mb-4">
                             <p className="text-base font-semibold">Borrowed For:</p>
                             {
-                                loan.user_id ?
+                                loan.borrower ?
                                     (loan.borrower.firstName + " " + loan.borrower.lastName + " (" + loan.borrower.userType.userType + ", "
                                         + (loan.borrower.subjectArea ? loan.borrower.subjectArea.subjectArea
                                             : (loan.borrower.gradeLevel ? loan.borrower.gradeLevel.gradeLevel : "N/A")) + ")")

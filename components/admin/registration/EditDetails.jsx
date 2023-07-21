@@ -12,10 +12,6 @@ const EditDetails = ({
     handleInputChange,
     handleSubmit }) => {
 
-    // const filteredUserTypes = userTypes.filter(
-    //     (user) => user.userType === "Teacher" || user.userType === "Student"
-    // );
-
     if (!user) {
         return (
             <div className="min-h-screen flex justify-center items-center">

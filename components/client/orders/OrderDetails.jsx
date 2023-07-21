@@ -72,15 +72,19 @@ const OrderDetails = ({
                         <div className="mb-4">
                             <p className="text-base font-semibold">Ordered By:</p>
                             {
-                                order.user_id.firstName + " " + order.user_id.lastName + " (" + order.user_id.userType.userType + ")"
+                                order.user_id ?
+                                    (order.user_id.firstName + " " + order.user_id.lastName + " (" + order.user_id.userType.userType + ")")
+                                    : "N/A"
                             }
                         </div>
                         <div className="mb-4">
                             <p className="text-base font-semibold">Reserved For:</p>
                             {
-                                order.reservedFor.firstName + " " + order.reservedFor.lastName + " (" + order.reservedFor.userType.userType + ", "
-                                + (order.reservedFor.subjectArea ? order.reservedFor.subjectArea.subjectArea
-                                    : (order.reservedFor.gradeLevel ? order.reservedFor.gradeLevel.gradeLevel : "N/A")) + ")"
+                                order.reservedFor ?
+                                    (order.reservedFor.firstName + " " + order.reservedFor.lastName + " (" + order.reservedFor.userType.userType + ", "
+                                        + (order.reservedFor.subjectArea ? order.reservedFor.subjectArea.subjectArea
+                                            : (order.reservedFor.gradeLevel ? order.reservedFor.gradeLevel.gradeLevel : "N/A")) + ")")
+                                    : "N/A"
                             }
                         </div>
                         <div className="mb-4">
