@@ -98,6 +98,7 @@ const CreateDetails = ({
                                     name="paymentMethod"
                                     value={ orderData.paymentMethod || "" }
                                     onChange={ handleInputChange }
+                                    required
                                 >
                                     <option value="" disabled>
                                         Select Payment Method
