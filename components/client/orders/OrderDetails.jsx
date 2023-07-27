@@ -59,7 +59,7 @@ const OrderDetails = ({
                                 <p className="text-base font-semibold text-rose-400">
                                     { "Your order is already available and is ready to pick up." }
                                 </p> :
-                                <p className="text-base font-semibold text-rose-400">
+                                <p className="text-base font-semibold text-green-600">
                                     { `Your order is expected to be available on or before ${order.arrivalDate.slice(0, 10)}.` }</p>
                             }
                         </div>

@@ -25,11 +25,11 @@ const OptionTabs = ({
     }
 
     return (
-        <div className="flex-grow flex items-start justify-center w-full min-h-full">
+        <div className="flex-col flex items-start justify-start min-h-full p-12 max-w-5xl">
             <div className="w-full">
                 <h1 className="text-2xl font-black mb-4">Field Options</h1>
                 <div className="overflow-y-auto max-h-[calc(100vh-25vh)]">
-                    <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-4 mb-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                         <div
                             className="border rounded-lg flex flex-col justify-between bg-white shadow-lg"
                         >
@@ -87,7 +87,7 @@ const OptionTabs = ({
                             </div>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div
                             className="border rounded-lg flex flex-col justify-between bg-white shadow-lg"
                         >

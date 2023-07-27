@@ -71,11 +71,23 @@ const AdminSidebar = () => {
     };
 
     return (
-        <div className="flex flex-row min-h-full w-96">
-            <div className="hide-print md:hidden fixed top-4 left-4 z-50 flex flex-row"> {/* Show this div on small screens only */ }
+        <div className="hide-print flex flex-row min-h-full w-full md:w-72">
+            <div className="md:hidden flex flex-row justify-between items-center w-full glassmorphism">
+                <div className="flex items-center space-x-2">
+                    <Image
+                        src="/adminlogo.svg"
+                        alt="BBIA logo"
+                        width={ 40 }
+                        height={ 40 }
+                        className="object-contain"
+                    />
+                    <h1 className="text-sm text-cyan-600 font-bold">
+                        BBIA BOOK LIBRARY SYSTEM
+                    </h1>
+                </div>
                 <button
-                    className="mr-2 mb-4 hover:text-orange-300 text-sm"
-                    onClick={ handleToggleLinks } // Toggle the links when the button is clicked
+                    className="mr-2 hover:text-orange-300 text-sm"
+                    onClick={ handleToggleLinks }
                 >
                     <div className="flex flex-row items-center space-x-2">
                         <Image
@@ -87,35 +99,22 @@ const AdminSidebar = () => {
                         />
                     </div>
                 </button>
-                <div className="flex items-center justify-center mb-4">
-                    <div>
-                        <Image
-                            src="/adminlogo.svg"
-                            alt="BBIA logo"
-                            width={ 28 }
-                            height={ 28 }
-                            className="object-contain"
-                        />
-                    </div>
-                    <h1 className="text-xs text-cyan-600 font-bold ml-1">
-                        Building Blocks International Academy Philippines
-                    </h1>
-                </div>
             </div>
-            <div className={ `hidden md:flex ${showLinks ? "flex" : "hidden"}` }> {/* Show this div on medium screens and above, or when showLinks is true */ }
+            <div className={ `hidden md:flex ${showLinks ? "flex" : "hidden"}` }>
+                {/* Show this div on medium screens and above, or when showLinks is true */ }
                 <aside className="glassmorphism flex flex-col">
                     <div className="flex items-center justify-center py-2 mb-4 pb-6">
                         <div>
                             <Image
                                 src="/adminlogo.svg"
                                 alt="BBIA logo"
-                                width={ 70 }
-                                height={ 70 }
+                                width={ 40 }
+                                height={ 40 }
                                 className="object-contain"
                             />
                         </div>
                         <h1 className="text-xs font-semibold ml-1">
-                            Building Blocks International Academy Philippines
+                            BBIA BOOK LIBRARY SYSTEM
                         </h1>
                     </div>
                     <div>
@@ -572,7 +571,7 @@ const AdminSidebar = () => {
             </div>
             { showLinks && (
                 <div
-                    className="fixed top-12 left-8 z-50 md:hidden glassmorphism"
+                    className="fixed top-16 right-8 z-50 md:hidden glassmorphism"
                     onClick={ handleHideLinks } // Hide the links when the overlay is clicked
                 >
                     <div className="flex flex-col w-1/2">

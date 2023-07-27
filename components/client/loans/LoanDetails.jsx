@@ -59,7 +59,7 @@ const LoanDetails = ({
                                 <p className="text-base font-semibold text-rose-400">
                                     { `Your requested book is expected to be available on or before ${loan.dueDate.slice(0, 10)}. Please make a new request after the said date.` }
                                 </p> :
-                                <p className="text-base font-semibold text-rose-400">
+                                <p className="text-base font-semibold text-green-600">
                                     { "Your requested book is already available and is ready to pick up." } </p>
                             }
                         </div>

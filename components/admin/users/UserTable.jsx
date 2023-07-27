@@ -60,7 +60,7 @@ const UserTable = ({
     ).length;
 
     return (
-        <div className="flex-grow flex items-start justify-center w-full min-h-full">
+        <div className="flex-col flex items-start justify-start min-h-full p-12 max-w-5xl">
             {/* Add a print-only class to the root div for print styling */ }
             <div className={ `print-only w-full ${isPrinting ? "print-table" : ""}` }>
                 <h1 className="text-2xl font-bold mb-6 flex justify-start">
@@ -119,39 +119,39 @@ const UserTable = ({
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-between items-center mt-8">
-                    <div className="hide-print flex justify-start">
-                        <button
-                            disabled={ isLoading }
-                            className={ `${isLoading ? "cursor-not-allowed" : "hover:bg-cyan-700 hover:text-white"
-                                } border border-cyan-700 text-cyan-700 font-bold py-2 px-4 rounded-full mr-2` }
-                            onClick={ handleCreateUser }
-                        >
-                            Create User
-                        </button>
-                        {/* Print Button */ }
-                        <button
-                            disabled={ isLoading }
-                            className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
-                                } py-2 px-4 rounded-full` }
-                            onClick={ handlePrintTable }
-                        >
-                            <Image
-                                src="/print.svg"
-                                alt="print"
-                                width={ 24 }
-                                height={ 24 }
-                                className="object-cover"
-                            />
-                        </button>
-                    </div>
+                <div className="hide-print flex justify-start items-center mt-8">
+                    <button
+                        disabled={ isLoading }
+                        className={ `${isLoading ? "cursor-not-allowed" : "hover:bg-cyan-700 hover:text-white"
+                            } border border-cyan-700 text-cyan-700 font-bold py-2 px-4 rounded-full mr-2` }
+                        onClick={ handleCreateUser }
+                    >
+                        Create User
+                    </button>
+                    {/* Print Button */ }
+                    <button
+                        disabled={ isLoading }
+                        className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
+                            } py-2 px-4 rounded-full` }
+                        onClick={ handlePrintTable }
+                    >
+                        <Image
+                            src="/print.svg"
+                            alt="print"
+                            width={ 24 }
+                            height={ 24 }
+                            className="object-cover"
+                        />
+                    </button>
+                </div>
+                <div className="mt-4 w-full">
                     <div className="flex flex-col items-end space-x-2 text-cyan-600 opacity-70 hover:opacity-100 mb-4">
                         <div className="flex justify-end">
                             <p className="text-sm font-bold text-gray-600">
                                 Total Users: { filteredUsers.length }
                             </p>
                         </div>
-                        <div className="hide-print flex items-center w-96">
+                        <div className="hide-print flex items-center w-full md:w-96">
                             <input
                                 type="text"
                                 id="search"

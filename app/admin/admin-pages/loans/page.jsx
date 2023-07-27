@@ -74,7 +74,7 @@ const LoanTablePage = () => {
 
     if (isLoading) {
         return (
-            <div className="min-h-screen flex justify-center items-center">
+            <div className="min-h-screen p-12">
                 <p className="text-gray-500 text-2xl font-semibold">Loading please wait . . .</p>
             </div>
         );

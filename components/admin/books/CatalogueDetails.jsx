@@ -1,22 +1,13 @@
-import ConfirmationModal from "@components/main/ConfirmationModal";
 import Image from "next/image";
 
 const BookDetails = ({
     book,
     handleBookList,
-    isDeleting,
-    isLoading,
-    isConfirmationModalOpen,
-    warningMessage,
-    confirmMessage,
-    handleEditBook,
-    handleDeleteBook,
-    handleConfirmDelete,
-    handleCancelDelete, }) => {
+    isLoading, }) => {
 
     if (!book) {
         return (
-            <div className="min-h-screen flex justify-center items-center">
+            <div className="min-h-screen p-12">
                 <p className="text-gray-500 text-2xl font-semibold">Loading Book Details . . .</p>
             </div>
         );
@@ -24,14 +15,14 @@ const BookDetails = ({
 
     if (isLoading) {
         return (
-            <div className="min-h-screen flex justify-center items-center">
+            <div className="min-h-screen p-12">
                 <p className="text-gray-500 text-2xl font-semibold">Loading please wait . . .</p>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen p-12">
             <div className="flex justify-start mb-4">
                 <button
                     disabled={ isLoading }
@@ -119,34 +110,9 @@ const BookDetails = ({
                         <div className="mb-4">
                             <p className="text-base font-semibold">Date Last Updated:</p> { new Date(book.updatedAt).toLocaleString() }
                         </div>
-                        <div className="border-t pt-4 flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 space-x-0 sm:space-x-2">
-                            <button
-                                className="border border-rose-400 hover:bg-rose-400 text-center hover:text-white text-rose-400 font-bold py-2 px-4 rounded-full"
-                                disabled={ isDeleting }
-                                onClick={ () => handleDeleteBook(book._id) }
-                            >
-                                { isDeleting ? "Deleting..." : "Delete Book" }
-                            </button>
-                            <button
-                                className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
-                                    } text-white font-bold py-2 px-4 rounded-full` }
-                                disabled={ isLoading }
-                                onClick={ () => handleEditBook(book._id) }
-                            >
-                                { isLoading ? "Please wait..." : "Edit Details" }
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
-            { isConfirmationModalOpen && (
-                <ConfirmationModal
-                    warning={ warningMessage }
-                    message={ confirmMessage }
-                    onConfirm={ handleConfirmDelete }
-                    onCancel={ handleCancelDelete }
-                />
-            ) }
         </div>
     );
 };

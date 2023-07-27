@@ -44,7 +44,7 @@ const SupplierTable = ({
     }
 
     return (
-        <div className="flex-grow flex items-start justify-center w-full min-h-full">
+        <div className="flex-col flex items-start justify-start min-h-full p-12 max-w-5xl">
             {/* Add a print-only class to the root div for print styling */ }
             <div className={ `print-only w-full ${isPrinting ? "print-table" : ""}` }>
                 <h1 className="text-2xl font-bold mb-6 flex justify-start">
@@ -90,28 +90,30 @@ const SupplierTable = ({
                         />
                     </button>
                 </div>
-                <div className="flex flex-col items-end space-x-2 text-cyan-600 opacity-70 hover:opacity-100 mb-4">
-                    <div className="flex justify-end">
-                        <p className="text-sm font-bold text-gray-600">
-                            Total Suppliers: { filteredSuppliers.length }
-                        </p>
-                    </div>
-                    <div className="hide-print flex items-center w-96">
-                        <input
-                            type="text"
-                            id="search"
-                            value={ searchTerm }
-                            onChange={ handleSearch }
-                            className="ml-2 border-b border-gray-600 px-3 py-2 w-full focus:outline-none bg-transparent"
-                            placeholder="Search by: name | address"
-                        />
-                        <Image
-                            src="/search.svg"
-                            alt="Search"
-                            width={ 20 }
-                            height={ 20 }
-                            className="object-contain"
-                        />
+                <div className="mt-4 w-full">
+                    <div className="flex flex-col items-end space-x-2 text-cyan-600 opacity-70 hover:opacity-100 mb-4">
+                        <div className="flex justify-end">
+                            <p className="text-sm font-bold text-gray-600">
+                                Total Suppliers: { filteredSuppliers.length }
+                            </p>
+                        </div>
+                        <div className="hide-print flex items-center w-full md:w-96">
+                            <input
+                                type="text"
+                                id="search"
+                                value={ searchTerm }
+                                onChange={ handleSearch }
+                                className="ml-2 border-b border-gray-600 px-3 py-2 w-full focus:outline-none bg-transparent"
+                                placeholder="Search by: name | address"
+                            />
+                            <Image
+                                src="/search.svg"
+                                alt="Search"
+                                width={ 20 }
+                                height={ 20 }
+                                className="object-contain"
+                            />
+                        </div>
                     </div>
                 </div>
                 <div className="overflow-y-auto max-h-[calc(100vh-25vh)]">

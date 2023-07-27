@@ -10,7 +10,7 @@ const EditDetails = ({
 
     if (!branch) {
         return (
-            <div className="min-h-screen flex justify-center items-center">
+            <div className="min-h-screen p-12">
                 <p className="text-gray-500 text-2xl font-semibold">Loading Branch Details . . .</p>
             </div>
         );
@@ -18,14 +18,14 @@ const EditDetails = ({
 
     if (isLoading) {
         return (
-            <div className="min-h-screen flex justify-center items-center">
+            <div className="min-h-screen p-12">
                 <p className="text-gray-500 text-2xl font-semibold">Loading please wait . . .</p>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen p-12">
             <div className="flex justify-start mb-4">
                 <button
                     disabled={ isLoading }
