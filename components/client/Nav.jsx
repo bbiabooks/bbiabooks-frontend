@@ -1,12 +1,22 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthContext } from "@utils/AuthContext";
 
 const Nav = () => {
   const { logout, userId } = useAuthContext();
   const router = useRouter();
+  const [showLinks, setShowLinks] = useState(false); // Add showLinks state
+
+  const handleToggleLinks = () => {
+    setShowLinks(!showLinks);
+  };
+
+  const handleHideLinks = () => {
+    setShowLinks(false);
+  };
 
   const handleUserProfile = (id) => {
     router.push(`/client/client-pages/profile/${id}`);
@@ -29,8 +39,8 @@ const Nav = () => {
     router.push(`/client/client-pages/loans`);
   };
 
-  const handleViewTransactions = () => {
-    router.push(`/client/client-pages/transactions`);
+  const handleLogout = () => {
+    logout();
   };
 
   return (
@@ -48,7 +58,23 @@ const Nav = () => {
             BBIA BOOK LIBRARY SYSTEM
           </h1>
         </div>
-        <div>
+        <div className="md:hidden"> {/* Show this div on small screens only */ }
+          <button
+            className="mr-4 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+            onClick={ handleToggleLinks } // Toggle the links when the button is clicked
+          >
+            <div className="flex flex-row items-center space-x-2">
+              <Image
+                src="/menu.svg"
+                alt="Menu Button"
+                width={ 32 }
+                height={ 32 }
+                className="object-contain"
+              />
+            </div>
+          </button>
+        </div>
+        <div className={ `hidden md:flex ${showLinks ? "flex" : "hidden"}` }> {/* Show this div on medium screens and above, or when showLinks is true */ }
           <button
             className="mr-4 text-cyan-600 font-bold hover:text-orange-300 text-sm"
             onClick={ handleViewHome }
@@ -92,12 +118,70 @@ const Nav = () => {
           <Link href="/client/login">
             <button
               className="border border-cyan-700 hover:bg-cyan-700 hover:text-white text-cyan-700 font-bold text-sm px-4 py-2 rounded-full"
+              onClick={ handleLogout }
             >
               LOGOUT
             </button>
           </Link>
         </div>
       </header>
+      { showLinks && (
+        <div
+          className="fixed top-16 right-8 z-50 md:hidden glassmorphism"
+          onClick={ handleHideLinks } // Hide the links when the overlay is clicked
+        >
+          <div className="flex flex-col w-1/2">
+            <button
+              className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+              onClick={ handleViewHome }
+            >
+              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                Home
+              </p>
+            </button>
+            <button
+              className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+              onClick={ handleViewCatalogue }
+            >
+              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                Catalogue
+              </p>
+            </button>
+            <button
+              className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+              onClick={ handleViewOrders }
+            >
+              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                Orders
+              </p>
+            </button>
+            <button
+              className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+              onClick={ handleViewLoans }
+            >
+              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                Borrows
+              </p>
+            </button>
+            <button
+              className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+              onClick={ () => handleUserProfile(userId) }
+            >
+              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                Profile
+              </p>
+            </button>
+            <Link href="/client/login">
+              <button
+                className="border border-cyan-700 hover:bg-cyan-700 hover:text-white text-cyan-700 font-bold text-sm px-4 py-2 rounded-full"
+                onClick={ handleLogout }
+              >
+                LOGOUT
+              </button>
+            </Link>
+          </div>
+        </div>
+      ) }
     </nav>
   );
 };

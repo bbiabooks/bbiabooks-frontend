@@ -55,10 +55,13 @@ const OrderDetails = ({
                         </div>
                         <div className="mb-4 mt-4">
                             <p className="text-base font-semibold">Notice:</p>
-                            <p className="text-base font-semibold text-rose-400">
-                                { order.arrivalDate.slice(0, 10) === order.createdAt.slice(0, 10)
-                                    ? "Your order is already available and is ready to pick up."
-                                    : "Your order is expected to be available on or before " + order.arrivalDate.slice(0, 10) + "." }</p>
+                            { order.arrivalDate.slice(0, 10) === order.createdAt.slice(0, 10) ?
+                                <p className="text-base font-semibold text-rose-400">
+                                    { "Your order is already available and is ready to pick up." }
+                                </p> :
+                                <p className="text-base font-semibold text-rose-400">
+                                    { `Your order is expected to be available on or before ${order.arrivalDate.slice(0, 10)}.` }</p>
+                            }
                         </div>
                         <div className="mb-4 mt-8">
                             <p className="text-base font-semibold">Book Title:</p> { order.book.title }

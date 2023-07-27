@@ -55,11 +55,13 @@ const LoanDetails = ({
                         </div>
                         <div className="mb-4 mt-4">
                             <p className="text-base font-semibold">Notice:</p>
-                            <p className="text-base font-semibold text-rose-400">
-                                { loan.dueDate.slice(0, 10) === loan.createdAt.slice(0, 10)
-                                    ? "Your requested book is expected to be available on or before " + loan.dueDate.slice(0, 10)
-                                    + ". Please make a new request after the said date."
-                                    : "Your requested book is already available and is ready to pick up." }</p>
+                            { loan.dueDate.slice(0, 10) === loan.createdAt.slice(0, 10) ?
+                                <p className="text-base font-semibold text-rose-400">
+                                    { `Your requested book is expected to be available on or before ${loan.dueDate.slice(0, 10)}. Please make a new request after the said date.` }
+                                </p> :
+                                <p className="text-base font-semibold text-rose-400">
+                                    { "Your requested book is already available and is ready to pick up." } </p>
+                            }
                         </div>
                         <div className="mb-4">
                             <p className="text-base font-semibold">Book Title:</p> { loan.book ? loan.book.title : "N/A" }

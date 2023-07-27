@@ -9,6 +9,11 @@ const CreateDetails = ({
     handleFileChange,
     handleSubmit, }) => {
 
+    // Filter out user types (e.g., Admin, Librarian, Accountant)
+    const filteredUserTypes = userTypes.filter(
+        (type) => !["Admin", "Librarian", "Accountant"].includes(type.userType)
+    );
+
     if (isLoading) {
         return (
             <div className="min-h-screen flex justify-center items-center">
@@ -36,7 +41,7 @@ const CreateDetails = ({
                                     required
                                 >
                                     <option value="" disabled>Select User Type</option>
-                                    { userTypes.map((type) => {
+                                    { filteredUserTypes.map((type) => {
                                         return (
                                             <option key={ type._id } value={ type._id }>
                                                 { type.userType }
@@ -248,7 +253,7 @@ const CreateDetails = ({
                                     name="phoneNumber"
                                     value={ userData.phoneNumber }
                                     onChange={ handleInputChange }
-                                    placeholder={ "Enter Phone Number" }
+                                    placeholder={ "Enter 11-Digit 09xxxxxxxxx" }
                                     required
                                 />
                             </div>
@@ -270,7 +275,7 @@ const CreateDetails = ({
                                     name="username"
                                     value={ userData.username }
                                     onChange={ handleInputChange }
-                                    placeholder={ "Enter Username" }
+                                    placeholder={ "Enter 8-Character Username" }
                                     required
                                 />
                             </div>
@@ -282,7 +287,7 @@ const CreateDetails = ({
                                     name="password"
                                     value={ userData.password }
                                     onChange={ handleInputChange }
-                                    placeholder={ "Enter Password" }
+                                    placeholder={ "Enter 8-Character Password" }
                                     required
                                 />
                             </div>

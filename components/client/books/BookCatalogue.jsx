@@ -45,7 +45,7 @@ const BookCatalogue = ({
                             Total Books: { filteredBooks.length }
                         </p>
                     </div>
-                    <div className="flex items-center w-96">
+                    <div className="flex items-center w-full md:w-96">
                         <input
                             type="text"
                             id="search"

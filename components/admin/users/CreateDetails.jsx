@@ -268,7 +268,7 @@ const CreateDetails = ({
                                     name="phoneNumber"
                                     value={ userData.phoneNumber }
                                     onChange={ handleInputChange }
-                                    placeholder={ "Enter Phone Number" }
+                                    placeholder={ "Enter 11-Digit 09xxxxxxxxx" }
                                     required
                                 />
                             </div>
@@ -290,7 +290,7 @@ const CreateDetails = ({
                                     name="username"
                                     value={ userData.username }
                                     onChange={ handleInputChange }
-                                    placeholder={ "Enter Username" }
+                                    placeholder={ "Enter 8-Character Username" }
                                     required
                                 />
                             </div>
@@ -302,7 +302,7 @@ const CreateDetails = ({
                                     name="password"
                                     value={ userData.password }
                                     onChange={ handleInputChange }
-                                    placeholder={ "Enter Password" }
+                                    placeholder={ "Enter 8-Character Password" }
                                     required
                                 />
                             </div>

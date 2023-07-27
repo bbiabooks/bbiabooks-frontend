@@ -177,19 +177,19 @@ const HomeTabs = ({
                             <p className="text-xs font-semibold ml-4">Pending Borrows</p>
                         </div>
                         <div className="flex justify-end">
-                            <p className="text-sm text-gray-400 font-bold ml-8">{ inventory.numberOfPendingLoans }</p>
+                            <p className="text-sm text-gray-500 font-bold ml-8">{ inventory.numberOfPendingLoans }</p>
                         </div>
                     </button>
                 </div>
             </div>
-            <div className="mt-1 w-full">
+            <div className="mt-4 w-full md:mt-1">
                 <div className="flex flex-col items-end space-x-2 text-cyan-600 opacity-70 hover:opacity-100">
                     <div className="flex justify-end">
                         <p className="text-sm font-bold text-gray-600">
                             Total Activities: { filteredReports.length }
                         </p>
                     </div>
-                    <div className="flex items-center w-96">
+                    <div className="flex items-center w-full md:w-96">
                         <input
                             type="text"
                             id="search"

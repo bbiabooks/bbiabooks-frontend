@@ -15,6 +15,14 @@ const SupplierTable = ({
     handleConfirm }) => {
 
     const [searchTerm, setSearchTerm] = useState('');
+    const [isPrinting, setIsPrinting] = useState(false);
+
+    // Function to handle printing the table
+    const handlePrintTable = () => {
+        setIsPrinting(true);
+        window.print();
+        setIsPrinting(false);
+    };
 
     const handleSearch = (event) => {
         setSearchTerm(event.target.value);
@@ -37,11 +45,12 @@ const SupplierTable = ({
 
     return (
         <div className="flex-grow flex items-start justify-center w-full min-h-full">
-            <div className="w-full">
+            {/* Add a print-only class to the root div for print styling */ }
+            <div className={ `print-only w-full ${isPrinting ? "print-table" : ""}` }>
                 <h1 className="text-2xl font-bold mb-6 flex justify-start">
                     Suppliers
                 </h1>
-                <div className="flex flex-row justify-start">
+                <div className="hide-print flex flex-row justify-start">
                     <button
                         disabled={ isLoading }
                         className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
@@ -60,10 +69,25 @@ const SupplierTable = ({
                     <button
                         disabled={ isLoading }
                         className={ `${isLoading ? "cursor-not-allowed" : "hover:bg-cyan-700 hover:text-white"
-                            } border border-cyan-700 text-cyan-700 font-bold py-2 px-4 rounded-full` }
+                            } border border-cyan-700 text-cyan-700 font-bold py-2 px-4 rounded-full mr-2` }
                         onClick={ handleCreateSupplier }
                     >
                         Create New Supplier
+                    </button>
+                    {/* Print Button */ }
+                    <button
+                        disabled={ isLoading }
+                        className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
+                            } py-2 px-4 rounded-full` }
+                        onClick={ handlePrintTable }
+                    >
+                        <Image
+                            src="/print.svg"
+                            alt="print"
+                            width={ 24 }
+                            height={ 24 }
+                            className="object-cover"
+                        />
                     </button>
                 </div>
                 <div className="flex flex-col items-end space-x-2 text-cyan-600 opacity-70 hover:opacity-100 mb-4">
@@ -72,7 +96,7 @@ const SupplierTable = ({
                             Total Suppliers: { filteredSuppliers.length }
                         </p>
                     </div>
-                    <div className="flex items-center w-96">
+                    <div className="hide-print flex items-center w-96">
                         <input
                             type="text"
                             id="search"
@@ -135,6 +159,35 @@ const SupplierTable = ({
                     onConfirm={ handleConfirm }
                 />
             ) }
+            {/* Additional CSS for Print mode */ }
+            <style jsx>
+                { `
+                    @media print {
+                        .hide-print {
+                            display: none;
+                        }
+                        body * {
+                            display: none;
+                        }
+                        .overflow-y-auto {
+                            overflow-y: visible !important;
+                        }
+                        .max-h-[calc(100vh-25vh)] {
+                            max-height: none !important;
+                        }
+                        .print-only {
+                            display: block !important;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                        }
+                        .print-only th,
+                        .print-only td {
+                            display: table-cell;
+                        }
+                    }
+                `}
+            </style>
         </div>
     );
 };
