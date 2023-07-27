@@ -84,31 +84,31 @@ const ReturnedTable = ({
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-between items-center mt-8">
-                    <div className="flex justify-start mb-4">
-                        <button
-                            disabled={ isLoading }
-                            className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
-                                } text-white font-bold py-2 px-4 rounded-full flex space-x-2` }
-                            onClick={ handleLoanList }
-                        >
-                            <Image
-                                src="/back.svg"
-                                alt="Back to Loans"
-                                width={ 25 }
-                                height={ 25 }
-                                className="object-contain"
-                            />
-                            <p>Back</p>
-                        </button>
-                    </div>
+                <div className="flex justify-start items-center mt-8">
+                    <button
+                        disabled={ isLoading }
+                        className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
+                            } text-white font-bold py-2 px-4 rounded-full flex space-x-2` }
+                        onClick={ handleLoanList }
+                    >
+                        <Image
+                            src="/back.svg"
+                            alt="Back to Loans"
+                            width={ 25 }
+                            height={ 25 }
+                            className="object-contain"
+                        />
+                        <p>Back</p>
+                    </button>
+                </div>
+                <div className="mt-4 w-full">
                     <div className="flex flex-col items-end space-x-2 text-cyan-600 opacity-70 hover:opacity-100 mb-4">
                         <div className="flex justify-end">
                             <p className="text-sm font-bold text-gray-600">
                                 Total Borrowed: { filteredLoans.length }
                             </p>
                         </div>
-                        <div className="flex items-center w-96">
+                        <div className="flex items-center w-full md:w-96">
                             <input
                                 type="text"
                                 id="search"

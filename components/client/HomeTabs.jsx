@@ -183,7 +183,7 @@ const HomeTabs = ({
                 </div>
             </div>
             <div className="mt-4 w-full md:mt-1">
-                <div className="flex flex-col items-end space-x-2 text-cyan-600 opacity-70 hover:opacity-100">
+                <div className="flex flex-col items-end space-x-2 text-cyan-600 opacity-70 hover:opacity-100 mb-4">
                     <div className="flex justify-end">
                         <p className="text-sm font-bold text-gray-600">
                             Total Activities: { filteredReports.length }

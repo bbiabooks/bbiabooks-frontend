@@ -53,7 +53,7 @@ const LoanTablePage = () => {
 
     const handleBookCatalogue = () => {
         setIsLoading(true);
-        router.push(`/client/client-pages/books/catalogue`);
+        router.push(`/client/client-pages/books`);
     };
 
     const handleReturnedList = () => {

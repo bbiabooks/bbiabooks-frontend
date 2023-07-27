@@ -131,7 +131,7 @@ const OrderTable = ({
                         </div>
                     </button>
                 </div>
-                <div className="flex justify-between items-center mt-8">
+                <div className="flex justify-start items-center mt-8">
                     <button
                         disabled={ isLoading }
                         className={ `${isLoading ? "cursor-not-allowed" : "hover:bg-cyan-700 hover:text-white"
@@ -140,13 +140,15 @@ const OrderTable = ({
                     >
                         View Book Catalogue
                     </button>
+                </div>
+                <div className="mt-4 w-full">
                     <div className="flex flex-col items-end space-x-2 text-cyan-600 opacity-70 hover:opacity-100 mb-4">
                         <div className="flex justify-end">
                             <p className="text-sm font-bold text-gray-600">
                                 Total Transactions: { filteredOrders.length }
                             </p>
                         </div>
-                        <div className="flex items-center w-96">
+                        <div className="flex items-center w-full md:w-96">
                             <input
                                 type="text"
                                 id="search"
