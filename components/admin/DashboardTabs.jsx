@@ -41,7 +41,7 @@ const DashboardTabs = ({
     }
 
     return (
-        <div className="flex flex-col items-start justify-center min-h-full w-full p-12">
+        <div className="flex flex-col items-start justify-start min-h-full w-full p-12">
             <div className="w-full">
                 <h1 className="text-2xl font-bold mb-6 flex justify-start">
                     { `Hello ${user.firstName}!` }
