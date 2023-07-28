@@ -14,7 +14,22 @@ const AdminSidebar = () => {
     const [confirmMessage, setConfirmMessage] = useState("");
     const [clickedLink, setClickedLink] = useState("dashboard");
     const [showLinks, setShowLinks] = useState(false); // Add showLinks state
-    const [isPrinting, setIsPrinting] = useState(false);
+    const [logoutTimer, setLogoutTimer] = useState(null);
+
+    const handleLogout = () => {
+        // Clear any existing timer if present
+        if (logoutTimer) {
+            clearTimeout(logoutTimer);
+        }
+
+        // Set a new timer for logout (e.g., 5 seconds)
+        const timer = setTimeout(() => {
+            logout(); // Call the logout method after the timer expires
+        }, 5000); // 5000 milliseconds = 5 seconds
+
+        // Save the timer ID in the state
+        setLogoutTimer(timer);
+    };
 
     const handleToggleLinks = () => {
         setShowLinks(!showLinks);
@@ -48,10 +63,6 @@ const AdminSidebar = () => {
 
         fetchUser();
     }, [token, userKey, userId]);
-
-    const handleLogout = () => {
-        logout();
-    };
 
     const handleUnauthorizedAction = () => {
         const warningMessage = `You are unauthorized to make this action as "${userKey}" . . .`;

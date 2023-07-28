@@ -9,6 +9,22 @@ const Nav = () => {
   const { logout, userId } = useAuthContext();
   const router = useRouter();
   const [showLinks, setShowLinks] = useState(false); // Add showLinks state
+  const [logoutTimer, setLogoutTimer] = useState(null);
+
+  const handleLogout = () => {
+    // Clear any existing timer if present
+    if (logoutTimer) {
+      clearTimeout(logoutTimer);
+    }
+
+    // Set a new timer for logout (e.g., 5 seconds)
+    const timer = setTimeout(() => {
+      logout(); // Call the logout method after the timer expires
+    }, 5000); // 5000 milliseconds = 5 seconds
+
+    // Save the timer ID in the state
+    setLogoutTimer(timer);
+  };
 
   const handleToggleLinks = () => {
     setShowLinks(!showLinks);
@@ -37,10 +53,6 @@ const Nav = () => {
 
   const handleViewLoans = () => {
     router.push(`/client/client-pages/loans`);
-  };
-
-  const handleLogout = () => {
-    logout();
   };
 
   return (
