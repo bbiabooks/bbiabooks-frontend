@@ -38,7 +38,7 @@ const HomeTabs = ({
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-full w-full md:m-12">
+        <div className="flex-grow flex items-start justify-center m-12 min-h-full">
             <div className="w-full">
                 <h1 className="text-2xl font-bold mb-6 flex justify-start">
                     { `Welcome ${user.firstName}!` }
