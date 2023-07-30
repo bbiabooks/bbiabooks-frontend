@@ -41,6 +41,12 @@ const CreateBookDetailsPage = () => {
                 ...bookData,
                 coverImage: e.target.files[0],
             });
+        } else {
+            // No file selected, reset the coverImage property to null
+            setBookData({
+                ...bookData,
+                coverImage: null,
+            });
         }
     };
 

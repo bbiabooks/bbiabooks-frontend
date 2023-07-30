@@ -41,6 +41,12 @@ const CreateOrderDetailsPage = ({ params }) => {
                 ...orderData,
                 proofOfPayment: e.target.files[0],
             });
+        } else {
+            // No file selected, reset the proofOfPayment property to null
+            setOrderData({
+                ...orderData,
+                proofOfPayment: null,
+            });
         }
     };
 
@@ -106,7 +112,7 @@ const CreateOrderDetailsPage = ({ params }) => {
             const formData = new FormData();
             for (const key in orderData) {
                 if (key === 'proofOfPayment' && !orderData[key]) {
-                    // Skip appending coverImage if it's not set
+                    // Skip appending proofOfPayment if it's not set
                     continue;
                 }
                 formData.append(key, orderData[key]);
@@ -129,7 +135,7 @@ const CreateOrderDetailsPage = ({ params }) => {
                 setSuccessMessage(data.message + '. Please click the "VIEW" button for the notice.');
 
                 // Reset orderData after successful form submission
-                setOrderData({ ...orderData, coverImage: null });
+                setOrderData({ ...orderData, proofOfPayment: null });
 
                 router.push(`/client/client-pages/orders`);
             } else {
