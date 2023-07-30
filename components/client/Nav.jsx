@@ -76,7 +76,7 @@ const Nav = () => {
                 }` }
               onClick={ () => handleLinkClick("home") }
             >
-              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+              <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
                 Home
               </p>
             </button>
@@ -87,7 +87,7 @@ const Nav = () => {
                 }` }
               onClick={ () => handleLinkClick("catalogue") }
             >
-              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+              <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
                 Catalogue
               </p>
             </button>
@@ -98,7 +98,7 @@ const Nav = () => {
                 }` }
               onClick={ () => handleLinkClick("orders") }
             >
-              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+              <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
                 Orders
               </p>
             </button>
@@ -109,7 +109,7 @@ const Nav = () => {
                 }` }
               onClick={ () => handleLinkClick("loans") }
             >
-              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+              <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
                 Borrows
               </p>
             </button>
@@ -120,7 +120,7 @@ const Nav = () => {
                 }` }
               onClick={ () => handleLinkClick("profile") }
             >
-              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+              <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
                 Profile
               </p>
             </button>
@@ -146,7 +146,7 @@ const Nav = () => {
                 className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
                 onClick={ () => handleLinkClick("home") }
               >
-                <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
                   Home
                 </p>
               </button>
@@ -156,7 +156,7 @@ const Nav = () => {
                 className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
                 onClick={ () => handleLinkClick("catalogue") }
               >
-                <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
                   Catalogue
                 </p>
               </button>
@@ -166,7 +166,7 @@ const Nav = () => {
                 className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
                 onClick={ () => handleLinkClick("orders") }
               >
-                <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
                   Orders
                 </p>
               </button>
@@ -176,7 +176,7 @@ const Nav = () => {
                 className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
                 onClick={ () => handleLinkClick("loans") }
               >
-                <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
                   Borrows
                 </p>
               </button>
@@ -186,7 +186,7 @@ const Nav = () => {
                 className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
                 onClick={ () => handleLinkClick("profile") }
               >
-                <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
                   Profile
                 </p>
               </button>
