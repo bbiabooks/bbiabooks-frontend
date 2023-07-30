@@ -10,6 +10,7 @@ const Nav = () => {
   const router = useRouter();
   const [showLinks, setShowLinks] = useState(false); // Add showLinks state
   const [logoutTimer, setLogoutTimer] = useState(null);
+  const [clickedLink, setClickedLink] = useState("home");
 
   const handleLogout = () => {
     // Clear any existing timer if present
@@ -34,25 +35,8 @@ const Nav = () => {
     setShowLinks(false);
   };
 
-  const handleUserProfile = (id) => {
-    router.push(`/client/client-pages/profile/${id}`);
-  };
-
-  // Links
-  const handleViewHome = () => {
-    router.push(`/client/client-pages`);
-  };
-
-  const handleViewCatalogue = () => {
-    router.push(`/client/client-pages/books`);
-  };
-
-  const handleViewOrders = () => {
-    router.push(`/client/client-pages/orders`);
-  };
-
-  const handleViewLoans = () => {
-    router.push(`/client/client-pages/loans`);
+  const handleLinkClick = (link) => {
+    setClickedLink(link);
   };
 
   return (
@@ -72,7 +56,8 @@ const Nav = () => {
         </div>
         <div className="md:hidden"> {/* Show this div on small screens only */ }
           <button
-            className="mr-4 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+            className={ `mr-4 text-cyan-600 font-bold text-sm ${clickedLink === "dashboard" ? "opacity-100" : "opacity-70"
+              }` }
             onClick={ handleToggleLinks } // Toggle the links when the button is clicked
           >
             <div className="flex flex-row items-center space-x-2">
@@ -87,46 +72,61 @@ const Nav = () => {
           </button>
         </div>
         <div className={ `hidden md:flex ${showLinks ? "flex" : "hidden"}` }> {/* Show this div on medium screens and above, or when showLinks is true */ }
-          <button
-            className="mr-4 text-cyan-600 font-bold hover:text-orange-300 text-sm"
-            onClick={ handleViewHome }
-          >
-            <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
-              Home
-            </p>
-          </button>
-          <button
-            className="mr-4 text-cyan-600 font-bold hover:text-orange-300 text-sm"
-            onClick={ handleViewCatalogue }
-          >
-            <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
-              Catalogue
-            </p>
-          </button>
-          <button
-            className="mr-4 text-cyan-600 font-bold hover:text-orange-300 text-sm"
-            onClick={ handleViewOrders }
-          >
-            <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
-              Orders
-            </p>
-          </button>
-          <button
-            className="mr-4 text-cyan-600 font-bold hover:text-orange-300 text-sm"
-            onClick={ handleViewLoans }
-          >
-            <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
-              Borrows
-            </p>
-          </button>
-          <button
-            className="mr-6 text-cyan-600 font-bold hover:text-orange-300 text-sm"
-            onClick={ () => handleUserProfile(userId) }
-          >
-            <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
-              Profile
-            </p>
-          </button>
+          <Link href="/client/client-pages">
+            <button
+              className={ `mr-4 text-cyan-600 font-bold text-sm ${clickedLink === "home" ? "opacity-100" : "opacity-70"
+                }` }
+              onClick={ () => handleLinkClick("home") }
+            >
+              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                Home
+              </p>
+            </button>
+          </Link>
+          <Link href="/client/client-pages/books">
+            <button
+              className={ `mr-4 text-cyan-600 font-bold text-sm ${clickedLink === "catalogue" ? "opacity-100" : "opacity-70"
+                }` }
+              onClick={ () => handleLinkClick("catalogue") }
+            >
+              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                Catalogue
+              </p>
+            </button>
+          </Link>
+          <Link href="/client/client-pages/orders">
+            <button
+              className={ `mr-4 text-cyan-600 font-bold text-sm ${clickedLink === "orders" ? "opacity-100" : "opacity-70"
+                }` }
+              onClick={ () => handleLinkClick("orders") }
+            >
+              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                Orders
+              </p>
+            </button>
+          </Link>
+          <Link href="/client/client-pages/loans">
+            <button
+              className={ `mr-4 text-cyan-600 font-bold text-sm ${clickedLink === "loans" ? "opacity-100" : "opacity-70"
+                }` }
+              onClick={ () => handleLinkClick("loans") }
+            >
+              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                Borrows
+              </p>
+            </button>
+          </Link>
+          <Link href={ `/client/client-pages/profile/${id}` }>
+            <button
+              className={ `mr-6 text-cyan-600 font-bold text-sm ${clickedLink === "profile" ? "opacity-100" : "opacity-70"
+                }` }
+              onClick={ () => handleLinkClick("profile") }
+            >
+              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                Profile
+              </p>
+            </button>
+          </Link>
           <Link href="/client/login">
             <button
               className="border border-cyan-700 hover:bg-cyan-700 hover:text-white text-cyan-700 font-bold text-sm px-4 py-2 rounded-full"
@@ -143,46 +143,56 @@ const Nav = () => {
           onClick={ handleHideLinks } // Hide the links when the overlay is clicked
         >
           <div className="flex flex-col w-1/2">
-            <button
-              className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
-              onClick={ handleViewHome }
-            >
-              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
-                Home
-              </p>
-            </button>
-            <button
-              className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
-              onClick={ handleViewCatalogue }
-            >
-              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
-                Catalogue
-              </p>
-            </button>
-            <button
-              className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
-              onClick={ handleViewOrders }
-            >
-              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
-                Orders
-              </p>
-            </button>
-            <button
-              className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
-              onClick={ handleViewLoans }
-            >
-              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
-                Borrows
-              </p>
-            </button>
-            <button
-              className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
-              onClick={ () => handleUserProfile(userId) }
-            >
-              <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
-                Profile
-              </p>
-            </button>
+            <Link href="/client/client-pages">
+              <button
+                className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+                onClick={ () => handleLinkClick("home") }
+              >
+                <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                  Home
+                </p>
+              </button>
+            </Link>
+            <Link href="/client/client-pages/books">
+              <button
+                className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+                onClick={ () => handleLinkClick("catalogue") }
+              >
+                <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                  Catalogue
+                </p>
+              </button>
+            </Link>
+            <Link href="/client/client-pages/orders">
+              <button
+                className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+                onClick={ () => handleLinkClick("orders") }
+              >
+                <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                  Orders
+                </p>
+              </button>
+            </Link>
+            <Link href="/client/client-pages/loans">
+              <button
+                className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+                onClick={ () => handleLinkClick("loans") }
+              >
+                <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                  Borrows
+                </p>
+              </button>
+            </Link>
+            <Link href={ `/client/client-pages/profile/${id}` }>
+              <button
+                className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+                onClick={ () => handleLinkClick("profile") }
+              >
+                <p className="flex flex-row items-center text-cyan-600 opacity-70 hover:opacity-100">
+                  Profile
+                </p>
+              </button>
+            </Link>
             <Link href="/client/login">
               <button
                 className="border border-cyan-700 hover:bg-cyan-700 hover:text-white text-cyan-700 font-bold text-sm px-4 py-2 rounded-full"
