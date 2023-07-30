@@ -39,19 +39,13 @@ const CreateOrderDetailsPage = ({ params }) => {
     const handleFileChange = (e) => {
         const file = e.target.files[0];
 
-        // Check if any files are selected
-        if (file) {
-            setOrderData({
-                ...orderData,
-                proofOfPayment: file,
-            });
-        } else {
-            // No file selected, reset the proofOfPayment property to null
-            setOrderData({
-                ...orderData,
-                proofOfPayment: null,
-            });
-        }
+        // Create a new object to hold the updated order data
+        const updatedOrderData = {
+            ...orderData,
+            proofOfPayment: file || null, // Set proofOfPayment to the selected file or null if no file is selected
+        };
+
+        setOrderData(updatedOrderData);
     };
 
     useEffect(() => {
