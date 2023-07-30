@@ -114,7 +114,7 @@ const Nav = () => {
               </p>
             </button>
           </Link>
-          <Link href={ `/client/client-pages/profile/${id}` }>
+          <Link href={ `/client/client-pages/profile/${userId}` }>
             <button
               className={ `mr-6 text-cyan-600 font-bold text-sm ${clickedLink === "profile" ? "opacity-100" : "opacity-70"
                 }` }
