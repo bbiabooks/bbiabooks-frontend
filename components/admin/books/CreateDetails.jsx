@@ -207,7 +207,7 @@ const CreateDetails = ({
                                     name="ISBN"
                                     value={ bookData.ISBN }
                                     onChange={ handleInputChange }
-                                    placeholder={ "Enter XXX-X-XX-XXXXXX" }
+                                    placeholder={ "Enter XXX-X-XXXXXX-XX-X" }
                                     required
                                 />
                             </div>

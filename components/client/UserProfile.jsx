@@ -50,8 +50,8 @@ const UserProfile = ({
                             <Image
                                 src={ user.idPhoto ? user.idPhoto : "/id-photo.svg" }
                                 alt="ID Photo"
-                                width={ 500 }
-                                height={ 500 }
+                                width={ 250 }
+                                height={ 250 }
                                 className="object-cover rounded"
                             />
                         </div>

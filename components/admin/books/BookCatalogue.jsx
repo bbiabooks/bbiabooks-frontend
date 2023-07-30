@@ -87,8 +87,8 @@ const BookCatalogue = ({
                                     <Image
                                         src={ book.coverImage ? book.coverImage : "/book.svg" }
                                         alt="Book Cover"
-                                        width={ 200 }
-                                        height={ 200 }
+                                        width={ 100 }
+                                        height={ 100 }
                                         className="object-cover rounded"
                                     />
                                 </div>

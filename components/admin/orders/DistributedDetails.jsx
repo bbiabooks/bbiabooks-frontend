@@ -48,8 +48,8 @@ const DistributedDetails = ({
                             <Image
                                 src={ order.book.coverImage ? order.book.coverImage : "/book.svg" }
                                 alt="Book Cover"
-                                width={ 500 }
-                                height={ 500 }
+                                width={ 250 }
+                                height={ 250 }
                                 className="object-cover rounded"
                             />
                         </div>
