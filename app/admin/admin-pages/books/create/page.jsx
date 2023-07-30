@@ -51,6 +51,10 @@ const CreateBookDetailsPage = () => {
             // Create form data
             const formData = new FormData();
             for (const key in bookData) {
+                if (key === 'coverImage' && !bookData[key]) {
+                    // Skip appending coverImage if it's not set
+                    continue;
+                }
                 formData.append(key, bookData[key]);
             }
 
@@ -69,6 +73,10 @@ const CreateBookDetailsPage = () => {
             if (response.ok) {
                 // Book created successfully
                 setSuccessMessage(data.message);
+
+                // Reset bookData after successful form submission
+                setBookData({ ...bookData, coverImage: null });
+
                 router.push(`/admin/admin-pages/books`);
             } else {
                 // Error creating Book

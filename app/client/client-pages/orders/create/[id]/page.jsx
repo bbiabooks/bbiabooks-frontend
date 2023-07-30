@@ -105,6 +105,10 @@ const CreateOrderDetailsPage = ({ params }) => {
             // Create form data
             const formData = new FormData();
             for (const key in orderData) {
+                if (key === 'proofOfPayment' && !orderData[key]) {
+                    // Skip appending coverImage if it's not set
+                    continue;
+                }
                 formData.append(key, orderData[key]);
             }
 
@@ -123,6 +127,10 @@ const CreateOrderDetailsPage = ({ params }) => {
             if (response.ok) {
                 // Order created successfully
                 setSuccessMessage(data.message + '. Please click the "VIEW" button for the notice.');
+
+                // Reset orderData after successful form submission
+                setOrderData({ ...orderData, coverImage: null });
+
                 router.push(`/client/client-pages/orders`);
             } else {
                 // Error creating Order
