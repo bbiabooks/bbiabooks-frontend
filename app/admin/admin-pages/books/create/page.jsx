@@ -36,10 +36,13 @@ const CreateBookDetailsPage = () => {
     };
 
     const handleFileChange = (e) => {
-        if (e.target.files.length > 0) {
+        const file = e.target.files[0];
+
+        // Check if any files are selected
+        if (file) {
             setBookData({
                 ...bookData,
-                coverImage: e.target.files[0],
+                coverImage: file,
             });
         } else {
             // No file selected, reset the coverImage property to null

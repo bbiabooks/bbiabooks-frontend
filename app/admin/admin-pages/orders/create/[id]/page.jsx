@@ -37,10 +37,13 @@ const CreateOrderDetailsPage = ({ params }) => {
     };
 
     const handleFileChange = (e) => {
-        if (e.target.files.length > 0) {
+        const file = e.target.files[0];
+
+        // Check if any files are selected
+        if (file) {
             setOrderData({
                 ...orderData,
-                proofOfPayment: e.target.files[0],
+                proofOfPayment: file,
             });
         } else {
             // No file selected, reset the proofOfPayment property to null
