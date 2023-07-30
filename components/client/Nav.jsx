@@ -2,12 +2,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { useAuthContext } from "@utils/AuthContext";
 
 const Nav = () => {
   const { logout, userId } = useAuthContext();
-  const router = useRouter();
   const [showLinks, setShowLinks] = useState(false); // Add showLinks state
   const [logoutTimer, setLogoutTimer] = useState(null);
   const [clickedLink, setClickedLink] = useState("home");
@@ -183,7 +181,7 @@ const Nav = () => {
                 </p>
               </button>
             </Link>
-            <Link href={ `/client/client-pages/profile/${id}` }>
+            <Link href={ `/client/client-pages/profile/${userId}` }>
               <button
                 className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
                 onClick={ () => handleLinkClick("profile") }
