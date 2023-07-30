@@ -184,6 +184,7 @@ const CreateDetails = ({
                                     value={ bookData.language }
                                     onChange={ handleInputChange }
                                     placeholder={ "Enter Language Used" }
+                                    required
                                 />
                             </div>
                             <div className="mb-4">
@@ -195,6 +196,7 @@ const CreateDetails = ({
                                     value={ bookData.authors }
                                     onChange={ handleInputChange }
                                     placeholder={ "Enter Authors" }
+                                    required
                                 />
                             </div>
                             <div className="mb-4">
@@ -218,6 +220,7 @@ const CreateDetails = ({
                                     value={ bookData.edition }
                                     onChange={ handleInputChange }
                                     placeholder={ "Enter Edition" }
+                                    required
                                 />
                             </div>
                             <div className="mb-4">
@@ -229,6 +232,7 @@ const CreateDetails = ({
                                     value={ bookData.publicationDate }
                                     onChange={ handleInputChange }
                                     placeholder={ "Enter YYYY-MM-DD" }
+                                    required
                                 />
                             </div>
                             <div className="mb-4">
