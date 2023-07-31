@@ -133,7 +133,7 @@ const ReturnedTable = ({
                     <div className="flex flex-col items-end space-x-2 text-cyan-600 opacity-70 hover:opacity-100 mb-4">
                         <div className="flex justify-end">
                             <p className="text-sm font-bold text-gray-600">
-                                Total Loans: { filteredLoans.length }
+                                Total Borrows: { filteredLoans.length }
                             </p>
                         </div>
                         <div className="hide-print flex items-center w-full md:w-96">
@@ -160,7 +160,7 @@ const ReturnedTable = ({
                         <thead>
                             <tr className="bg-cyan-900">
                                 <th className="px-4 py-2 text-white font-semibold">
-                                    <div className="flex justify-start">Loan ID</div></th>
+                                    <div className="flex justify-start">Borrow ID</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Book Title</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
@@ -170,7 +170,7 @@ const ReturnedTable = ({
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Returned At</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
-                                    <div className="flex justify-start">Loan Status</div></th>
+                                    <div className="flex justify-start">Borrowed Status</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Book Status</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">Details</th>

@@ -26,7 +26,7 @@ const LoanTablePage = () => {
 
                 if (!response.ok) {
                     if (response.status === 401) {
-                        setErrorMessage(`An error occurred while fetching loans.`);
+                        setErrorMessage(`An error occurred while fetching borrows.`);
                         router.push("/client/client-pages"); // Redirect to client dashboard
                     } else {
                         setErrorMessage("Something went wrong.");
@@ -37,7 +37,7 @@ const LoanTablePage = () => {
                 const data = await response.json();
                 setLoans(data);
             } catch (error) {
-                setErrorMessage(`Failed to fetch Loans. ${error.message}`);
+                setErrorMessage(`Failed to fetch Borrows. ${error.message}`);
             } finally {
                 setIsLoading(false);
             }

@@ -37,7 +37,7 @@ const LoanTablePage = () => {
                 const data = await response.json();
                 setLoans(data);
             } catch (error) {
-                setErrorMessage(`Failed to fetch Loans. ${error.message}`);
+                setErrorMessage(`Failed to fetch Borrows. ${error.message}`);
             } finally {
                 setIsLoading(false);
             }

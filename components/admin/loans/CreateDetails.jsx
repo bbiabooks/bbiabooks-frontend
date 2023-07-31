@@ -49,7 +49,7 @@ const CreateDetails = ({
                 <div className="bg-white rounded-lg shadow-lg p-6 mb-6 w-full max-w-3xl">
                     <div className="overflow-y-auto max-h-[calc(100vh-15vh)]">
                         <form onSubmit={ handleSubmit } className="w-full">
-                            <h1 className="text-2xl font-bold text-center mb-4 border-b border-gray-300">Create New Loan</h1>
+                            <h1 className="text-2xl font-bold text-center mb-4 border-b border-gray-300">Create New Borrow</h1>
                             <div className="flex justify-center items-center mb-2">
                                 <Image
                                     src={ book.coverImage ? book.coverImage : "/book.svg" }
@@ -116,7 +116,7 @@ const CreateDetails = ({
                                 </div>
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Loan Status:</p>
+                                <p className="text-base font-semibold">Borrow Status:</p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="loanStatus"
@@ -125,7 +125,7 @@ const CreateDetails = ({
                                     required
                                 >
                                     <option value="" disabled>
-                                        Select Loan Status
+                                        Select Borrowing Status
                                     </option>
                                     { loanStatus.map((loanStatus) => {
                                         return (
@@ -142,7 +142,7 @@ const CreateDetails = ({
                                     disabled={ isLoading }
                                     className={ `bg-cyan-700 ${isLoading ? 'cursor-not-allowed' : 'hover:bg-orange-300'} text-white font-bold py-2 px-4 rounded-full` }
                                 >
-                                    { isLoading ? 'Creating...' : 'Create Loan' }
+                                    { isLoading ? 'Creating...' : 'Create Borrow' }
                                 </button>
                             </div>
                         </form>

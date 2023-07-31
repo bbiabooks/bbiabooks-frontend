@@ -20,6 +20,64 @@ const CreateDetails = ({
         );
     }
 
+    // Function to handle user type change
+    const handleUserTypeChange = (event) => {
+        const selectedUserType = event.target.value;
+
+        // Find the "N/A" option in subjectAreas array
+        const subjectAreaNAOption = subjectAreas.find((area) => area.subjectArea === "N/A");
+
+        // Find the "N/A" option in gradeLevels array
+        const gradeLevelNAOption = gradeLevels.find((level) => level.gradeLevel === "N/A");
+
+        // Set subjectArea to N/A option and disable it if userType is Teacher
+        if (selectedUserType === "Teacher") {
+            handleInputChange({
+                target: {
+                    name: "subjectArea",
+                    value: subjectAreaNAOption ? subjectAreaNAOption._id : "", // If "N/A" option not found, fallback to empty string
+                },
+            });
+
+            // Reset gradeLevel when switching to Teacher user type
+            handleInputChange({
+                target: { name: "gradeLevel", value: "" },
+            });
+        } else {
+            // Set gradeLevel to N/A option and disable it if userType is not Teacher
+            handleInputChange({
+                target: {
+                    name: "gradeLevel",
+                    value: gradeLevelNAOption ? gradeLevelNAOption._id : "", // If "N/A" option not found, fallback to empty string
+                },
+            });
+
+            // Reset subjectArea when switching to non-Teacher user types
+            handleInputChange({
+                target: { name: "subjectArea", value: "" },
+            });
+        }
+
+        // Update the userType field
+        handleInputChange(event);
+    };
+
+    // Helper function to check if the selected user type is Teacher
+    const isTeacher = (userType) => {
+        const teacherUserTypeIds = userTypes.filter(
+            (type) => type.userType === "Teacher" || type.userType === "Admin" || type.userType === "Librarian" || type.userType === "Accountant"
+        ).map((type) => type._id);
+        return teacherUserTypeIds.includes(userType);
+    };
+
+    // Helper function to check if the selected user type is Student
+    const isStudent = (userType) => {
+        const studentUserTypeIds = userTypes.filter(
+            (type) => type.userType === "Student" || type.userType === "Admin" || type.userType === "Librarian" || type.userType === "Accountant"
+        ).map((type) => type._id);
+        return studentUserTypeIds.includes(userType);
+    };
+
     return (
         <div className="min-h-screen p-12">
             <div className="flex justify-start mb-4">
@@ -52,7 +110,7 @@ const CreateDetails = ({
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="userType"
                                     value={ userData.userType || "" }
-                                    onChange={ handleInputChange }
+                                    onChange={ handleUserTypeChange }
                                     required
                                 >
                                     <option value="" disabled>
@@ -95,6 +153,7 @@ const CreateDetails = ({
                                     name="subjectArea"
                                     value={ userData.subjectArea || "" }
                                     onChange={ handleInputChange }
+                                    disabled={ isStudent(userData.userType) } // Disable if userType is Student
                                 >
                                     <option value="" disabled>
                                         Select Subject Area
@@ -115,6 +174,7 @@ const CreateDetails = ({
                                     name="gradeLevel"
                                     value={ userData.gradeLevel || "" }
                                     onChange={ handleInputChange }
+                                    disabled={ isTeacher(userData.userType) } // Disable if userType is Teacher
                                 >
                                     <option value="" disabled>
                                         Select Grade Level

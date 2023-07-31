@@ -101,7 +101,7 @@ const CreateLoanDetailsPage = ({ params }) => {
             }
 
         } catch (error) {
-            setErrorMessage(`Failed to creating Loan. ${error.message}`);
+            setErrorMessage(`Failed to creating Borrow. ${error.message}`);
         } finally {
             setIsLoading(false);
         }

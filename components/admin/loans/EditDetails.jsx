@@ -15,7 +15,7 @@ const EditDetails = ({
     if (!loan) {
         return (
             <div className="min-h-screen p-12">
-                <p className="text-gray-500 text-2xl font-semibold">Loading Loan Details . . .</p>
+                <p className="text-gray-500 text-2xl font-semibold">Loading Borrowed Details . . .</p>
             </div>
         );
     }
@@ -52,13 +52,13 @@ const EditDetails = ({
                     <div className="overflow-y-auto max-h-[calc(100vh-15vh)]">
                         <form onSubmit={ handleSubmit } className="w-full">
                             <h1 className="text-2xl font-bold text-center mb-4 border-b border-gray-300">
-                                Update Loan Status
+                                Update Borrow Status
                             </h1>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Loan ID:</p> { loan._id }
+                                <p className="text-base font-semibold">Borrow ID:</p> { loan._id }
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Loan Status:</p>
+                                <p className="text-base font-semibold">Borrowing Status:</p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="loanStatus"
@@ -70,7 +70,7 @@ const EditDetails = ({
                                     onChange={ handleInputChange }
                                     required
                                 >
-                                    <option value="" disabled>Select Loan Status</option>
+                                    <option value="" disabled>Select Borrowing Status</option>
                                     { loanStatus.map((loanStatus) => {
                                         return (
                                             <option key={ loanStatus } value={ loanStatus }>
@@ -93,7 +93,7 @@ const EditDetails = ({
                                     onChange={ handleInputChange }
                                     required
                                 >
-                                    <option value="" disabled>Select Loan Status</option>
+                                    <option value="" disabled>Select Book Status</option>
                                     { bookStatus.map((bookStatus) => {
                                         return (
                                             <option key={ bookStatus } value={ bookStatus }>
@@ -110,7 +110,7 @@ const EditDetails = ({
                                     className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
                                         } text-white font-bold py-2 px-4 rounded-full` }
                                 >
-                                    { isLoading ? "Updating..." : "Update Loan Status" }
+                                    { isLoading ? "Updating..." : "Update Borrow Status" }
                                 </button>
                             </div>
                         </form>

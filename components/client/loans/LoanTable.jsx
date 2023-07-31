@@ -151,13 +151,13 @@ const LoanTable = ({
                         <thead>
                             <tr className="bg-cyan-900">
                                 <th className="px-4 py-2 text-white font-semibold">
-                                    <div className="flex justify-start">Loan ID</div></th>
+                                    <div className="flex justify-start">Borrow ID</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Book Title</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Due Date</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
-                                    <div className="flex justify-start">Loan Status</div></th>
+                                    <div className="flex justify-start">Borrowed Status</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Last Updated</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">Details</th>

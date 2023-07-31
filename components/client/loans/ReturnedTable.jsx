@@ -132,12 +132,12 @@ const ReturnedTable = ({
                         <thead>
                             <tr className="bg-cyan-900">
                                 <th className="px-4 py-2 text-white font-semibold">
-                                    <div className="flex justify-start">Loan ID</div></th>
+                                    <div className="flex justify-start">Borrow ID</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Book Title</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Returned At</div></th>
-                                <th className="px-4 py-2 text-white font-semibold">Loan Status</th>
+                                <th className="px-4 py-2 text-white font-semibold">Borrowed Status</th>
                                 <th className="px-4 py-2 text-white font-semibold">Book Status</th>
                                 <th className="px-4 py-2 text-white font-semibold">Details</th>
                             </tr>

@@ -32,7 +32,7 @@ const ReturnedDetailsPage = ({ params }) => {
                 setLoan(data);
 
             } catch (error) {
-                setErrorMessage(`Failed to fetch Loan. ${error.message}`);
+                setErrorMessage(`Failed to fetch Borrowed Book. ${error.message}`);
             }
         };
 

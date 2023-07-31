@@ -93,7 +93,7 @@ const AdminSidebar = () => {
                         className="object-contain"
                     />
                     <h1 className="text-sm text-cyan-600 font-bold">
-                        BBIA BOOK LIBRARY SYSTEM
+                        BBIA BOOK INVENTORY SYSTEM
                     </h1>
                 </div>
                 <button
@@ -125,7 +125,7 @@ const AdminSidebar = () => {
                             />
                         </div>
                         <h1 className="text-xs font-semibold ml-1">
-                            BBIA BOOK LIBRARY SYSTEM
+                            BBIA BOOK INVENTORY SYSTEM
                         </h1>
                     </div>
                     <div>
@@ -262,7 +262,7 @@ const AdminSidebar = () => {
                                                         height={ 25 }
                                                         className="object-contain"
                                                     />
-                                                    <span className="mr-2 font-bold hover:text-orange-300 text-sm">Loans</span>
+                                                    <span className="mr-2 font-bold hover:text-orange-300 text-sm">Borrows</span>
                                                 </div>
                                             </button>
                                         </Link>
@@ -279,7 +279,7 @@ const AdminSidebar = () => {
                                                     height={ 25 }
                                                     className="object-contain"
                                                 />
-                                                <span className="mr-2 font-bold hover:text-orange-300 text-sm">Loans</span>
+                                                <span className="mr-2 font-bold hover:text-orange-300 text-sm">Borrows</span>
                                             </div>
                                         </button>
                                     ) }
@@ -719,7 +719,7 @@ const AdminSidebar = () => {
                                                         height={ 25 }
                                                         className="object-contain"
                                                     />
-                                                    <span className="mr-2 font-bold hover:text-orange-300 text-sm">Loans</span>
+                                                    <span className="mr-2 font-bold hover:text-orange-300 text-sm">Borrows</span>
                                                 </div>
                                             </button>
                                         </Link>
@@ -736,7 +736,7 @@ const AdminSidebar = () => {
                                                     height={ 25 }
                                                     className="object-contain"
                                                 />
-                                                <span className="mr-2 font-bold hover:text-orange-300 text-sm">Loans</span>
+                                                <span className="mr-2 font-bold hover:text-orange-300 text-sm">Borrows</span>
                                             </div>
                                         </button>
                                     ) }

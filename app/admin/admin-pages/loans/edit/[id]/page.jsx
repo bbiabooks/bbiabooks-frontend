@@ -35,7 +35,7 @@ const EditLoanDetailsPage = ({ params }) => {
                 const data = await response.json();
                 setLoan(data);
             } catch (error) {
-                setErrorMessage(`Failed to fetch Loan. ${error.message}`);
+                setErrorMessage(`Failed to fetch Borrows. ${error.message}`);
             }
         };
 
@@ -65,7 +65,7 @@ const EditLoanDetailsPage = ({ params }) => {
             }
 
         } catch (error) {
-            setErrorMessage(`Failed to update Loan. ${error.message}`);
+            setErrorMessage(`Failed to update Borrowed Book. ${error.message}`);
         }
     };
 
@@ -89,7 +89,7 @@ const EditLoanDetailsPage = ({ params }) => {
             // Perform the update logic here
             await updateLoan(editedLoan);
         } catch (error) {
-            setErrorMessage(`Error updating Loan: ${error.message}`);
+            setErrorMessage(`Error updating Borrowed Book: ${error.message}`);
         }
     };
 

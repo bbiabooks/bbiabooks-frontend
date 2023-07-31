@@ -8,7 +8,7 @@ const LoanDetails = ({
     if (!loan) {
         return (
             <div className="min-h-screen flex justify-center items-center">
-                <p className="text-gray-500 text-2xl font-semibold">Loading Loan Details . . .</p>
+                <p className="text-gray-500 text-2xl font-semibold">Loading Borrow Details . . .</p>
             </div>
         );
     }
@@ -43,7 +43,7 @@ const LoanDetails = ({
             <div className="flex justify-center items-center min-h-full">
                 <div className="w-full max-w-lg bg-white rounded-lg shadow-lg p-6 mb-6">
                     <div className="overflow-y-auto max-h-[calc(100vh-15vh)]">
-                        <h1 className="text-2xl font-bold text-center mb-4 border-b border-gray-300">Loan Details</h1>
+                        <h1 className="text-2xl font-bold text-center mb-4 border-b border-gray-300">Borrowed Details</h1>
                         <div className="flex justify-center items-center mb-2">
                             <Image
                                 src={ loan.book.coverImage ? loan.book.coverImage : "/book.svg" }
@@ -91,7 +91,7 @@ const LoanDetails = ({
                             }
                         </div>
                         <div className="mb-4">
-                            <p className="text-base font-semibold">Loan Status:</p> { loan.loanStatus }
+                            <p className="text-base font-semibold">Borrowed Status:</p> { loan.loanStatus }
                         </div>
                         <div className="mb-4">
                             <p className="text-base font-semibold">Borrowed At:</p> { new Date(loan.createdAt).toLocaleString() }

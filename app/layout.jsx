@@ -2,7 +2,7 @@ import "@styles/global.css";
 import { AuthProvider } from "@utils/AuthContext";
 
 export const metadata = {
-  title: "BBIA Book Library System",
+  title: "BBIA Book Inventory System",
   description: "",
 };
 

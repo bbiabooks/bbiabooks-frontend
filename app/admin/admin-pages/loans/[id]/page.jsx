@@ -37,7 +37,7 @@ const LoanDetailsPage = ({ params }) => {
                 setLoan(data);
 
             } catch (error) {
-                setErrorMessage(`Failed to fetch Loan. ${error.message}`);
+                setErrorMessage(`Failed to fetch Borrows. ${error.message}`);
             }
         };
 
@@ -65,7 +65,7 @@ const LoanDetailsPage = ({ params }) => {
     const handleDeleteLoan = () => {
         if (userKey === "Admin") {
             const warningMessage = `DELETING "${loan._id}" . . .`;
-            const confirmMessage = "Are you sure you want to delete this Loan?";
+            const confirmMessage = "Are you sure you want to delete this Borrowed Book?";
             setWarningMessage(warningMessage);
             setConfirmMessage(confirmMessage);
             setIsConfirmationModalOpen(true);
@@ -100,7 +100,7 @@ const LoanDetailsPage = ({ params }) => {
                 }
 
             } catch (error) {
-                setErrorMessage(`Failed to delete Loan. ${error.message}`);
+                setErrorMessage(`Failed to delete Borrowed Book. ${error.message}`);
             } finally {
                 setIsDeleting(false);
             }
