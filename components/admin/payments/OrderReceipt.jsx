@@ -47,7 +47,7 @@ const OrderReceipt = ({
                         <h1 className="text-2xl font-bold text-center mb-4 border-b border-gray-300">Order Payment Receipt</h1>
                         <div className="flex justify-center items-center mb-2">
                             <Image
-                                src={ order.book.coverImage ? order.book.coverImage : "/book.svg" }
+                                src={ order.book && (order.book.coverImage || order.book.coverImage === null) ? order.book.coverImage : "/book.svg" }
                                 alt="Book Cover"
                                 width={ 250 }
                                 height={ 250 }

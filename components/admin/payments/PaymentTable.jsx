@@ -194,7 +194,7 @@ const PaymentTable = ({
                                     <td className="border-t border-cyan-800 px-4 py-2">
                                         <div className="flex justify-center items-center mb-2">
                                             <Image
-                                                src={ order.book.coverImage ? order.book.coverImage : "/book.svg" }
+                                                src={ order.book && (order.book.coverImage || order.book.coverImage === null) ? order.book.coverImage : "/book.svg" }
                                                 alt="Book Cover"
                                                 width={ 150 }
                                                 height={ 150 }

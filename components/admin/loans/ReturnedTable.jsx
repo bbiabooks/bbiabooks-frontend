@@ -182,7 +182,7 @@ const ReturnedTable = ({
                                     <td className="border-t border-cyan-800 px-4 py-2 object-cover">
                                         <div className="flex justify-center items-center mb-2">
                                             <Image
-                                                src={ loan.book.coverImage ? loan.book.coverImage : "/book.svg" }
+                                                src={ loan.book && (loan.book.coverImage || loan.book.coverImage === null) ? loan.book.coverImage : "/book.svg" }
                                                 alt="Book Cover"
                                                 width={ 100 }
                                                 height={ 100 }
