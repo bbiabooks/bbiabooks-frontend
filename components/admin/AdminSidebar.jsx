@@ -82,7 +82,7 @@ const AdminSidebar = () => {
     };
 
     return (
-        <div className="hide-print flex flex-row min-h-full w-full md:w-72">
+        <div className="hide-print flex flex-row min-h-full min-w-fit">
             <div className="md:hidden flex flex-row justify-between items-center w-full glassmorphism">
                 <div className="flex items-center space-x-2">
                     <Image
@@ -513,6 +513,44 @@ const AdminSidebar = () => {
                                                     className="object-contain"
                                                 />
                                                 <span className="mr-2 font-bold hover:text-orange-300 text-sm">Registration</span>
+                                            </div>
+                                        </button>
+                                    ) }
+                                    { (userKey === "Admin" || userKey === "Librarian" || userKey === "Accountant") ? (
+                                        <Link
+                                            href="/admin/admin-pages/profile/helpPolicies"
+                                        >
+                                            <button
+                                                className={ `mb-2 text-cyan-600 font-bold text-sm ${clickedLink === "help" ? "opacity-100" : "opacity-70"
+                                                    }` }
+                                                onClick={ () => handleLinkClick("help") }
+                                            >
+                                                <div className="flex flex-row items-center space-x-2 text-cyan-600 hover:text-orange-300">
+                                                    <Image
+                                                        src="/help.svg"
+                                                        alt="Help and Policies"
+                                                        width={ 25 }
+                                                        height={ 25 }
+                                                        className="object-contain"
+                                                    />
+                                                    <span className="mr-2 font-bold hover:text-orange-300 text-sm">Help and Policies</span>
+                                                </div>
+                                            </button>
+                                        </Link>
+                                    ) : (
+                                        <button
+                                            className="mb-2 text-cyan-600 font-bold text-sm opacity-70"
+                                            onClick={ handleUnauthorizedAction }
+                                        >
+                                            <div className="flex flex-row items-center space-x-2 hover:text-orange-300">
+                                                <Image
+                                                    src="/help.svg"
+                                                    alt="Help and Policies"
+                                                    width={ 25 }
+                                                    height={ 25 }
+                                                    className="object-contain"
+                                                />
+                                                <span className="mr-2 font-bold hover:text-orange-300 text-sm">Help and Policies</span>
                                             </div>
                                         </button>
                                     ) }
@@ -970,6 +1008,44 @@ const AdminSidebar = () => {
                                                     className="object-contain"
                                                 />
                                                 <span className="mr-2 font-bold hover:text-orange-300 text-sm">Registration</span>
+                                            </div>
+                                        </button>
+                                    ) }
+                                    { (userKey === "Admin" || userKey === "Librarian" || userKey === "Accountant") ? (
+                                        <Link
+                                            href="/admin/admin-pages/profile/helpPolicies"
+                                        >
+                                            <button
+                                                className={ `mb-2 text-cyan-600 font-bold text-sm ${clickedLink === "help" ? "opacity-100" : "opacity-70"
+                                                    }` }
+                                                onClick={ () => handleLinkClick("help") }
+                                            >
+                                                <div className="flex flex-row items-center space-x-2 text-cyan-600 hover:text-orange-300">
+                                                    <Image
+                                                        src="/help.svg"
+                                                        alt="Help and Policies"
+                                                        width={ 25 }
+                                                        height={ 25 }
+                                                        className="object-contain"
+                                                    />
+                                                    <span className="mr-2 font-bold hover:text-orange-300 text-sm">Help and Policies</span>
+                                                </div>
+                                            </button>
+                                        </Link>
+                                    ) : (
+                                        <button
+                                            className="mb-2 text-cyan-600 font-bold text-sm opacity-70"
+                                            onClick={ handleUnauthorizedAction }
+                                        >
+                                            <div className="flex flex-row items-center space-x-2 hover:text-orange-300">
+                                                <Image
+                                                    src="/help.svg"
+                                                    alt="Help and Policies"
+                                                    width={ 25 }
+                                                    height={ 25 }
+                                                    className="object-contain"
+                                                />
+                                                <span className="mr-2 font-bold hover:text-orange-300 text-sm">Help and Policies</span>
                                             </div>
                                         </button>
                                     ) }

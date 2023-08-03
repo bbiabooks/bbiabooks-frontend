@@ -35,7 +35,7 @@ const BookTable = ({
 
     if (isLoading) {
         return (
-            <div className="min-h-screen p-12">
+            <div className="min-h-screen flex justify-center items-center">
                 <p className="text-gray-500 text-2xl font-semibold">Loading please wait . . .</p>
             </div>
         );
@@ -44,7 +44,7 @@ const BookTable = ({
     return (
         <div className="min-h-screen p-12">
             {/* Add a print-only class to the root div for print styling */ }
-            <div className={ `print-only w-full ${isPrinting ? "print-table" : ""}` }>
+            <div className={ `print-only flex-grow ${isPrinting ? "print-table" : ""}` }>
                 <h1 className="text-2xl font-bold mb-6 flex justify-start">
                     Book Inventory (Critical Stocks)
                 </h1>

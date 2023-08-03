@@ -69,7 +69,7 @@ const Nav = () => {
             </div>
           </button>
         </div>
-        <div className={ `hidden md:flex ${showLinks ? "flex" : "hidden"}` }> {/* Show this div on medium screens and above, or when showLinks is true */ }
+        <div className={ `hidden md:flex items-center ${showLinks ? "flex items-center" : "hidden"}` }> {/* Show this div on medium screens and above, or when showLinks is true */ }
           <Link href="/client/client-pages">
             <button
               className={ `mr-4 text-cyan-600 font-bold text-sm ${clickedLink === "home" ? "opacity-100" : "opacity-70"
@@ -116,12 +116,23 @@ const Nav = () => {
           </Link>
           <Link href={ `/client/client-pages/profile/${userId}` }>
             <button
-              className={ `mr-6 text-cyan-600 font-bold text-sm ${clickedLink === "profile" ? "opacity-100" : "opacity-70"
+              className={ `mr-4 text-cyan-600 font-bold text-sm ${clickedLink === "profile" ? "opacity-100" : "opacity-70"
                 }` }
               onClick={ () => handleLinkClick("profile") }
             >
               <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
                 Profile
+              </p>
+            </button>
+          </Link>
+          <Link href={ `/client/client-pages/profile/helpPolicies` }>
+            <button
+              className={ `mr-6 text-cyan-600 font-bold text-sm ${clickedLink === "help" ? "opacity-100" : "opacity-70"
+                }` }
+              onClick={ () => handleLinkClick("help") }
+            >
+              <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
+                Help
               </p>
             </button>
           </Link>
@@ -143,7 +154,8 @@ const Nav = () => {
           <div className="flex flex-col w-1/2">
             <Link href="/client/client-pages">
               <button
-                className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+                className={ `mb-2 text-cyan-600 font-bold text-sm ${clickedLink === "home" ? "opacity-100" : "opacity-70"
+                  }` }
                 onClick={ () => handleLinkClick("home") }
               >
                 <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
@@ -153,7 +165,8 @@ const Nav = () => {
             </Link>
             <Link href="/client/client-pages/books">
               <button
-                className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+                className={ `mb-2 text-cyan-600 font-bold text-sm ${clickedLink === "catalogue" ? "opacity-100" : "opacity-70"
+                  }` }
                 onClick={ () => handleLinkClick("catalogue") }
               >
                 <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
@@ -163,7 +176,8 @@ const Nav = () => {
             </Link>
             <Link href="/client/client-pages/orders">
               <button
-                className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+                className={ `mb-2 text-cyan-600 font-bold text-sm ${clickedLink === "orders" ? "opacity-100" : "opacity-70"
+                  }` }
                 onClick={ () => handleLinkClick("orders") }
               >
                 <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
@@ -173,7 +187,8 @@ const Nav = () => {
             </Link>
             <Link href="/client/client-pages/loans">
               <button
-                className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+                className={ `mb-2 text-cyan-600 font-bold text-sm ${clickedLink === "loans" ? "opacity-100" : "opacity-70"
+                  }` }
                 onClick={ () => handleLinkClick("loans") }
               >
                 <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
@@ -183,11 +198,23 @@ const Nav = () => {
             </Link>
             <Link href={ `/client/client-pages/profile/${userId}` }>
               <button
-                className="mr-4 mb-2 text-cyan-600 font-bold hover:text-orange-300 text-sm"
+                className={ `mb-2 text-cyan-600 font-bold text-sm ${clickedLink === "profile" ? "opacity-100" : "opacity-70"
+                  }` }
                 onClick={ () => handleLinkClick("profile") }
               >
                 <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
                   Profile
+                </p>
+              </button>
+            </Link>
+            <Link href={ `/client/client-pages/profile/helpPolicies` }>
+              <button
+                className={ `mb-6 text-cyan-600 font-bold text-sm ${clickedLink === "help" ? "opacity-100" : "opacity-70"
+                  }` }
+                onClick={ () => handleLinkClick("help") }
+              >
+                <p className="flex flex-row items-center text-cyan-600 hover:text-orange-300">
+                  Help
                 </p>
               </button>
             </Link>

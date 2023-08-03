@@ -1,6 +1,6 @@
 const Layout = ({ children }) => {
     return (
-        <div className="gradient min-h-screen min-w-screen">
+        <div className="gradient min-h-screen">
             { children }
         </div>
     );

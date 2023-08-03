@@ -32,15 +32,15 @@ const BookCatalogue = ({
 
     if (isLoading) {
         return (
-            <div className="min-h-screen p-12">
+            <div className="min-h-screen flex justify-center items-center">
                 <p className="text-gray-500 text-2xl font-semibold">Loading please wait . . .</p>
             </div>
         );
     }
 
     return (
-        <div className="flex-col flex items-start justify-start min-h-full p-12 max-w-5xl">
-            <div className="w-full">
+        <div className="flex-col flex items-start justify-start min-h-full p-12">
+            <div className="flex-grow">
                 <h1 className="text-2xl font-bold mb-6 flex justify-start">
                     Book Catalogue
                 </h1>

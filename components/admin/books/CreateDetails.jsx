@@ -1,5 +1,3 @@
-"use client";
-import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const CreateDetails = ({
@@ -13,31 +11,9 @@ const CreateDetails = ({
     handleSubmit,
     handleBookList }) => {
 
-    const [successMessage, setSuccessMessage] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
-
-    // Effect to automatically remove the success/error message after 3 seconds
-    useEffect(() => {
-        if (successMessage) {
-            const successTimer = setTimeout(() => {
-                setSuccessMessage("");
-            }, 5000);
-
-            return () => clearTimeout(successTimer);
-        }
-
-        if (errorMessage) {
-            const errorTimer = setTimeout(() => {
-                setErrorMessage("");
-            }, 5000);
-
-            return () => clearTimeout(errorTimer);
-        }
-    }, [successMessage, errorMessage]);
-
     if (isLoading) {
         return (
-            <div className="min-h-screen p-12">
+            <div className="min-h-screen flex justify-center items-center">
                 <p className="text-gray-500 text-2xl font-semibold">Loading please wait . . .</p>
             </div>
         );
@@ -63,24 +39,14 @@ const CreateDetails = ({
                 </button>
             </div>
             <div className="flex justify-center items-center min-h-full">
-                <div className="bg-white rounded-lg shadow-lg p-6 mb-6 w-full max-w-lg">
-                    <div className="overflow-y-auto max-h-[calc(100vh-15vh)]">
-                        { successMessage && (
-                            <div className="bg-green-200 text-green-800 py-2 px-4 mb-4 rounded">
-                                { successMessage }
-                            </div>
-                        ) }
-                        { errorMessage && (
-                            <div className="bg-red-200 text-red-800 py-2 px-4 mb-4 rounded">
-                                { errorMessage }
-                            </div>
-                        ) }
-                        <form onSubmit={ handleSubmit } className="w-full">
+                <div className="bg-white rounded-lg shadow-lg p-6 mb-6 flex-grow">
+                    <div className="overflow-y-auto max-h-[calc(100vh-15vh)] flex-grow">
+                        <form onSubmit={ handleSubmit }>
                             <h1 className="text-2xl font-bold text-center mb-4 border-b border-gray-300">
                                 Create New Book
                             </h1>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Supplier:</p>
+                                <p className="text-base font-semibold">Supplier: <span className="text-red-500">*</span></p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="supplier"
@@ -101,7 +67,7 @@ const CreateDetails = ({
                                 </select>
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Subject Area:</p>
+                                <p className="text-base font-semibold">Subject Area: <span className="text-red-500">*</span></p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="subjectArea"
@@ -122,7 +88,7 @@ const CreateDetails = ({
                                 </select>
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Grade Level:</p>
+                                <p className="text-base font-semibold">Grade Level: <span className="text-red-500">*</span></p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="gradeLevel"
@@ -152,7 +118,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Book Title:</p>
+                                <p className="text-base font-semibold">Book Title: <span className="text-red-500">*</span></p>
                                 <textarea
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -164,7 +130,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Book Description:</p>
+                                <p className="text-base font-semibold">Book Description: <span className="text-red-500">*</span></p>
                                 <textarea
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -176,7 +142,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Language Used:</p>
+                                <p className="text-base font-semibold">Language Used: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -188,7 +154,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Authors:</p>
+                                <p className="text-base font-semibold">Authors: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -200,7 +166,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">ISBN:</p>
+                                <p className="text-base font-semibold">ISBN: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -212,7 +178,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Edition:</p>
+                                <p className="text-base font-semibold">Edition: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -224,7 +190,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Publication Date:</p>
+                                <p className="text-base font-semibold">Publication Date: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -236,7 +202,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Shelf Location:</p>
+                                <p className="text-base font-semibold">Shelf Location: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -248,7 +214,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Purchase Price:</p>
+                                <p className="text-base font-semibold">Purchase Price: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -260,7 +226,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Number of Copies:</p>
+                                <p className="text-base font-semibold">Number of Copies: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"

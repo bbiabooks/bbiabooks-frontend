@@ -60,9 +60,9 @@ const UserTable = ({
     ).length;
 
     return (
-        <div className="flex-col flex items-start justify-start min-h-full p-12 max-w-5xl">
+        <div className="flex-col flex items-start justify-start min-h-full p-12">
             {/* Add a print-only class to the root div for print styling */ }
-            <div className={ `print-only w-full ${isPrinting ? "print-table" : ""}` }>
+            <div className={ `print-only flex-grow ${isPrinting ? "print-table" : ""}` }>
                 <h1 className="text-2xl font-bold mb-6 flex justify-start">
                     User Accounts and Information
                 </h1>

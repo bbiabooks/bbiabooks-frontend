@@ -9,7 +9,7 @@ const CreateDetails = ({
 
     if (isLoading) {
         return (
-            <div className="min-h-screen p-12">
+            <div className="min-h-screen flex justify-center items-center">
                 <p className="text-gray-500 text-2xl font-semibold">Loading please wait . . .</p>
             </div>
         );
@@ -35,14 +35,14 @@ const CreateDetails = ({
                 </button>
             </div>
             <div className="flex justify-center items-center min-h-full">
-                <div className="bg-white rounded-lg shadow-lg p-6 mb-6 w-full max-w-lg">
-                    <div className="overflow-y-auto max-h-[calc(100vh-15vh)]">
-                        <form onSubmit={ handleSubmit } className="w-full">
+                <div className="bg-white rounded-lg shadow-lg p-6 mb-6 flex-grow">
+                    <div className="overflow-y-auto max-h-[calc(100vh-15vh)] flex-grow">
+                        <form onSubmit={ handleSubmit }>
                             <h1 className="text-2xl font-bold text-center mb-4 border-b border-gray-300">
                                 Create New Supplier
                             </h1>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Supplier Name:</p>
+                                <p className="text-base font-semibold">Supplier Name: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -54,7 +54,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Address:</p>
+                                <p className="text-base font-semibold">Address: <span className="text-red-500">*</span></p>
                                 <textarea
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="address"
@@ -65,7 +65,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Email:</p>
+                                <p className="text-base font-semibold">Email: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -77,7 +77,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Phone Number:</p>
+                                <p className="text-base font-semibold">Phone Number: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"

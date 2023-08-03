@@ -9,7 +9,7 @@ const UserProfile = ({
 
     if (!user) {
         return (
-            <div className="min-h-screen p-12">
+            <div className="min-h-screen flex justify-center items-center">
                 <p className="text-gray-500 text-2xl font-semibold flex justify-center items-center">Loading User Details . . .</p>
             </div>
         );
@@ -43,8 +43,8 @@ const UserProfile = ({
                 </button>
             </div>
             <div className="flex justify-center items-center min-h-full">
-                <div className="w-full max-w-lg bg-white rounded-lg shadow-lg p-6 mb-6">
-                    <div className="overflow-y-auto max-h-[calc(100vh-15vh)]">
+                <div className="bg-white rounded-lg shadow-lg p-6 mb-6 flex-grow">
+                    <div className="overflow-y-auto max-h-[calc(100vh-15vh)] flex-grow">
                         <h1 className="text-2xl font-bold text-center mb-4 border-b border-gray-300">User Details</h1>
                         <div className="flex justify-center items-center mb-2">
                             <Image

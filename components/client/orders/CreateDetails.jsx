@@ -92,7 +92,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Payment Method:</p>
+                                <p className="text-base font-semibold">Payment Method: <span className="text-red-500">*</span></p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="paymentMethod"

@@ -90,7 +90,7 @@ const CreateDetails = ({
                                 Ready to Sign Up?
                             </h1>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">User Type:</p>
+                                <p className="text-base font-semibold">User Type: <span className="text-red-500">*</span></p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="userType"
@@ -109,7 +109,7 @@ const CreateDetails = ({
                                 </select>
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Branch:</p>
+                                <p className="text-base font-semibold">Branch: <span className="text-red-500">*</span></p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="branch"
@@ -130,7 +130,7 @@ const CreateDetails = ({
                                 </select>
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Subject Area: (for teachers)</p>
+                                <p className="text-base font-semibold">Subject Area: (for teachers) <span className="text-red-500">*</span></p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="subjectArea"
@@ -152,7 +152,7 @@ const CreateDetails = ({
                                 </select>
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Grade Level: (for students)</p>
+                                <p className="text-base font-semibold">Grade Level: (for students) <span className="text-red-500">*</span></p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="gradeLevel"
@@ -174,7 +174,7 @@ const CreateDetails = ({
                                 </select>
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">First Name:</p>
+                                <p className="text-base font-semibold">First Name: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -197,7 +197,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Last Name:</p>
+                                <p className="text-base font-semibold">Last Name: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -209,7 +209,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Date of Birth:</p>
+                                <p className="text-base font-semibold">Date of Birth: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -221,7 +221,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Gender:</p>
+                                <p className="text-base font-semibold">Gender: <span className="text-red-500">*</span></p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="gender"
@@ -246,7 +246,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">City:</p>
+                                <p className="text-base font-semibold">City: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -258,7 +258,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">State/Province:</p>
+                                <p className="text-base font-semibold">State/Province: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -270,7 +270,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Zip Code:</p>
+                                <p className="text-base font-semibold">Zip Code: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -282,7 +282,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Country:</p>
+                                <p className="text-base font-semibold">Country: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -294,7 +294,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Email:</p>
+                                <p className="text-base font-semibold">Email: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -306,7 +306,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Phone Number:</p>
+                                <p className="text-base font-semibold">Phone Number: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -318,7 +318,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">ID Photo:</p>
+                                <p className="text-base font-semibold">ID Photo: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="file"
@@ -328,7 +328,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Username:</p>
+                                <p className="text-base font-semibold">Username: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"
@@ -340,7 +340,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Password:</p>
+                                <p className="text-base font-semibold">Password: <span className="text-red-500">*</span></p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     type="text"

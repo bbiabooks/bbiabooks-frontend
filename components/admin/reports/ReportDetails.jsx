@@ -7,7 +7,7 @@ const ReportDetails = ({
 
     if (!report) {
         return (
-            <div className="min-h-screen p-12">
+            <div className="min-h-screen flex justify-center items-center">
                 <p className="text-gray-500 text-2xl font-semibold">Loading Report Details . . .</p>
             </div>
         );
@@ -15,7 +15,7 @@ const ReportDetails = ({
 
     if (isLoading) {
         return (
-            <div className="min-h-screen p-12">
+            <div className="min-h-screen flex justify-center items-center">
                 <p className="text-gray-500 text-2xl font-semibold">Loading please wait . . .</p>
             </div>
         );
@@ -41,8 +41,8 @@ const ReportDetails = ({
                 </button>
             </div>
             <div className="flex justify-center items-center min-h-full">
-                <div className="w-full max-w-lg bg-white rounded-lg shadow-lg p-6 mb-6">
-                    <div className="overflow-y-auto max-h-[calc(100vh-15vh)]">
+                <div className="bg-white rounded-lg shadow-lg p-6 mb-6 flex-grow">
+                    <div className="overflow-y-auto max-h-[calc(100vh-15vh)] flex-grow">
                         <h1 className="text-2xl font-bold text-center mb-4 border-b border-gray-300">Report Details</h1>
                         <div className="mb-4">
                             <p className="text-base font-semibold">Track Number:</p> { report._id }

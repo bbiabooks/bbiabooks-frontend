@@ -27,7 +27,7 @@ const CreateDetails = ({
 
     if (isLoading) {
         return (
-            <div className="min-h-screen p-12">
+            <div className="min-h-screen flex justify-center items-center">
                 <p className="text-gray-500 text-2xl font-semibold">Loading please wait . . .</p>
             </div>
         );
@@ -53,9 +53,9 @@ const CreateDetails = ({
                 </button>
             </div>
             <div className="flex justify-center items-center min-h-full">
-                <div className="bg-white rounded-lg shadow-lg p-6 mb-6 w-full max-w-3xl">
-                    <div className="overflow-y-auto max-h-[calc(100vh-15vh)]">
-                        <form onSubmit={ handleSubmit } className="w-full">
+                <div className="bg-white rounded-lg shadow-lg p-6 mb-6 flex-grow">
+                    <div className="overflow-y-auto max-h-[calc(100vh-15vh)] flex-grow">
+                        <form onSubmit={ handleSubmit }>
                             <h1 className="text-2xl font-bold text-center mb-4 border-b border-gray-300">
                                 Create New Order
                             </h1>
@@ -63,8 +63,8 @@ const CreateDetails = ({
                                 <Image
                                     src={ book.coverImage ? book.coverImage : "/book.svg" }
                                     alt="Book Cover"
-                                    width={ 500 }
-                                    height={ 500 }
+                                    width={ 250 }
+                                    height={ 250 }
                                     className="object-cover rounded"
                                 />
                             </div>
@@ -88,7 +88,7 @@ const CreateDetails = ({
                                 />
                             </div>
                             <div className="flex items-center">
-                                <p className="text-base font-semibold mr-4">Reserved For:</p>
+                                <p className="text-base font-semibold mr-4">Reserved For: <span className="text-red-500">*</span></p>
                             </div>
                             <div className="mb-4 flex items-center">
                                 <select
@@ -125,7 +125,7 @@ const CreateDetails = ({
                                 </div>
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Order Status:</p>
+                                <p className="text-base font-semibold">Order Status: <span className="text-red-500">*</span></p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="orderStatus"
@@ -146,7 +146,7 @@ const CreateDetails = ({
                                 </select>
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Payment Method:</p>
+                                <p className="text-base font-semibold">Payment Method: <span className="text-red-500">*</span></p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="paymentMethod"

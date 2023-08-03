@@ -34,20 +34,20 @@ const DashboardTabs = ({
 
     if (isLoading) {
         return (
-            <div className="flex justify-center items-center">
+            <div className="min-h-screen flex justify-center items-center">
                 <p className="text-gray-500 text-2xl font-semibold">Loading please wait . . .</p>
             </div>
         );
     }
 
     return (
-        <div className="flex flex-col items-start justify-start min-h-full w-full p-12">
-            <div className="w-full">
+        <div className="flex flex-col items-start justify-start min-h-full p-12">
+            <div className="flex-grow">
                 <h1 className="text-2xl font-bold mb-6 flex justify-start">
                     { `Hello ${user.firstName}!` }
                 </h1>
                 <p className="text-xs font-bold mb-1 text-cyan-700 opacity-70">Statistics</p>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     <button
                         className={ `border rounded-lg p-2 flex flex-row items-center justify-between bg-white shadow-lg ${isLoading ? "cursor-not-allowed" : "hover:bg-gray-100"
                             }` }
@@ -64,7 +64,7 @@ const DashboardTabs = ({
                                     className="object-cover"
                                 />
                             </div>
-                            <p className="text-xs font-semibold ml-4">Users</p>
+                            <p className="text-start text-xs font-semibold ml-4">Users</p>
                         </div>
                         <div className="flex justify-end">
                             <p className="text-sm text-gray-500 font-bold ml-8">{ inventory.numberOfUsers }</p>
@@ -86,7 +86,7 @@ const DashboardTabs = ({
                                     className="object-cover"
                                 />
                             </div>
-                            <p className="text-xs font-semibold ml-4">Books</p>
+                            <p className="text-start text-xs font-semibold ml-4">Books</p>
                         </div>
                         <div className="flex justify-end">
                             <p className="text-sm text-gray-500 font-bold ml-8">{ inventory.numberOfBooks }</p>
@@ -108,7 +108,7 @@ const DashboardTabs = ({
                                     className="object-cover"
                                 />
                             </div>
-                            <p className="text-xs font-semibold ml-4">Released Orders</p>
+                            <p className="text-start text-xs font-semibold ml-4">Released Orders</p>
                         </div>
                         <div className="flex justify-end">
                             <p className="text-sm text-gray-500 font-bold ml-8">{ inventory.numberOfReleased }</p>
@@ -116,7 +116,7 @@ const DashboardTabs = ({
                     </button>
                 </div>
                 <p className="text-xs font-bold mt-2 mb-1 text-cyan-700 opacity-70">Status</p>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     <button
                         className={ `border rounded-lg p-2 flex flex-row items-center justify-between bg-white shadow-lg ${isLoading ? "cursor-not-allowed" : "hover:bg-gray-100"
                             }` }
@@ -133,7 +133,7 @@ const DashboardTabs = ({
                                     className="object-cover"
                                 />
                             </div>
-                            <p className="text-xs font-semibold ml-4">Placed Orders</p>
+                            <p className="text-start text-xs font-semibold ml-4">Placed Orders</p>
                         </div>
                         <div className="flex justify-end">
                             <p className="text-sm text-gray-500 font-bold ml-8">{ inventory.numberOfPlacedOrders }</p>
@@ -155,7 +155,7 @@ const DashboardTabs = ({
                                     className="object-cover"
                                 />
                             </div>
-                            <p className="text-xs font-semibold ml-4">Available Orders</p>
+                            <p className="text-start text-xs font-semibold ml-4">Available Orders</p>
                         </div>
                         <div className="flex justify-end">
                             <p className="text-sm text-gray-500 font-bold ml-8">{ inventory.numberOfAvailable }</p>
@@ -177,7 +177,7 @@ const DashboardTabs = ({
                                     className="object-cover"
                                 />
                             </div>
-                            <p className="text-xs font-semibold ml-4">Loaned Out</p>
+                            <p className="text-start text-xs font-semibold ml-4">Loaned Out</p>
                         </div>
                         <div className="flex justify-end">
                             <p className="text-sm text-gray-500 font-bold ml-8">{ inventory.numberOfApprovedLoans }</p>
@@ -185,7 +185,7 @@ const DashboardTabs = ({
                     </button>
                 </div>
                 <p className="text-xs font-bold mt-2 mb-1 text-cyan-700 opacity-70">Waiting for Approval</p>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     <button
                         className={ `border rounded-lg p-2 flex flex-row items-center justify-between bg-white shadow-lg ${isLoading ? "cursor-not-allowed" : "hover:bg-gray-100"
                             }` }
@@ -202,7 +202,7 @@ const DashboardTabs = ({
                                     className="object-cover"
                                 />
                             </div>
-                            <p className="text-xs font-semibold ml-4">Pending Orders</p>
+                            <p className="text-start text-xs font-semibold ml-4">Pending Orders</p>
                         </div>
                         <div className="flex justify-end">
                             <p className="text-sm text-gray-500 font-bold ml-8">{ inventory.numberOfPendingOrders }</p>
@@ -224,7 +224,7 @@ const DashboardTabs = ({
                                     className="object-cover"
                                 />
                             </div>
-                            <p className="text-xs font-semibold ml-4">Pending Payments</p>
+                            <p className="text-start text-xs font-semibold ml-4">Pending Payments</p>
                         </div>
                         <div className="flex justify-end">
                             <p className="text-sm text-gray-500 font-bold ml-8">{ inventory.numberOfPendingPayments }</p>
@@ -246,7 +246,7 @@ const DashboardTabs = ({
                                     className="object-cover"
                                 />
                             </div>
-                            <p className="text-xs font-semibold ml-4">Pending Loans</p>
+                            <p className="text-start text-xs font-semibold ml-4">Pending Loans</p>
                         </div>
                         <div className="flex justify-end">
                             <p className="text-sm text-gray-500 font-bold ml-8">{ inventory.numberOfPendingLoans }</p>
