@@ -32,7 +32,7 @@ const LoanDetails = ({
                 >
                     <Image
                         src="/back.svg"
-                        alt="Back to Loans"
+                        alt="Back to Borrows"
                         width={ 25 }
                         height={ 25 }
                         className="object-contain"
@@ -95,6 +95,9 @@ const LoanDetails = ({
                         </div>
                         <div className="mb-4">
                             <p className="text-base font-semibold">Borrowed At:</p> { new Date(loan.createdAt).toLocaleString() }
+                        </div>
+                        <div className="mb-4">
+                            <p className="text-base font-semibold">Due Date:</p> { new Date(loan.dueDate).toLocaleString() }
                         </div>
                         <div className="mb-4 border-b pb-4">
                             <p className="text-base font-semibold">Status Last Updated:</p> { new Date(loan.updatedAt).toLocaleString() }

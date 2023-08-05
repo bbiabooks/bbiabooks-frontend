@@ -89,6 +89,9 @@ const ReturnedDetails = ({
                         <div className="mb-4">
                             <p className="text-base font-semibold">Borrowed At:</p> { new Date(loan.createdAt).toLocaleString() }
                         </div>
+                        <div className="mb-4">
+                            <p className="text-base font-semibold">Due Date:</p> { new Date(loan.createdAt).toLocaleString() }
+                        </div>
                         <div className="mb-4 border-b pb-4">
                             <p className="text-base font-semibold">Returned At:</p> { new Date(loan.updatedAt).toLocaleString() }
                         </div>

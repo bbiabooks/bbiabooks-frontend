@@ -99,7 +99,7 @@ const HomeTabs = ({
                             <div className="rounded-full bg-gray-100 p-1">
                                 <Image
                                     src="/loans.svg"
-                                    alt="View Loans"
+                                    alt="View Borrows"
                                     width={ 20 }
                                     height={ 20 }
                                     className="object-cover"
@@ -168,7 +168,7 @@ const HomeTabs = ({
                             <div className="rounded-full bg-gray-100 p-1">
                                 <Image
                                     src="/pending.svg"
-                                    alt="View Loans"
+                                    alt="View Borrows"
                                     width={ 20 }
                                     height={ 20 }
                                     className="object-cover"

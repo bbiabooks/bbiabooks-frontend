@@ -106,7 +106,7 @@ const ReturnedTable = ({
                     >
                         <Image
                             src="/back.svg"
-                            alt="Back to Loans"
+                            alt="Back to Borrows"
                             width={ 25 }
                             height={ 25 }
                             className="object-contain"

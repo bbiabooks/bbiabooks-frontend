@@ -184,6 +184,7 @@ const UserTable = ({
                                     <div className="flex justify-start">First Name</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Last Name</div></th>
+                                <th className="px-4 py-2 text-white font-semibold">Account Status</th>
                                 <th className="px-4 py-2 text-white font-semibold">Details</th>
                             </tr>
                         </thead>
@@ -204,6 +205,11 @@ const UserTable = ({
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
                                         { user.lastName }
+                                    </td>
+                                    <td className="border-t border-cyan-800 px-4 py-2">
+                                        <div className="flex justify-center">
+                                            { user.userStatus }
+                                        </div>
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
                                         <div className="flex justify-center">

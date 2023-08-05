@@ -121,7 +121,7 @@ const BookCatalogue = ({
                                         <div className="flex items-center ml-2">
                                             <Image
                                                 src="/borrowed.svg"
-                                                alt="Book Loaned"
+                                                alt="Book Borrowed"
                                                 width={ 16 }
                                                 height={ 16 }
                                                 className="object-cover"

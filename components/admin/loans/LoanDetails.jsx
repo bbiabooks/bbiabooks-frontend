@@ -1,18 +1,10 @@
-import ConfirmationModal from "@components/main/ConfirmationModal";
 import Image from "next/image";
 
 const LoanDetails = ({
     loan,
     handleLoanList,
-    isDeleting,
     isLoading,
-    isConfirmationModalOpen,
-    warningMessage,
-    confirmMessage,
-    handleEditLoan,
-    handleDeleteLoan,
-    handleConfirmDelete,
-    handleCancelDelete, }) => {
+    handleEditLoan }) => {
 
     if (!loan) {
         return (
@@ -41,7 +33,7 @@ const LoanDetails = ({
                 >
                     <Image
                         src="/back.svg"
-                        alt="Back to Loans"
+                        alt="Back to Borrows"
                         width={ 25 }
                         height={ 25 }
                         className="object-contain"
@@ -96,16 +88,12 @@ const LoanDetails = ({
                             <p className="text-base font-semibold">Borrowed At:</p> { new Date(loan.createdAt).toLocaleString() }
                         </div>
                         <div className="mb-4">
+                            <p className="text-base font-semibold">Due Date:</p> { new Date(loan.dueDate).toLocaleString() }
+                        </div>
+                        <div className="mb-4">
                             <p className="text-base font-semibold">Date Last Updated:</p> { new Date(loan.updatedAt).toLocaleString() }
                         </div>
                         <div className="border-t pt-4 flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 space-x-0 sm:space-x-2">
-                            <button
-                                className="hover:bg-rose-400 text-center hover:text-white text-rose-400 font-bold py-2 px-4 rounded-full"
-                                disabled={ isDeleting }
-                                onClick={ () => handleDeleteLoan(loan._id) }
-                            >
-                                { isDeleting ? "Deleting..." : "Delete Borrow" }
-                            </button>
                             <button
                                 className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
                                     } text-white font-bold py-2 px-4 rounded-full` }
@@ -118,14 +106,6 @@ const LoanDetails = ({
                     </div>
                 </div>
             </div>
-            { isConfirmationModalOpen && (
-                <ConfirmationModal
-                    warning={ warningMessage }
-                    message={ confirmMessage }
-                    onConfirm={ handleConfirmDelete }
-                    onCancel={ handleCancelDelete }
-                />
-            ) }
         </div>
     );
 };

@@ -57,7 +57,7 @@ const BookTable = ({
                     >
                         <Image
                             src="/back.svg"
-                            alt="Back to Loans"
+                            alt="Back to Books"
                             width={ 25 }
                             height={ 25 }
                             className="object-contain"
@@ -119,7 +119,7 @@ const BookTable = ({
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Book Title</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">Number of Available Copies</th>
-                                <th className="px-4 py-2 text-white font-semibold">Number of Loaned Out Copies</th>
+                                <th className="px-4 py-2 text-white font-semibold">Number of Borrowed Copies</th>
                                 <th className="px-4 py-2 text-white font-semibold">Details</th>
                             </tr>
                         </thead>

@@ -89,13 +89,13 @@ const LoanTable = ({
                             <div className="rounded-full bg-gray-100 p-1">
                                 <Image
                                     src="/loans.svg"
-                                    alt="View Loaned Out"
+                                    alt="View Active Borrows"
                                     width={ 20 }
                                     height={ 20 }
                                     className="object-cover"
                                 />
                             </div>
-                            <p className="text-xs font-semibold ml-4">Loaned Out</p>
+                            <p className="text-xs font-semibold ml-4">Active Borrows</p>
                         </div>
                         <div className="flex justify-end">
                             <p className="text-sm text-gray-500 font-bold ml-8">{ loanedOut }</p>

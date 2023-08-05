@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 const EditOrderDetailsPage = ({ params }) => {
     const [order, setOrder] = useState(null);
-    const [orderStatus, setOrderStatus] = useState(["pending", "placed", "available", "released"]);
+    const [orderStatus, setOrderStatus] = useState(["pending", "rejected", "placed", "available", "released"]);
     const [editedOrder, setEditedOrder] = useState({ ...order });
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);

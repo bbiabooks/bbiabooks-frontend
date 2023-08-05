@@ -63,6 +63,9 @@ const UserDetails = ({
                             />
                         </div>
                         <div className="mb-4">
+                            <p className="text-base font-semibold">Account Status:</p> { user.userStatus }
+                        </div>
+                        <div className="mb-4">
                             <p className="text-base font-semibold">User Type:</p> { user.userType.userType }
                         </div>
                         <div className="mb-4">

@@ -65,16 +65,20 @@ const EditDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Update ID Photo:</p>
-                                <input
+                                <p className="text-base font-semibold">Update Account Status:</p>
+                                <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
-                                    type="file"
-                                    name="idPhoto"
-                                    onChange={ handleFileChange }
-                                />
+                                    name="userStatus"
+                                    value={ editedUser.userStatus !== undefined ? editedUser.userStatus : (user.userStatus !== "" ? user.userStatus : "Select Account Status") }
+                                    onChange={ handleInputChange }
+                                >
+                                    <option value="" disabled>Select Account Status</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Suspended">Suspended</option>
+                                </select>
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">User Type:</p>
+                                <p className="text-base font-semibold">Update User Type:</p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="userType"
@@ -96,7 +100,7 @@ const EditDetails = ({
                                 </select>
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Branch:</p>
+                                <p className="text-base font-semibold">Update Branch:</p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="branch"
@@ -118,7 +122,7 @@ const EditDetails = ({
                                 </select>
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Subject Area:</p>
+                                <p className="text-base font-semibold">Update Subject Area:</p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="subjectArea"
@@ -140,7 +144,7 @@ const EditDetails = ({
                                 </select>
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Grade Level:</p>
+                                <p className="text-base font-semibold">Update Grade Level:</p>
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="gradeLevel"
@@ -162,149 +166,43 @@ const EditDetails = ({
                                 </select>
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Username:</p>
-                                <input
-                                    className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
-                                    type="text"
-                                    name="username"
-                                    value={ editedUser.username }
-                                    onChange={ handleInputChange }
-                                    placeholder={ user.username || "Enter Username" }
-                                />
+                                <p className="text-base font-semibold">Username:</p> { user.username }
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">First Name:</p>
-                                <input
-                                    className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
-                                    type="text"
-                                    name="firstName"
-                                    value={ editedUser.firstName }
-                                    onChange={ handleInputChange }
-                                    placeholder={ user.firstName || "Enter First Name" }
-                                />
+                                <p className="text-base font-semibold">First Name:</p> { user.firstName }
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Middle Name:</p>
-                                <input
-                                    className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
-                                    type="text"
-                                    name="middleName"
-                                    value={ editedUser.middleName }
-                                    onChange={ handleInputChange }
-                                    placeholder={ user.middleName || "Enter Middle Name" }
-                                />
+                                <p className="text-base font-semibold">Middle Name:</p> { user.middleName || "N/A" }
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Last Name:</p>
-                                <input
-                                    className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
-                                    type="text"
-                                    name="lastName"
-                                    value={ editedUser.lastName }
-                                    onChange={ handleInputChange }
-                                    placeholder={ user.lastName || "Enter Last Name" }
-                                />
+                                <p className="text-base font-semibold">Last Name:</p> { user.lastName }
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Date of Birth:</p>
-                                <input
-                                    className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
-                                    type="text"
-                                    name="date_of_birth"
-                                    value={ editedUser.date_of_birth }
-                                    onChange={ handleInputChange }
-                                    placeholder={ user.date_of_birth.slice(0, 10) || "Enter YYYY-MM-DD" }
-                                />
+                                <p className="text-base font-semibold">Date of Birth:</p> { user.date_of_birth.slice(0, 10) }
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Gender:</p>
-                                <select
-                                    className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
-                                    name="gender"
-                                    value={ editedUser.gender !== undefined ? editedUser.gender : (user.gender !== "" ? user.gender : "Select Gender") }
-                                    onChange={ handleInputChange }
-                                >
-                                    <option value="" disabled>Select Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
+                                <p className="text-base font-semibold">Gender:</p> { user.gender }
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Street:</p>
-                                <input
-                                    className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
-                                    type="text"
-                                    name="street"
-                                    value={ editedUser.street }
-                                    onChange={ handleInputChange }
-                                    placeholder={ user.street || "Enter Street" }
-                                />
+                                <p className="text-base font-semibold">Street:</p> { user.street || "N/A" }
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">City:</p>
-                                <input
-                                    className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
-                                    type="text"
-                                    name="city"
-                                    value={ editedUser.city }
-                                    onChange={ handleInputChange }
-                                    placeholder={ user.city || "Enter City" }
-                                />
+                                <p className="text-base font-semibold">City:</p> { user.city }
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">State/Province:</p>
-                                <input
-                                    className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
-                                    type="text"
-                                    name="stateProvince"
-                                    value={ editedUser.stateProvince }
-                                    onChange={ handleInputChange }
-                                    placeholder={ user.stateProvince || "Enter State/Province" }
-                                />
+                                <p className="text-base font-semibold">State/Province:</p> { user.stateProvince }
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Zip Code:</p>
-                                <input
-                                    className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
-                                    type="text"
-                                    name="zipCode"
-                                    value={ editedUser.zipCode }
-                                    onChange={ handleInputChange }
-                                    placeholder={ user.zipCode || "Enter Zip Code" }
-                                />
+                                <p className="text-base font-semibold">Zip Code:</p> { user.zipCode }
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Country:</p>
-                                <input
-                                    className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
-                                    type="text"
-                                    name="country"
-                                    value={ editedUser.country }
-                                    onChange={ handleInputChange }
-                                    placeholder={ user.country || "Enter Country" }
-                                />
+                                <p className="text-base font-semibold">Country:</p> { user.country }
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Email:</p>
-                                <input
-                                    className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
-                                    type="text"
-                                    name="email"
-                                    value={ editedUser.email }
-                                    onChange={ handleInputChange }
-                                    placeholder={ user.email || "Enter Email" }
-                                />
+                                <p className="text-base font-semibold">Email:</p> { user.email }
                             </div>
                             <div className="mb-4">
-                                <p className="text-base font-semibold">Phone Number:</p>
-                                <input
-                                    className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
-                                    type="text"
-                                    name="phoneNumber"
-                                    value={ editedUser.phoneNumber }
-                                    onChange={ handleInputChange }
-                                    placeholder={ user.phoneNumber || "Enter Phone Number" }
-                                />
+                                <p className="text-base font-semibold">Phone Number:</p> { user.phoneNumber }
                             </div>
                             <div className="flex justify-end border-t pt-4">
                                 <button

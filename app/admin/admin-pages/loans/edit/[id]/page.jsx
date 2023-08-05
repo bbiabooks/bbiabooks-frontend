@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 const EditLoanDetailsPage = ({ params }) => {
     const [loan, setLoan] = useState(null);
-    const [loanStatus, setLoanStatus] = useState(["requested", "approved", "returned"]);
+    const [loanStatus, setLoanStatus] = useState(["requested", "rejected", "approved", "returned"]);
     const [bookStatus, setBookStatus] = useState(["okay", "lost", "damaged"]);
     const [editedLoan, setEditedLoan] = useState({ ...loan });
     const [isLoading, setIsLoading] = useState(false);

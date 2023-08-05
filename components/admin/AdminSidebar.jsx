@@ -257,7 +257,7 @@ const AdminSidebar = () => {
                                                 <div className="flex flex-row items-center space-x-2 text-cyan-600 hover:text-orange-300">
                                                     <Image
                                                         src="/loans.svg"
-                                                        alt="Loans"
+                                                        alt="Borrows"
                                                         width={ 25 }
                                                         height={ 25 }
                                                         className="object-contain"
@@ -274,7 +274,7 @@ const AdminSidebar = () => {
                                             <div className="flex flex-row items-center space-x-2 hover:text-orange-300">
                                                 <Image
                                                     src="/loans.svg"
-                                                    alt="Loans"
+                                                    alt="Borrows"
                                                     width={ 25 }
                                                     height={ 25 }
                                                     className="object-contain"
@@ -752,7 +752,7 @@ const AdminSidebar = () => {
                                                 <div className="flex flex-row items-center space-x-2 text-cyan-600 hover:text-orange-300">
                                                     <Image
                                                         src="/loans.svg"
-                                                        alt="Loans"
+                                                        alt="Borrows"
                                                         width={ 25 }
                                                         height={ 25 }
                                                         className="object-contain"
@@ -769,7 +769,7 @@ const AdminSidebar = () => {
                                             <div className="flex flex-row items-center space-x-2 hover:text-orange-300">
                                                 <Image
                                                     src="/loans.svg"
-                                                    alt="Loans"
+                                                    alt="Borrows"
                                                     width={ 25 }
                                                     height={ 25 }
                                                     className="object-contain"

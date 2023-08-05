@@ -9,11 +9,7 @@ const LoanDetailsPage = ({ params }) => {
     const router = useRouter();
     const { token, userKey } = useAuthContext();
     const [loan, setLoan] = useState(null);
-    const [isDeleting, setIsDeleting] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
-    const [warningMessage, setWarningMessage] = useState("");
-    const [confirmMessage, setConfirmMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState(null);
     const [successMessage, setSuccessMessage] = useState('');
 
@@ -44,15 +40,6 @@ const LoanDetailsPage = ({ params }) => {
         fetchLoan();
     }, [params.id, token, userKey]);
 
-    const handleUnauthorizedAction = () => {
-        const warningMessage = `You are unauthorized to make this action as "${userKey}".`;
-        const confirmMessage = "FOR ANY CHANGE YOU WISHES, PLEASE CONTACT THE ADMIN IN CHARGE.";
-
-        setWarningMessage(warningMessage);
-        setConfirmMessage(confirmMessage);
-        setIsConfirmationModalOpen(true);
-    };
-
     const handleEditLoan = (id) => {
         if (userKey === "Admin" || userKey === "Librarian") {
             setIsLoading(true);
@@ -60,58 +47,6 @@ const LoanDetailsPage = ({ params }) => {
         } else {
             handleUnauthorizedAction();
         }
-    };
-
-    const handleDeleteLoan = () => {
-        if (userKey === "Admin") {
-            const warningMessage = `DELETING "${loan._id}" . . .`;
-            const confirmMessage = "Are you sure you want to delete this Borrowed Book?";
-            setWarningMessage(warningMessage);
-            setConfirmMessage(confirmMessage);
-            setIsConfirmationModalOpen(true);
-        } else {
-            handleUnauthorizedAction();
-        }
-    };
-
-    const handleConfirmDelete = async () => {
-        if (userKey === "Admin") {
-            setIsConfirmationModalOpen(false);
-            setIsDeleting(true);
-
-            try {
-                const response = await fetch(`${URL}/api/loans/detail/${loan._id}`, {
-                    method: "DELETE",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${token}`,
-                    },
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    // Loan deleted successfully
-                    setSuccessMessage(data.message);
-                    router.push(`/admin/admin-pages/loans`);
-                } else {
-                    // Error deleting Loan
-                    setErrorMessage(data.message);
-                }
-
-            } catch (error) {
-                setErrorMessage(`Failed to delete Borrowed Book. ${error.message}`);
-            } finally {
-                setIsDeleting(false);
-            }
-        }
-        else {
-            setIsConfirmationModalOpen(false);
-        }
-    };
-
-    const handleCancelDelete = () => {
-        setIsConfirmationModalOpen(false);
     };
 
     const handleLoanList = () => {
@@ -152,15 +87,8 @@ const LoanDetailsPage = ({ params }) => {
             ) }
             <LoanDetails
                 loan={ loan }
-                isDeleting={ isDeleting }
                 isLoading={ isLoading }
-                isConfirmationModalOpen={ isConfirmationModalOpen }
-                warningMessage={ warningMessage }
-                confirmMessage={ confirmMessage }
                 handleEditLoan={ handleEditLoan }
-                handleDeleteLoan={ handleDeleteLoan }
-                handleConfirmDelete={ handleConfirmDelete }
-                handleCancelDelete={ handleCancelDelete }
                 handleLoanList={ handleLoanList }
             />
         </div>

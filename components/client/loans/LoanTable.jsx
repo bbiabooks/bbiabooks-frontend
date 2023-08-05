@@ -76,7 +76,7 @@ const LoanTable = ({
                             <div className="rounded-full bg-gray-100 p-1">
                                 <Image
                                     src="/loans.svg"
-                                    alt="View Loaned Out"
+                                    alt="View Active Borrows"
                                     width={ 20 }
                                     height={ 20 }
                                     className="object-cover"

@@ -171,13 +171,13 @@ const DashboardTabs = ({
                             <div className="rounded-full bg-gray-100 p-1">
                                 <Image
                                     src="/loans.svg"
-                                    alt="View Loans"
+                                    alt="View Borrows"
                                     width={ 20 }
                                     height={ 20 }
                                     className="object-cover"
                                 />
                             </div>
-                            <p className="text-start text-xs font-semibold ml-4">Loaned Out</p>
+                            <p className="text-start text-xs font-semibold ml-4">Active Borrows</p>
                         </div>
                         <div className="flex justify-end">
                             <p className="text-sm text-gray-500 font-bold ml-8">{ inventory.numberOfApprovedLoans }</p>
@@ -240,13 +240,13 @@ const DashboardTabs = ({
                             <div className="rounded-full bg-gray-100 p-1">
                                 <Image
                                     src="/pending.svg"
-                                    alt="View Loans"
+                                    alt="View Borrows"
                                     width={ 20 }
                                     height={ 20 }
                                     className="object-cover"
                                 />
                             </div>
-                            <p className="text-start text-xs font-semibold ml-4">Pending Loans</p>
+                            <p className="text-start text-xs font-semibold ml-4">Pending Borrows</p>
                         </div>
                         <div className="flex justify-end">
                             <p className="text-sm text-gray-500 font-bold ml-8">{ inventory.numberOfPendingLoans }</p>

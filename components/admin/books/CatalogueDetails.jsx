@@ -93,7 +93,7 @@ const BookDetails = ({
                             <p className="text-base font-semibold">Number of Available Copies:</p> { book.numberOfCopies }
                         </div>
                         <div className="mb-4">
-                            <p className="text-base font-semibold">Number of Loaned Out Copies:</p> { book.numberOfLoanedOutCopies }
+                            <p className="text-base font-semibold">Number of Borrowed Copies:</p> { book.numberOfLoanedOutCopies }
                         </div>
                         <div className="mb-4">
                             <p className="text-base font-semibold">Number of Sold Copies:</p> { book.numberOfSoldCopies }
