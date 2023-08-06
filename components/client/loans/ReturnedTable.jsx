@@ -131,8 +131,7 @@ const ReturnedTable = ({
                     <table className="table-auto rounded-lg overflow-hidden shadow-lg w-full text-sm">
                         <thead>
                             <tr className="bg-cyan-900">
-                                <th className="px-4 py-2 text-white font-semibold">
-                                    <div className="flex justify-start">Borrow ID</div></th>
+                                <th className="px-4 py-2 text-white font-semibold">Borrow ID</th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Book Title</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
@@ -155,7 +154,9 @@ const ReturnedTable = ({
                                                 className="object-cover rounded"
                                             />
                                         </div>
-                                        <p className="text-xs">{ loan._id }</p>
+                                        <div className="flex justify-center">
+                                            <p className="text-xs">{ loan._id }</p>
+                                        </div>
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
                                         { loan.book ? loan.book.title : "N/A" }

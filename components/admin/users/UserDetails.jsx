@@ -1,18 +1,10 @@
-import ConfirmationModal from "@components/main/ConfirmationModal";
 import Image from "next/image";
 
 const UserDetails = ({
     user,
     handleUserList,
-    isDeleting,
     isLoading,
-    isConfirmationModalOpen,
-    warningMessage,
-    confirmMessage,
-    handleEditUser,
-    handleDeleteUser,
-    handleConfirmDelete,
-    handleCancelDelete, }) => {
+    handleEditUser }) => {
 
     if (!user) {
         return (
@@ -121,13 +113,6 @@ const UserDetails = ({
                         </div>
                         <div className="border-t pt-4 flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 space-x-0 sm:space-x-2">
                             <button
-                                className="hover:bg-rose-400 text-center hover:text-white text-rose-400 font-bold py-2 px-4 rounded-full"
-                                disabled={ isDeleting }
-                                onClick={ () => handleDeleteUser(user._id) }
-                            >
-                                { isDeleting ? "Deleting..." : "Delete User" }
-                            </button>
-                            <button
                                 className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
                                     } text-white font-bold py-2 px-4 rounded-full` }
                                 disabled={ isLoading }
@@ -139,14 +124,6 @@ const UserDetails = ({
                     </div>
                 </div>
             </div>
-            { isConfirmationModalOpen && (
-                <ConfirmationModal
-                    warning={ warningMessage }
-                    message={ confirmMessage }
-                    onConfirm={ handleConfirmDelete }
-                    onCancel={ handleCancelDelete }
-                />
-            ) }
         </div>
     );
 };

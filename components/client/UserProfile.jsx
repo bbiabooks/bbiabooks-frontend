@@ -5,7 +5,8 @@ import Image from "next/image";
 const UserProfile = ({
     user,
     handleDashboard,
-    isLoading, }) => {
+    isLoading,
+    handleEditUser }) => {
 
     if (!user) {
         return (
@@ -108,6 +109,16 @@ const UserProfile = ({
                         </div>
                         <div className="mb-4 border-b border-gray-300">
                             <p className="text-base font-semibold">Date Last Updated:</p> { new Date(user.updatedAt).toLocaleString() }
+                        </div>
+                        <div className="border-t pt-4 flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 space-x-0 sm:space-x-2">
+                            <button
+                                className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
+                                    } text-white font-bold py-2 px-4 rounded-full` }
+                                disabled={ isLoading }
+                                onClick={ handleEditUser }
+                            >
+                                { isLoading ? "Please wait..." : "Edit Details" }
+                            </button>
                         </div>
                     </div>
                 </div>

@@ -51,7 +51,12 @@ const BookCataloguePage = () => {
 
     const handleUnauthorizedAction = () => {
         const warningMessage = `You are unauthorized to make this action as "${userKey}" . . .`;
-        const confirmMessage = "FOR ANY CHANGE YOU WISHES, PLEASE CONTACT THE ADMIN IN CHARGE.";
+        let confirmMessage;
+        if (userKey === "Admin") {
+            confirmMessage = "FOR ANY CHANGE YOU WISHES, PLEASE CONTACT THE IT SUPPORT.";
+        } else {
+            confirmMessage = "FOR ANY CHANGE YOU WISHES, PLEASE CONTACT THE ADMIN IN CHARGE.";
+        }
 
         setWarningMessage(warningMessage);
         setConfirmMessage(confirmMessage);

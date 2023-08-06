@@ -7,7 +7,6 @@ const EditDetails = ({
     isLoading,
     handleViewOrder,
     handleInputChange,
-    handleFileChange,
     handleSubmit }) => {
 
     if (!order) {

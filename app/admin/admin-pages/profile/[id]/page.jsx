@@ -48,6 +48,11 @@ const UserProfilePage = ({ params }) => {
         router.push(`/admin/admin-pages`);
     };
 
+    const handleEditUser = () => {
+        setIsLoading(true);
+        router.push(`/admin/admin-pages/profile/edit/${params.id}`);
+    };
+
     // Effect to automatically remove the success/error message after 3 seconds
     useEffect(() => {
         if (successMessage) {
@@ -91,6 +96,7 @@ const UserProfilePage = ({ params }) => {
                 user={ user }
                 isLoading={ isLoading }
                 handleDashboard={ handleDashboard }
+                handleEditUser={ handleEditUser }
             />
         </div>
     );

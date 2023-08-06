@@ -28,7 +28,7 @@ const UserTable = ({
     };
 
     const filteredUsers = users.filter((user) => {
-        const { branch, userType, username, firstName, lastName } = user;
+        const { branch, userType, username, firstName, lastName, userStatus } = user;
         const branchV = branch?.branch || "N/A";
         const userTypeV = userType.userType;
 
@@ -36,7 +36,8 @@ const UserTable = ({
             userTypeV.toLowerCase().includes(searchTerm.toLowerCase()) ||
             username.toLowerCase().includes(searchTerm.toLowerCase()) ||
             firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            lastName.toLowerCase().includes(searchTerm.toLowerCase());
+            lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            userStatus.toLowerCase().includes(searchTerm.toLowerCase());
     }).filter((user) => user.userType.userType !== 'Admin');
 
     if (isLoading) {
@@ -57,6 +58,10 @@ const UserTable = ({
 
     const filteredStudents = filteredUsers.filter(
         (user) => user.userType.userType === "Student"
+    ).length;
+
+    const filteredStatus = filteredUsers.filter(
+        (user) => user.userStatus === "Suspended"
     ).length;
 
     return (
@@ -118,6 +123,23 @@ const UserTable = ({
                             <p className="text-sm text-gray-500 font-bold ml-8">{ filteredStudents }</p>
                         </div>
                     </div>
+                    <div className="border rounded-lg p-2 flex flex-row items-center justify-between bg-white shadow-lg">
+                        <div className="flex justify-start items-center">
+                            <div className="rounded-full bg-gray-100 p-1">
+                                <Image
+                                    src="/pending.svg"
+                                    alt="View Suspended Accounts"
+                                    width={ 20 }
+                                    height={ 20 }
+                                    className="object-cover"
+                                />
+                            </div>
+                            <p className="text-xs font-semibold ml-4">Suspended Accounts</p>
+                        </div>
+                        <div className="flex justify-end">
+                            <p className="text-sm text-gray-500 font-bold ml-8">{ filteredStatus }</p>
+                        </div>
+                    </div>
                 </div>
                 <div className="hide-print flex justify-start items-center mt-8">
                     <button
@@ -158,7 +180,7 @@ const UserTable = ({
                                 value={ searchTerm }
                                 onChange={ handleSearch }
                                 className="ml-2 border-b border-gray-600 px-3 py-2 w-full focus:outline-none bg-transparent"
-                                placeholder="Search by: branch | user type | user"
+                                placeholder="Search by: branch | usertype | user | status"
                             />
                             <Image
                                 src="/search.svg"

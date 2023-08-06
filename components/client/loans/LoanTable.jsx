@@ -150,14 +150,11 @@ const LoanTable = ({
                     <table className="table-auto rounded-lg overflow-hidden shadow-lg w-full text-sm">
                         <thead>
                             <tr className="bg-cyan-900">
-                                <th className="px-4 py-2 text-white font-semibold">
-                                    <div className="flex justify-start">Borrow ID</div></th>
+                                <th className="px-4 py-2 text-white font-semibold">Borrow ID</th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Book Title</div></th>
-                                <th className="px-4 py-2 text-white font-semibold">
-                                    <div className="flex justify-start">Due Date</div></th>
-                                <th className="px-4 py-2 text-white font-semibold">
-                                    <div className="flex justify-start">Borrowed Status</div></th>
+                                <th className="px-4 py-2 text-white font-semibold">Due Date</th>
+                                <th className="px-4 py-2 text-white font-semibold">Borrowed Status</th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Last Updated</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">Details</th>
@@ -176,7 +173,9 @@ const LoanTable = ({
                                                 className="object-cover rounded"
                                             />
                                         </div>
-                                        <p className="text-xs">{ loan._id }</p>
+                                        <div className="flex justify-center">
+                                            <p className="text-xs">{ loan._id }</p>
+                                        </div>
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
                                         { loan.book ? loan.book.title : "N/A" }
@@ -192,9 +191,7 @@ const LoanTable = ({
                                         </div>
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
-                                        <div className="flex justify-center">
-                                            { new Date(loan.updatedAt).toLocaleString() }
-                                        </div>
+                                        { new Date(loan.updatedAt).toLocaleString() }
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
                                         <div className="flex justify-center">
