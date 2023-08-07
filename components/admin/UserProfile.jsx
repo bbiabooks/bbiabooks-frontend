@@ -99,7 +99,7 @@ const UserProfile = ({
                         <div className="mb-4">
                             <p className="text-base font-semibold">Date Registered:</p> { new Date(user.dateRegistered).toLocaleString() }
                         </div>
-                        <div className="mb-4 border-b pb-4 border-gray-300">
+                        <div className="mb-4">
                             <p className="text-base font-semibold">Date Last Updated:</p> { new Date(user.updatedAt).toLocaleString() }
                         </div>
                         <div className="border-t pt-4 flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 space-x-0 sm:space-x-2">

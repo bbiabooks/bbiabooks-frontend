@@ -80,6 +80,15 @@ const UserTablePage = () => {
         }
     };
 
+    const handleChangePassList = () => {
+        if (userKey === "Admin") {
+            setIsLoading(true);
+            router.push(`/admin/admin-pages/users/passwords`);
+        } else {
+            handleUnauthorizedAction();
+        }
+    };
+
     // Effect to automatically remove the error message after 3 seconds
     useEffect(() => {
         if (errorMessage) {
@@ -115,6 +124,7 @@ const UserTablePage = () => {
                 handleViewUser={ handleViewUser }
                 handleCreateUser={ handleCreateUser }
                 isLoading={ isLoading }
+                handleChangePassList={ handleChangePassList }
             />
         </div>
     );

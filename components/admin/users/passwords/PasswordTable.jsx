@@ -1,18 +1,12 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import ConfirmationModal from "@components/main/ConfirmationModal";
 
-const UserTable = ({
-    handleViewUser,
-    handleCreateUser,
-    handleChangePassList,
-    users,
-    isLoading,
-    isConfirmationModalOpen,
-    warningMessage,
-    confirmMessage,
-    handleConfirm }) => {
+const PasswordTable = ({
+    handleViewPassword,
+    handleViewUsers,
+    passwords,
+    isLoading }) => {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [isPrinting, setIsPrinting] = useState(false);
@@ -28,18 +22,18 @@ const UserTable = ({
         setSearchTerm(event.target.value);
     };
 
-    const filteredUsers = users.filter((user) => {
-        const { branch, userType, username, firstName, lastName, userStatus } = user;
-        const branchV = branch?.branch || "N/A";
-        const userTypeV = userType.userType;
+    const filteredPasswords = passwords.filter((pass) => {
+        const { userId, username, changeStatus } = pass;
+        const userType = userId.userType.userType;
+        const firstName = userId.firstName;
+        const lastName = userId.lastName;
 
-        return branchV.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            userTypeV.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        return userType.toLowerCase().includes(searchTerm.toLowerCase()) ||
             username.toLowerCase().includes(searchTerm.toLowerCase()) ||
             firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
             lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            userStatus.toLowerCase().includes(searchTerm.toLowerCase());
-    }).filter((user) => user.userType.userType !== 'Admin');
+            changeStatus.toLowerCase().includes(searchTerm.toLowerCase());
+    });
 
     if (isLoading) {
         return (
@@ -49,20 +43,12 @@ const UserTable = ({
         );
     }
 
-    const filteredStaffs = filteredUsers.filter(
-        (user) => user.userType.userType === "Librarian" || user.userType.userType === "Accountant"
+    const filteredPending = filteredPasswords.filter(
+        (pass) => pass.changeStatus === "pending"
     ).length;
 
-    const filteredTeachers = filteredUsers.filter(
-        (user) => user.userType.userType === "Teacher"
-    ).length;
-
-    const filteredStudents = filteredUsers.filter(
-        (user) => user.userType.userType === "Student"
-    ).length;
-
-    const filteredStatus = filteredUsers.filter(
-        (user) => user.userStatus === "Suspended"
+    const filteredApproved = filteredPasswords.filter(
+        (pass) => pass.changeStatus === "approved"
     ).length;
 
     return (
@@ -70,106 +56,59 @@ const UserTable = ({
             {/* Add a print-only class to the root div for print styling */ }
             <div className={ `print-only flex-grow ${isPrinting ? "print-table" : ""}` }>
                 <h1 className="text-2xl font-bold mb-6 flex justify-start">
-                    User Accounts and Information
+                    User Change Password Requests
                 </h1>
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-3 my-3">
                     <div className="border rounded-lg p-2 flex flex-row items-center justify-between bg-white shadow-lg">
                         <div className="flex justify-start items-center">
                             <div className="rounded-full bg-gray-100 p-1">
                                 <Image
-                                    src="/users.svg"
-                                    alt="View Staffs"
-                                    width={ 20 }
-                                    height={ 20 }
-                                    className="object-cover"
-                                />
-                            </div>
-                            <p className="text-xs font-semibold ml-4">Staffs</p>
-                        </div>
-                        <div className="flex justify-end">
-                            <p className="text-sm text-gray-500 font-bold ml-8">{ filteredStaffs }</p>
-                        </div>
-                    </div>
-                    <div className="border rounded-lg p-2 flex flex-row items-center justify-between bg-white shadow-lg">
-                        <div className="flex justify-start items-center">
-                            <div className="rounded-full bg-gray-100 p-1">
-                                <Image
-                                    src="/users.svg"
-                                    alt="View Teachers"
-                                    width={ 20 }
-                                    height={ 20 }
-                                    className="object-cover"
-                                />
-                            </div>
-                            <p className="text-xs font-semibold ml-4">Teachers</p>
-                        </div>
-                        <div className="flex justify-end">
-                            <p className="text-sm text-gray-500 font-bold ml-8">{ filteredTeachers }</p>
-                        </div>
-                    </div>
-                    <div className="border rounded-lg p-2 flex flex-row items-center justify-between bg-white shadow-lg">
-                        <div className="flex justify-start items-center">
-                            <div className="rounded-full bg-gray-100 p-1">
-                                <Image
-                                    src="/users.svg"
-                                    alt="View Students"
-                                    width={ 20 }
-                                    height={ 20 }
-                                    className="object-cover"
-                                />
-                            </div>
-                            <p className="text-xs font-semibold ml-4">Students</p>
-                        </div>
-                        <div className="flex justify-end">
-                            <p className="text-sm text-gray-500 font-bold ml-8">{ filteredStudents }</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-3 my-3">
-                    <div className="border rounded-lg p-2 flex flex-row items-center justify-between bg-white shadow-lg">
-                        <div className="flex justify-start items-center">
-                            <div className="rounded-full bg-gray-100 p-1">
-                                <Image
                                     src="/pending.svg"
-                                    alt="View Suspended Accounts"
+                                    alt="View Pending Requests"
                                     width={ 20 }
                                     height={ 20 }
                                     className="object-cover"
                                 />
                             </div>
-                            <p className="text-xs font-semibold ml-4">Suspended Accounts</p>
+                            <p className="text-xs font-semibold ml-4">Pending Requests</p>
                         </div>
                         <div className="flex justify-end">
-                            <p className="text-sm text-gray-500 font-bold ml-8">{ filteredStatus }</p>
+                            <p className="text-sm text-gray-500 font-bold ml-8">{ filteredPending }</p>
                         </div>
                     </div>
-                    <button className={ `border rounded-lg p-2 flex flex-row items-center justify-start bg-white shadow-lg ${isLoading ? "cursor-not-allowed" : "hover:bg-gray-100"
-                        }` }
-                        disabled={ isLoading }
-                        onClick={ handleChangePassList }
-                    >
+                    <div className="border rounded-lg p-2 flex flex-row items-center justify-between bg-white shadow-lg">
                         <div className="flex justify-start items-center">
                             <div className="rounded-full bg-gray-100 p-1">
                                 <Image
-                                    src="/pending.svg"
-                                    alt="View Change Passwords"
+                                    src="/released.svg"
+                                    alt="View Approved Requests"
                                     width={ 20 }
                                     height={ 20 }
                                     className="object-cover"
                                 />
                             </div>
-                            <p className="text-xs font-semibold ml-4 text-start">Change Password Requests</p>
+                            <p className="text-xs font-semibold ml-4">Approved Requests</p>
                         </div>
-                    </button>
+                        <div className="flex justify-end">
+                            <p className="text-sm text-gray-500 font-bold ml-8">{ filteredApproved }</p>
+                        </div>
+                    </div>
                 </div>
                 <div className="hide-print flex justify-start items-center mt-8">
                     <button
                         disabled={ isLoading }
-                        className={ `${isLoading ? "cursor-not-allowed" : "hover:bg-cyan-700 hover:text-white"
-                            } border border-cyan-700 text-cyan-700 font-bold py-2 px-4 rounded-full mr-2` }
-                        onClick={ handleCreateUser }
+                        className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
+                            } text-white font-bold py-2 px-4 rounded-full flex space-x-2 mr-2` }
+                        onClick={ handleViewUsers }
                     >
-                        Create User
+                        <Image
+                            src="/back.svg"
+                            alt="Back to Users"
+                            width={ 25 }
+                            height={ 25 }
+                            className="object-contain"
+                        />
+                        <p>Back</p>
                     </button>
                     {/* Print Button */ }
                     <button
@@ -191,7 +130,7 @@ const UserTable = ({
                     <div className="flex flex-col items-end space-x-2 text-cyan-600 opacity-70 hover:opacity-100 mb-4">
                         <div className="flex justify-end">
                             <p className="text-sm font-bold text-gray-600">
-                                Total Users: { filteredUsers.length }
+                                Total Requests: { filteredPasswords.length }
                             </p>
                         </div>
                         <div className="hide-print flex items-center w-full md:w-96">
@@ -201,7 +140,7 @@ const UserTable = ({
                                 value={ searchTerm }
                                 onChange={ handleSearch }
                                 className="ml-2 border-b border-gray-600 px-3 py-2 w-full focus:outline-none bg-transparent"
-                                placeholder="Search by: branch | usertype | user | status"
+                                placeholder="Search by: usertype | user | status"
                             />
                             <Image
                                 src="/search.svg"
@@ -218,8 +157,6 @@ const UserTable = ({
                         <thead>
                             <tr className="bg-cyan-900">
                                 <th className="px-4 py-2 text-white font-semibold">
-                                    <div className="flex justify-start">Branch</div></th>
-                                <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">User Type</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Username</div></th>
@@ -227,31 +164,28 @@ const UserTable = ({
                                     <div className="flex justify-start">First Name</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Last Name</div></th>
-                                <th className="px-4 py-2 text-white font-semibold">Account Status</th>
+                                <th className="px-4 py-2 text-white font-semibold">Change Status</th>
                                 <th className="px-4 py-2 text-white font-semibold">Details</th>
                             </tr>
                         </thead>
                         <tbody className="bg-white">
-                            { filteredUsers.map((user) => (
-                                <tr key={ user._id }>
+                            { filteredPasswords.map((pass) => (
+                                <tr key={ pass._id }>
                                     <td className="border-t border-cyan-800 px-4 py-2">
-                                        { user.branch ? user.branch.branch : "N/A" }
+                                        { pass.userId.userType.userType }
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
-                                        { user.userType.userType }
+                                        { pass.username }
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
-                                        { user.username }
+                                        { pass.userId.firstName }
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
-                                        { user.firstName }
-                                    </td>
-                                    <td className="border-t border-cyan-800 px-4 py-2">
-                                        { user.lastName }
+                                        { pass.userId.lastName }
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
                                         <div className="flex justify-center">
-                                            { user.userStatus }
+                                            { pass.changeStatus }
                                         </div>
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
@@ -260,7 +194,7 @@ const UserTable = ({
                                                 disabled={ isLoading }
                                                 className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
                                                     } text-white font-bold py-2 px-4 rounded-md` }
-                                                onClick={ () => handleViewUser(user._id) }
+                                                onClick={ () => handleViewPassword(pass._id) }
                                             >
                                                 View
                                             </button>
@@ -272,13 +206,6 @@ const UserTable = ({
                     </table>
                 </div>
             </div>
-            { isConfirmationModalOpen && (
-                <ConfirmationModal
-                    warning={ warningMessage }
-                    message={ confirmMessage }
-                    onConfirm={ handleConfirm }
-                />
-            ) }
             {/* Additional CSS for Print mode */ }
             <style jsx>
                 { `
@@ -312,4 +239,4 @@ const UserTable = ({
     );
 };
 
-export default UserTable;
+export default PasswordTable;

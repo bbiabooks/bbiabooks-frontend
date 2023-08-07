@@ -327,6 +327,9 @@ const EditDetails = ({
                                 />
                             </div>
                             <div className="mb-4">
+                                <p className="text-base font-semibold">Sinup At:</p> { new Date(user.dateRegistered).toLocaleString() }
+                            </div>
+                            <div className="mb-4">
                                 <p className="text-base font-semibold">Registration Status:</p>
                                 <input
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"

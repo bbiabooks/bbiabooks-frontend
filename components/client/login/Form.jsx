@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 const Form = ({
   type,
@@ -72,7 +73,16 @@ const Form = ({
                 </div>
               </label>
             </div>
-            <div className="flex justify-end">
+            <div className="flex items-center justify-between">
+              <Link href="/client/registration/passwords/change">
+                <button
+                  className="mr-4 text-cyan-600 font-bold text-sm opacity-70 hover:opacity-100"
+                >
+                  <p className="flex flex-row items-center">
+                    Forgot Password
+                  </p>
+                </button>
+              </Link>
               <button
                 type="submit"
                 disabled={ submitting }
