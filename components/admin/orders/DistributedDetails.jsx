@@ -60,6 +60,9 @@ const DistributedDetails = ({
                             <p className="text-base font-semibold">Purchase Price:</p> ₱ { order.book ? order.book.purchasePrice : "N/A" }
                         </div>
                         <div className="mb-4">
+                            <p className="text-base font-semibold">Order Quantity:</p> { order.quantity }
+                        </div>
+                        <div className="mb-4">
                             <p className="text-base font-semibold">Supplier:</p> { order.book.supplier ? order.book.supplier.supplier : "N/A" }
                         </div>
                         <div className="mb-4">

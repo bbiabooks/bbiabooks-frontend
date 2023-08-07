@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from 'next/image';
 
 const CreateDetails = ({
@@ -15,6 +15,17 @@ const CreateDetails = ({
     handleBookCatalogue }) => {
 
     const [searchTerm, setSearchTerm] = useState('');
+    const [reservedFor, setReservedFor] = useState(orderData.reservedFor || "");
+
+    useEffect(() => {
+        // When the filteredUsers change due to the search term,
+        // check if the current reservedFor user is still included in the filtered users.
+        // If not, reset the reservedFor value to an empty string.
+        const foundUser = filteredUsers.find(user => user._id === reservedFor);
+        if (!foundUser) {
+            setReservedFor("");
+        }
+    }, [searchTerm]);
 
     const handleSearchTermChange = (e) => {
         setSearchTerm(e.target.value);
@@ -24,6 +35,13 @@ const CreateDetails = ({
         const fullName = `${user.lastName}, ${user.firstName} ${user.username}`;
         return fullName.toLowerCase().includes(searchTerm.toLowerCase());
     }).filter((user) => user.userType.userType === "Teacher" || user.userType.userType === "Student");
+
+    // Update the reservedFor state when the combo box selection changes
+    const handleReservedForChange = (e) => {
+        const selectedUserId = e.target.value;
+        setReservedFor(selectedUserId);
+        handleInputChange("reservedFor", selectedUserId); // Update the "reservedFor" field in orderData
+    };
 
     if (isLoading) {
         return (
@@ -94,8 +112,8 @@ const CreateDetails = ({
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 rounded"
                                     name="reservedFor"
-                                    value={ orderData.reservedFor || "" }
-                                    onChange={ handleInputChange }
+                                    value={ reservedFor }
+                                    onChange={ handleReservedForChange }
                                     required
                                 >
                                     <option value="" disabled>
@@ -130,19 +148,17 @@ const CreateDetails = ({
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="orderStatus"
                                     value={ orderData.orderStatus || "" }
-                                    onChange={ handleInputChange }
+                                    onChange={ (e) => handleInputChange("orderStatus", e.target.value) } // Update the "orderStatus" field
                                     required
                                 >
                                     <option value="" disabled>
                                         Select Order Status
                                     </option>
-                                    { orderStatus.map((orderStatus) => {
-                                        return (
-                                            <option key={ orderStatus } value={ orderStatus }>
-                                                { orderStatus }
-                                            </option>
-                                        );
-                                    }) }
+                                    { orderStatus.map((status) => (
+                                        <option key={ status } value={ status }>
+                                            { status }
+                                        </option>
+                                    )) }
                                 </select>
                             </div>
                             <div className="mb-4">
@@ -151,19 +167,17 @@ const CreateDetails = ({
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="paymentMethod"
                                     value={ orderData.paymentMethod || "" }
-                                    onChange={ handleInputChange }
+                                    onChange={ (e) => handleInputChange("paymentMethod", e.target.value) } // Update the "paymentMethod" field
                                     required
                                 >
                                     <option value="" disabled>
                                         Select Payment Method
                                     </option>
-                                    { paymentMethod.map((paymentMethod) => {
-                                        return (
-                                            <option key={ paymentMethod } value={ paymentMethod }>
-                                                { paymentMethod }
-                                            </option>
-                                        );
-                                    }) }
+                                    { paymentMethod.map((method) => (
+                                        <option key={ method } value={ method }>
+                                            { method }
+                                        </option>
+                                    )) }
                                 </select>
                             </div>
                             <div className="mb-4">
@@ -175,21 +189,48 @@ const CreateDetails = ({
                                     onChange={ handleFileChange }
                                 />
                             </div>
+                            <div className="mb-4">
+                                <p className="text-base font-semibold">Order Quantity:</p>
+                                <div className="flex items-center">
+                                    <button
+                                        type="button"
+                                        disabled={ isLoading || orderData.quantity <= 1 }
+                                        className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"} text-white font-bold py-2 px-4 rounded-md` }
+                                        onClick={ () => handleInputChange("quantity", orderData.quantity - 1) }
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        className="border border-gray-300 px-3 py-2 w-24 rounded mx-2 text-center"
+                                        type="text"
+                                        name="quantity"
+                                        value={ orderData.quantity }
+                                        readOnly
+                                    />
+                                    <button
+                                        type="button"
+                                        disabled={ isLoading }
+                                        className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"} text-white font-bold py-2 px-4 rounded-md` }
+                                        onClick={ () => handleInputChange("quantity", orderData.quantity + 1) }
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                            </div>
                             <div className="flex justify-end border-t pt-4">
                                 <button
                                     type="submit"
                                     disabled={ isLoading }
-                                    className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
-                                        } text-white font-bold py-2 px-4 rounded-full` }
+                                    className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"} text-white font-bold py-2 px-4 rounded-full` }
                                 >
                                     { isLoading ? 'Creating...' : 'Create Order' }
                                 </button>
                             </div>
                         </form>
                     </div>
-                </div >
+                </div>
             </div>
-        </div >
+        </div>
     );
 };
 

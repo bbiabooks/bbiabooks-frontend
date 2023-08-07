@@ -10,7 +10,7 @@ const CreateOrderDetailsPage = ({ params }) => {
     const { token, userId } = useAuthContext();
     const [paymentMethod, setPaymentMethod] = useState(["cash", "online"]);
     const [isLoading, setIsLoading] = useState(false);
-    const [orderData, setOrderData] = useState({ proofOfPayment: null });
+    const [orderData, setOrderData] = useState({ proofOfPayment: null, quantity: 1 });
     const [book, setBook] = useState([]);
     const [user, setUser] = useState([]);
     const [errorMessage, setErrorMessage] = useState(null);
@@ -21,18 +21,11 @@ const CreateOrderDetailsPage = ({ params }) => {
         router.push(`/client/client-pages/books`);
     };
 
-    const handleInputChange = (e) => {
-        if (e.target.name === "proofOfPayment" && e.target.files.length > 0) {
-            setOrderData({
-                ...orderData,
-                proofOfPayment: e.target.files[0],
-            });
-        } else {
-            setOrderData({
-                ...orderData,
-                [e.target.name]: e.target.value,
-            });
-        }
+    const handleInputChange = (name, value) => {
+        setOrderData((prevOrderData) => ({
+            ...prevOrderData,
+            [name]: value,
+        }));
     };
 
     const handleFileChange = (e) => {

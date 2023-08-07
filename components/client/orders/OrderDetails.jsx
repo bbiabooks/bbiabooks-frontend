@@ -70,6 +70,9 @@ const OrderDetails = ({
                             <p className="text-base font-semibold">Purchase Price:</p> ₱ { order.book.purchasePrice }
                         </div>
                         <div className="mb-4">
+                            <p className="text-base font-semibold">Order Quantity:</p> { order.quantity }
+                        </div>
+                        <div className="mb-4">
                             <p className="text-base font-semibold">Supplier:</p> { order.book.supplier.supplier }
                         </div>
                         <div className="mb-4">

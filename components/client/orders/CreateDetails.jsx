@@ -97,19 +97,17 @@ const CreateDetails = ({
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="paymentMethod"
                                     value={ orderData.paymentMethod || "" }
-                                    onChange={ handleInputChange }
+                                    onChange={ (e) => handleInputChange("paymentMethod", e.target.value) } // Update the "paymentMethod" field
                                     required
                                 >
                                     <option value="" disabled>
                                         Select Payment Method
                                     </option>
-                                    { paymentMethod.map((paymentMethod) => {
-                                        return (
-                                            <option key={ paymentMethod } value={ paymentMethod }>
-                                                { paymentMethod }
-                                            </option>
-                                        );
-                                    }) }
+                                    { paymentMethod.map((method) => (
+                                        <option key={ method } value={ method }>
+                                            { method }
+                                        </option>
+                                    )) }
                                 </select>
                             </div>
                             <div className="mb-4">
@@ -120,6 +118,34 @@ const CreateDetails = ({
                                     name="proofOfPayment"
                                     onChange={ handleFileChange }
                                 />
+                            </div>
+                            <div className="mb-4">
+                                <p className="text-base font-semibold">Order Quantity:</p>
+                                <div className="flex items-center">
+                                    <button
+                                        type="button"
+                                        disabled={ isLoading || orderData.quantity <= 1 }
+                                        className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"} text-white font-bold py-2 px-4 rounded-md` }
+                                        onClick={ () => handleInputChange("quantity", orderData.quantity - 1) }
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        className="border border-gray-300 px-3 py-2 w-24 rounded mx-2 text-center"
+                                        type="text"
+                                        name="quantity"
+                                        value={ orderData.quantity }
+                                        readOnly
+                                    />
+                                    <button
+                                        type="button"
+                                        disabled={ isLoading }
+                                        className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"} text-white font-bold py-2 px-4 rounded-md` }
+                                        onClick={ () => handleInputChange("quantity", orderData.quantity + 1) }
+                                    >
+                                        +
+                                    </button>
+                                </div>
                             </div>
                             <div className="flex justify-end border-t pt-4">
                                 <button

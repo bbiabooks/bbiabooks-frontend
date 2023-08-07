@@ -11,7 +11,7 @@ const CreateOrderDetailsPage = ({ params }) => {
     const [paymentMethod, setPaymentMethod] = useState(["cash", "online"]);
     const [orderStatus, setOrderStatus] = useState(["pending", "placed", "available"]);
     const [isLoading, setIsLoading] = useState(false);
-    const [orderData, setOrderData] = useState({ proofOfPayment: null });
+    const [orderData, setOrderData] = useState({ proofOfPayment: null, quantity: 1 });
     const [book, setBook] = useState([]);
     const [users, setUsers] = useState([]);
     const [errorMessage, setErrorMessage] = useState(null);
@@ -22,18 +22,11 @@ const CreateOrderDetailsPage = ({ params }) => {
         router.push(`/admin/admin-pages/books/catalogue`);
     };
 
-    const handleInputChange = (e) => {
-        if (e.target.name === "proofOfPayment" && e.target.files.length > 0) {
-            setOrderData({
-                ...orderData,
-                proofOfPayment: e.target.files[0],
-            });
-        } else {
-            setOrderData({
-                ...orderData,
-                [e.target.name]: e.target.value,
-            });
-        }
+    const handleInputChange = (name, value) => {
+        setOrderData((prevOrderData) => ({
+            ...prevOrderData,
+            [name]: value,
+        }));
     };
 
     const handleFileChange = (e) => {
