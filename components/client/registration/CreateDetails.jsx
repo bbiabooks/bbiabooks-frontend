@@ -1,3 +1,7 @@
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+
 const CreateDetails = ({
     userData,
     isLoading,
@@ -8,6 +12,19 @@ const CreateDetails = ({
     handleInputChange,
     handleFileChange,
     handleSubmit, }) => {
+
+    // State variable to keep track of whether the checkbox is checked or not
+    const [termsChecked, setTermsChecked] = useState(false);
+
+    // Function to handle checkbox change
+    const handleTermsCheckChange = () => {
+        setTermsChecked(!termsChecked);
+    };
+
+    // Function to check if the form is ready to be submitted
+    const isFormReady = () => {
+        return userData.userType && userData.branch && userData.username && userData.password && termsChecked;
+    };
 
     // Filter out user types (e.g., Admin, Librarian, Accountant)
     const filteredUserTypes = userTypes.filter(
@@ -351,11 +368,30 @@ const CreateDetails = ({
                                     required
                                 />
                             </div>
-                            <div className="flex justify-end border-t pt-4">
+                            <div className="flex items-center justify-start border-t pt-4">
+                                <label className="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        className="form-checkbox h-4 w-4 text-cyan-600"
+                                        checked={ termsChecked }
+                                        onChange={ handleTermsCheckChange }
+                                        required
+                                    />
+                                    <span className="ml-2 text-xs text-gray-600">
+                                        I have read and agree to the <Link href="/client/registration/policies">
+                                            <span
+                                                className="text-cyan-600 font-bold text-xs opacity-70 hover:opacity-100"
+                                            >Terms and Policies
+                                            </span>
+                                        </Link>.
+                                    </span>
+                                </label>
+                            </div>
+                            <div className="flex items-center justify-end pt-4">
                                 <button
                                     type="submit"
-                                    disabled={ isLoading }
-                                    className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
+                                    disabled={ isLoading || !isFormReady() }
+                                    className={ `bg-cyan-700 ${isLoading || !isFormReady() ? "cursor-not-allowed" : "hover:bg-orange-300"
                                         } text-white font-bold py-2 px-4 rounded-full` }
                                 >
                                     { isLoading ? 'Please wait...' : 'Sign Up' }
