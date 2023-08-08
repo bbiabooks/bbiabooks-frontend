@@ -5,6 +5,17 @@ const OrderDetails = ({
     handleOrderList,
     isLoading, }) => {
 
+    function isSaturday() {
+        const currentDate = new Date();
+        return currentDate.getDay() === 6; // 6 indicates Saturday
+    }
+
+    function isWeekday() {
+        const currentDate = new Date();
+        const dayOfWeek = currentDate.getDay();
+        return dayOfWeek >= 1 && dayOfWeek <= 5; // 1 (Monday) to 5 (Friday) indicate weekdays
+    }
+
     if (!order) {
         return (
             <div className="min-h-screen flex justify-center items-center">
@@ -55,12 +66,20 @@ const OrderDetails = ({
                         </div>
                         <div className="mb-4 mt-4">
                             <p className="text-base font-semibold">Notice:</p>
-                            { order.arrivalDate.slice(0, 10) === order.createdAt.slice(0, 10) ?
+                            { order.arrivalDate.slice(0, 10) === order.createdAt.slice(0, 10) ? (
                                 <p className="text-base font-semibold text-green-600">
-                                    { "Your order is already available and is ready to pick up." }
-                                </p> :
-                                <p className="text-base font-semibold text-rose-400">
-                                    { `Your order is expected to be available on or before ${order.arrivalDate.slice(0, 10)}.` }</p>
+                                    { isWeekday()
+                                        ? "Your order is already available and is ready to pick up."
+                                        : isSaturday()
+                                            ? "Your order is already available but you can pick it up by Monday since today is Saturday"
+                                            : "Your order is already available but you can pick it up by Monday since today is Sunday" }
+                                </p>
+                            ) : order.arrivalDate.slice(0, 10) < getCurrentDate().slice(0, 10) ? (
+                                <p className="text-base font-semibold text-red-600">
+                                    { `Your order is already available but wasn't picked up yet. Please pick up your order as soon as possible.` }
+                                </p>
+                            ) : <p className="text-base font-semibold text-rose-400">
+                                { `Your order is expected to be available on or before ${order.arrivalDate.slice(0, 10)}. Please wait for the Librarian to contact you.` }</p>
                             }
                         </div>
                         <div className="mb-4 mt-8">

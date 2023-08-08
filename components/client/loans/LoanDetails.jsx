@@ -5,6 +5,17 @@ const LoanDetails = ({
     handleLoanList,
     isLoading, }) => {
 
+    function isSaturday() {
+        const currentDate = new Date();
+        return currentDate.getDay() === 6; // 6 indicates Saturday
+    }
+
+    function isWeekday() {
+        const currentDate = new Date();
+        const dayOfWeek = currentDate.getDay();
+        return dayOfWeek >= 1 && dayOfWeek <= 5; // 1 (Monday) to 5 (Friday) indicate weekdays
+    }
+
     if (!loan) {
         return (
             <div className="min-h-screen flex justify-center items-center">
@@ -55,13 +66,23 @@ const LoanDetails = ({
                         </div>
                         <div className="mb-4 mt-4">
                             <p className="text-base font-semibold">Notice:</p>
-                            { loan.dueDate.slice(0, 10) === loan.createdAt.slice(0, 10) ?
+                            { loan.dueDate.slice(0, 10) === loan.createdAt.slice(0, 10) ? (
                                 <p className="text-base font-semibold text-rose-400">
                                     { `Your requested book is expected to be available on or before ${loan.dueDate.slice(0, 10)}. Please make a new request after the said date.` }
-                                </p> :
+                                </p>
+                            ) : loan.dueDate.slice(0, 10) < getCurrentDate().slice(0, 10) ? (
+                                <p className="text-base font-semibold text-red-600">
+                                    { `Your requested book is overdue. Please return the book as soon as possible.` }
+                                </p>
+                            ) : (
                                 <p className="text-base font-semibold text-green-600">
-                                    { "Your requested book is already available and is ready to pick up." } </p>
-                            }
+                                    { isWeekday()
+                                        ? "Your requested book is already available and is ready to pick up."
+                                        : isSaturday()
+                                            ? "Your requested book is already available but you can pick it up by Monday since today is Saturday"
+                                            : "Your requested book is already available but you can pick it up by Monday since today is Sunday" }
+                                </p>
+                            ) }
                         </div>
                         <div className="mb-4">
                             <p className="text-base font-semibold">Book Title:</p> { loan.book ? loan.book.title : "N/A" }
