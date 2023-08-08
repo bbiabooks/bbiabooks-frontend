@@ -21,11 +21,11 @@ const CreateLoanDetailsPage = ({ params }) => {
         router.push(`/admin/admin-pages/books/catalogue`);
     };
 
-    const handleInputChange = (e) => {
-        setLoanData({
-            ...loanData,
-            [e.target.name]: e.target.value,
-        });
+    const handleInputChange = (name, value) => {
+        setLoanData((prevLoanData) => ({
+            ...prevLoanData,
+            [name]: value,
+        }));
     };
 
     useEffect(() => {

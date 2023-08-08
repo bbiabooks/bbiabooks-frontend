@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from 'next/image';
 
 const CreateDetails = ({
@@ -10,19 +10,36 @@ const CreateDetails = ({
     isLoading,
     handleInputChange,
     handleSubmit,
-    handleBookCatalogue,
-}) => {
+    handleBookCatalogue }) => {
 
     const [searchTerm, setSearchTerm] = useState('');
+    const [borrower, setBorrower] = useState(loanData.borrower || "");
 
     const handleSearchTermChange = (e) => {
         setSearchTerm(e.target.value);
     };
 
+    useEffect(() => {
+        // When the filteredUsers change due to the search term,
+        // check if the current borrower user is still included in the filtered users.
+        // If not, reset the borrower value to an empty string.
+        const foundUser = filteredUsers.find(user => user._id === borrower);
+        if (!foundUser) {
+            setBorrower("");
+        }
+    }, [searchTerm]);
+
     const filteredUsers = users.filter((user) => {
         const fullName = `${user.lastName}, ${user.firstName} ${user.username}`;
         return fullName.toLowerCase().includes(searchTerm.toLowerCase());
     }).filter((user) => user.userType.userType === "Teacher" || user.userType.userType === "Student");
+
+    // Update the borrower state when the combo box selection changes
+    const handleBorrowerChange = (e) => {
+        const selectedUserId = e.target.value;
+        setBorrower(selectedUserId);
+        handleInputChange("borrower", selectedUserId); // Update the "borrower" field in loanData
+    };
 
     if (isLoading) {
         return (
@@ -85,8 +102,8 @@ const CreateDetails = ({
                                 <select
                                     className="border border-gray-300 px-3 py-2 mt-1 rounded"
                                     name="borrower"
-                                    value={ loanData.borrower || "" }
-                                    onChange={ handleInputChange }
+                                    value={ borrower }
+                                    onChange={ handleBorrowerChange }
                                     required
                                 >
                                     <option value="" disabled>
@@ -121,19 +138,17 @@ const CreateDetails = ({
                                     className="border border-gray-300 px-3 py-2 mt-1 w-full rounded"
                                     name="loanStatus"
                                     value={ loanData.loanStatus || "" }
-                                    onChange={ handleInputChange }
+                                    onChange={ (e) => handleInputChange("loanStatus", e.target.value) } // Update the "loanStatus" field
                                     required
                                 >
                                     <option value="" disabled>
                                         Select Borrowing Status
                                     </option>
-                                    { loanStatus.map((loanStatus) => {
-                                        return (
-                                            <option key={ loanStatus } value={ loanStatus }>
-                                                { loanStatus }
-                                            </option>
-                                        );
-                                    }) }
+                                    { loanStatus.map((status) => (
+                                        <option key={ status } value={ status }>
+                                            { status }
+                                        </option>
+                                    )) }
                                 </select>
                             </div>
                             <div className="flex justify-end border-t pt-4">
