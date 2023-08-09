@@ -187,7 +187,7 @@ const OrderTable = ({
                                 value={ searchTerm }
                                 onChange={ handleSearch }
                                 className="ml-2 border-b border-gray-600 px-3 py-2 w-full focus:outline-none bg-transparent"
-                                placeholder="Search by: id | title | user | status | date"
+                                placeholder="Search by: id | title | branch | user | status | date"
                             />
                             <Image
                                 src="/search.svg"
@@ -208,6 +208,8 @@ const OrderTable = ({
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Book Title
                                     </div></th>
+                                <th className="px-4 py-2 text-white font-semibold">
+                                    <div className="flex justify-start">Branch</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">User Type</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
@@ -238,6 +240,9 @@ const OrderTable = ({
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
                                         { order.book ? order.book.title : "N/A" }
+                                    </td>
+                                    <td className="border-t border-cyan-800 px-4 py-2">
+                                        { order.reservedFor ? order.reservedFor.branch.branch : "N/A" }
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
                                         { order.reservedFor ? order.reservedFor.userType.userType : "N/A" }

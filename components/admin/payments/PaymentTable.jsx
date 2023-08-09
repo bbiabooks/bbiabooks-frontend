@@ -155,7 +155,7 @@ const PaymentTable = ({
                                 value={ searchTerm }
                                 onChange={ handleSearch }
                                 className="ml-2 border-b border-gray-600 px-3 py-2 w-full focus:outline-none bg-transparent"
-                                placeholder="Search by: id | title | user | status | date"
+                                placeholder="Search by: id | title | branch | user | status | date"
                             />
                             <Image
                                 src="/search.svg"
@@ -177,6 +177,8 @@ const PaymentTable = ({
                                     <div className="flex justify-start">Book Title</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Price</div></th>
+                                <th className="px-4 py-2 text-white font-semibold">
+                                    <div className="flex justify-start">Branch</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Reserved For</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
@@ -208,6 +210,9 @@ const PaymentTable = ({
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
                                         { "₱ " + (order.book ? order.book.purchasePrice : "N/A") }
+                                    </td>
+                                    <td className="border-t border-cyan-800 px-4 py-2">
+                                        { order.reservedFor ? order.reservedFor.branch.branch : "N/A" }
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
                                         { order.reservedFor ? order.reservedFor.firstName + " " + order.reservedFor.lastName : "N/A" }

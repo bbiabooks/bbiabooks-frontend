@@ -162,7 +162,7 @@ const LoanTable = ({
                                 value={ searchTerm }
                                 onChange={ handleSearch }
                                 className="ml-2 border-b border-gray-600 px-3 py-2 w-full focus:outline-none bg-transparent"
-                                placeholder="Search by: id | title | user | status | date"
+                                placeholder="Search by: id | title | branch | user | status | date"
                             />
                             <Image
                                 src="/search.svg"
@@ -182,6 +182,8 @@ const LoanTable = ({
                                     <div className="flex justify-start">Borrow ID</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">Book Title</div></th>
+                                <th className="px-4 py-2 text-white font-semibold">
+                                    <div className="flex justify-start">Branch</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
                                     <div className="flex justify-start">User Type</div></th>
                                 <th className="px-4 py-2 text-white font-semibold">
@@ -212,6 +214,9 @@ const LoanTable = ({
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
                                         { loan.book ? loan.book.title : "N/A" }
+                                    </td>
+                                    <td className="border-t border-cyan-800 px-4 py-2">
+                                        { loan.borrower ? loan.borrower.branch.branch : "N/A" }
                                     </td>
                                     <td className="border-t border-cyan-800 px-4 py-2">
                                         { loan.borrower ? loan.borrower.userType.userType : "N/A" }

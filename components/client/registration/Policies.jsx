@@ -34,37 +34,64 @@ const Policies = ({ isLoading }) => {
                 {/* Clients (Teachers & Students) User Guide */ }
                 <div className="mb-12 flex justify-start flex-col">
                     <h1 className="text-2xl font-bold text-start mb-4">
-                        Clients (Teachers & Students) User Guide:
+                        TERMS AND CONDITIONS OF USE
                     </h1>
                     <div className="px-4 min-w-full bg-white rounded-lg shadow-lg p-6">
                         <div>
                             <p>
-                                <strong>Instructions:</strong>
+                                <strong>Access and Use:</strong>
                             </p>
                             <ul className="list-disc list-inside pb-4">
-                                <li>
-                                    You can browse the Book Catalogue to find available books for
-                                    borrowing or ordering.
-                                </li>
-                                <li>Place book orders and borrow books through the Book Catalogue Page.</li>
-                                <li>View own activity logs, personal profiles, track borrowing history, and order status.</li>
+                                <li>The "BBIA Library System" is accessible to registered users who agree to abide by these terms.</li>
+                                <li>Unauthorized access or use of the System is prohibited.</li>
                             </ul>
                             <p>
-                                <strong>Limitations:</strong>
+                                <strong>User Responsibilities:</strong>
                             </p>
                             <ul className="list-disc list-inside pb-4">
-                                <li>You cannot perform administrative or book management tasks.</li>
-                                <li>Teachers cannot access student information, and students cannot access teacher information.</li>
+                                <li>Users are responsible for using the System in a lawful and responsible manner.</li>
+                                <li>Users must respect intellectual property rights and not engage in any form of copyright infringement.</li>
+                                <li>Compliance with System rules and guidelines is required for all users.</li>
+                            </ul>
+                            <p>
+                                <strong>Privacy:</strong>
+                            </p>
+                            <ul className="list-disc list-inside pb-4">
+                                <li>User data is collected during registration and usage to enhance System functionality.</li>
+                                <li>Refer to the Privacy Policy for comprehensive details on data collection, usage, and protection.</li>
+                            </ul>
+                            <p>
+                                <strong>Intellectual Property:</strong>
+                            </p>
+                            <ul className="list-disc list-inside pb-4">
+                                <li>In cases of legitimate copyright concerns, the System will take appropriate action, which may include the removal of infringing content or the suspension of user accounts involved in repeated violations.</li>
+                            </ul>
+                            <p>
+                                <strong>Termination:</strong>
+                            </p>
+                            <ul className="list-disc list-inside pb-4">
+                                <li>Users found to be engaging in activities that compromise the integrity of the System or infringe upon the rights of others will face consequences, including potential legal actions.</li>
+                            </ul>
+                            <p>
+                                <strong>Disclamer:</strong>
+                            </p>
+                            <ul className="list-disc list-inside pb-4">
+                                <li>The System provides information on an "as-is" basis and makes no guarantees of accuracy or availability.</li>
+                                <li>The System is not liable for any damages resulting from its use.</li>
+                            </ul>
+                            <p>
+                                <strong>Changes to Terms:</strong>
+                            </p>
+                            <ul className="list-disc list-inside pb-4">
+                                <li>Any updates or revisions to the terms of use will be readily available on the "BBIA Library System" website under the "Terms and Conditions" section upon clicking "Help" on navigation.</li>
+                                <li>Users are encouraged to periodically visit the terms and conditions page to review any modifications.</li>
                             </ul>
                             <p>
                                 <strong>Helps and Contacts:</strong>
                             </p>
                             <ul className="list-disc list-inside pb-4">
-                                <li>For any questions or issues, contact the School Librarian or email support@bbia-system.com.</li>
+                                <li>For any questions or issues, contact the School Librarian via email <strong>bbialibrarian@gmail.com</strong> or phone number through <strong>+63 991 503 4755</strong>.</li>
                             </ul>
-                            <p className="pb-4">
-                                <strong>Note:</strong> Remember to keep your login credentials confidential and report any suspicious activities immediately to maintain the system's security and integrity. Enjoy using the BBIA Web-Based Book Inventory System!
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -72,97 +99,114 @@ const Policies = ({ isLoading }) => {
                 {/* User Policies and Rules */ }
                 <div className="mb-12 flex justify-start flex-col">
                     <h1 className="text-2xl font-bold text-start mb-4">
-                        User Policies and Rules for Book Library System:
+                        BBIA LIBRARY SYSTEM'S PRIVACY POLICY:
                     </h1>
                     <div className="px-4 min-w-full bg-white rounded-lg shadow-lg p-6">
                         <div>
-                            {/* List of policies and rules */ }
                             <p>
-                                <strong>User Authentication and Security:</strong>
+                                <strong>Information Collection:</strong>
                             </p>
                             <ul className="list-disc list-inside pb-4">
-                                <li>Each user must have a unique login ID and password.</li>
-                                <li>Users are responsible for maintaining the confidentiality of their login credentials.</li>
-                                <li>Do not share your login information with others to prevent unauthorized access.</li>
+                                <li>User information collected includes registration data, usage logs, and preferences.</li>
+                                <li>Collected data is used to enhance user experience and System functionality.</li>
                             </ul>
                             <p>
-                                <strong>Authorized Access Only:</strong>
+                                <strong>Data Sharing:</strong>
                             </p>
                             <ul className="list-disc list-inside pb-4">
-                                <li>Users should only access areas of the system relevant to their roles (e.g., administrators accessing administrative features).</li>
-                                <li>Unauthorized access to sensitive information or functionalities is strictly prohibited.</li>
+                                <li>User data will not be shared with third parties without explicit consent, except as required by law.</li>
                             </ul>
                             <p>
-                                <strong>Data Integrity and Accuracy:</strong>
+                                <strong>Data Security:</strong>
                             </p>
                             <ul className="list-disc list-inside pb-4">
-                                <li>Users must ensure the accuracy and integrity of data entered into the system.</li>
-                                <li>Avoid entering false or misleading information that could compromise the system's reliability.</li>
+                                <li>Measures such as encryption and access controls are implemented to protect user data.</li>
+                                <li>Data breaches will be promptly reported to affected users and authorities.</li>
                             </ul>
                             <p>
-                                <strong>Prohibited Actions:</strong>
+                                <strong>User Rights:</strong>
                             </p>
                             <ul className="list-disc list-inside pb-4">
-                                <li>Users are prohibited from attempting to modify or delete system files, databases, or configurations.</li>
-                                <li>Any form of hacking, data manipulation, or unauthorized intrusion into the system is strictly prohibited.</li>
+                                <li>Users can access or modify their personal information through their account profile.</li>
                             </ul>
                             <p>
-                                <strong>Responsible Use of Resources:</strong>
+                                <strong>Legal Bases:</strong>
                             </p>
                             <ul className="list-disc list-inside pb-4">
-                                <li>Users should use the system resources responsibly to avoid overloading the server and causing performance issues.</li>
-                                <li>Avoid excessive data queries or operations that could impact system responsiveness.</li>
+                                <li>User data is collected based on consent provided during registration.</li>
                             </ul>
                             <p>
-                                <strong>Backup and Restoration:</strong>
+                                <strong>Retention Period:</strong>
                             </p>
                             <ul className="list-disc list-inside pb-4">
-                                <li>Regularly backup important data and files to prevent data loss in case of system failures.</li>
-                                <li>Contact the IT support team for assistance in data restoration, if needed.</li>
+                                <li>User data will be retained as long as necessary to fulfill System purposes.</li>
                             </ul>
                             <p>
-                                <strong>Reporting Security Incidents:</strong>
+                                <strong>Note:</strong> By using the BBIA Library System, users agree to abide by these policies and rules. Failure to comply may result in consequences, including legal actions in case of serious violations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Library Policies and Rules */ }
+                <div className="mb-12 flex justify-start flex-col">
+                    <h1 className="text-2xl font-bold text-start mb-4">
+                        BBIA LIBRARY USER AGREEMENT:
+                    </h1>
+                    <div className="px-4 min-w-full bg-white rounded-lg shadow-lg p-6">
+                        <div>
+                            <p>
+                                <strong>User Eligibility:</strong>
                             </p>
                             <ul className="list-disc list-inside pb-4">
-                                <li>Users must report any security incidents or suspicious activities immediately to the IT support team.</li>
-                                <li>Prompt reporting helps to address potential threats and vulnerabilities in a timely manner.</li>
+                                <li>Access to the "BBIA Library System" is available to individuals who meet the eligibility criteria established by the System.</li>
                             </ul>
                             <p>
-                                <strong>Respectful Communication:</strong>
+                                <strong>User Benefits:</strong>
                             </p>
                             <ul className="list-disc list-inside pb-4">
-                                <li>Users should communicate respectfully and professionally with other users within the system.</li>
-                                <li>Avoid using offensive language or engaging in any form of harassment or discrimination.</li>
+                                <li>Users have the privilege to borrow resources from the library and also order books from the book catalogue, providing access to a diverse range of reading materials.</li>
                             </ul>
                             <p>
-                                <strong>Compliance with Policies and Regulations:</strong>
+                                <strong>Borrowing and Returns:</strong>
                             </p>
                             <ul className="list-disc list-inside pb-4">
-                                <li>Users are required to comply with all organization policies, procedures, and legal regulations related to system usage.</li>
-                                <li>Failure to comply may result in disciplinary actions, including account suspension or termination.</li>
+                                <li>Users are allowed to borrow books based on borrowing limits and lending periods. This approach ensures equitable access to the collection while promoting responsible utilization. To avoid late fees or penalties, timely returns are essential.</li>
+                                <li>Damaged or lost borrowed book must be reported directly to the library in face-to-face manner.</li>
                             </ul>
                             <p>
-                                <strong>System Updates and Maintenance:</strong>
+                                <strong>Late Fees and Penalties:</strong>
                             </p>
                             <ul className="list-disc list-inside pb-4">
-                                <li>Users should be aware that the system may undergo periodic updates and maintenance.</li>
-                                <li>Scheduled maintenance activities will be communicated in advance to minimize disruptions.</li>
+                                <li>A late fee of 10 pesos per week will be enforced for books that are returned past their due date.</li>
+                                <li>Users will be charged the cost of the book for items that are damaged or lost.</li>
                             </ul>
                             <p>
-                                <strong>Logging and Monitoring:</strong>
+                                <strong>Inventory Management Policy:</strong>
                             </p>
                             <ul className="list-disc list-inside pb-4">
-                                <li>User activities within the system will be logged and monitored for security and auditing purposes.</li>
-                                <li>Users must not attempt to alter or tamper with system logs.</li>
+                                <li>Books will be categorized and labeled for efficient organization.</li>
+                                <li>Users can check book availability through the System's interface.</li>
+                                <li>Availability may vary based on user status and book type.</li>
+                                <li>Users can reserve items in advance, subject to availability.</li>
+                                <li>Unclaimed reservations may lead to forfeiture of reserved items.</li>
                             </ul>
                             <p>
-                                <strong>Termination of Access:</strong>
+                                <strong>Maintenance and Repairs:</strong>
                             </p>
                             <ul className="list-disc list-inside pb-4">
-                                <li>Access to the system may be terminated if users violate policies, misuse the system, or engage in unauthorized activities.</li>
+                                <li>Damaged books will be promptly assessed for repair or replacement.</li>
+                                <li>Users are encouraged to report damaged books to facilitate prompt resolution.</li>
                             </ul>
                             <p>
-                                <strong>Note:</strong> By using the BBIA Web-Based Book Inventory System, users agree to abide by these policies and rules. Failure to comply may result in consequences, including legal actions in case of serious violations.
+                                <strong>Deaccessioning:</strong>
+                            </p>
+                            <ul className="list-disc list-inside pb-4">
+                                <li>Books will be removed from the inventory based on relevance, condition, availability, and alignment with the curriculum and educational goals.</li>
+                                <li>Books no longer aligned with the curriculum may be returned to suppliers or publishers as per established procedures and agreements.</li>
+                            </ul>
+                            <p>
+                                <strong>Note:</strong> By using the BBIA Library System, users agree to abide by these policies and rules. Failure to comply may result in consequences, including legal actions in case of serious violations.
                             </p>
                         </div>
                     </div>
