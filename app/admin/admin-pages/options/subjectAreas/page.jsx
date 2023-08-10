@@ -26,10 +26,8 @@ const SubjectAreaTablePage = () => {
                 if (!response.ok) {
                     if (response.status === 401) {
                         setErrorMessage(`An error occurred while fetching subject areas.`);
-                        router.push("/admin/admin-pages"); // Redirect to admin dashboard
                     } else {
                         setErrorMessage("Something went wrong.");
-                        router.push("/admin/admin-pages"); // Redirect to admin dashboard
                     }
                 }
                 const data = await response.json();

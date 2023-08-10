@@ -27,10 +27,8 @@ const UserTablePage = () => {
                 if (!response.ok) {
                     if (response.status === 401) {
                         setErrorMessage(`An error occurred while fetching signups.`);
-                        router.push("/admin/admin-pages"); // Redirect to admin dashboard
                     } else {
                         setErrorMessage("Something went wrong.");
-                        router.push("/admin/admin-pages"); // Redirect to admin dashboard
                     }
                 }
 

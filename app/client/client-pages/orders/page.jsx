@@ -27,10 +27,8 @@ const OrderTablePage = () => {
                 if (!response.ok) {
                     if (response.status === 401) {
                         setErrorMessage(`An error occurred while fetching orders.`);
-                        router.push("/client/client-pages"); // Redirect to client dashboard
                     } else {
                         setErrorMessage("Something went wrong.");
-                        router.push("/client/client-pages"); // Redirect to client dashboard
                     }
                 }
 
