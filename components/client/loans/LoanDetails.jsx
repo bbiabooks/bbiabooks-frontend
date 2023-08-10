@@ -5,7 +5,7 @@ const LoanDetails = ({
     handleLoanList,
     isLoading, }) => {
 
-    const getCurrentDate = new Date();
+    let getCurrentDate = new Date();
 
     function isSaturday() {
         const currentDate = new Date();
