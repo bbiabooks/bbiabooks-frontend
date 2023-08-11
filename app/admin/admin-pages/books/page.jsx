@@ -27,12 +27,14 @@ const BookTablePage = () => {
                     },
                 });
 
+                if (response.status === 401) {
+                    setErrorMessage(`An error occurred while fetching catalogue.`);
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    if (response.status === 401) {
-                        setErrorMessage(`An error occurred while fetching books.`);
-                    } else {
-                        setErrorMessage("Something went wrong.");
-                    }
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();

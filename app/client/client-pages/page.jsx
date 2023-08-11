@@ -29,8 +29,14 @@ const HomePage = () => {
                     },
                 });
 
+                if (response.status === 401) {
+                    setErrorMessage(`An error occurred while fetching transactions.`);
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    throw new Error("Failed to fetch Inventory");
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();
@@ -56,8 +62,14 @@ const HomePage = () => {
                     },
                 });
 
+                if (response.status === 401) {
+                    setErrorMessage(`An error occurred while fetching reports.`);
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    throw new Error("Failed to fetch Reports");
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();
@@ -81,8 +93,14 @@ const HomePage = () => {
                     },
                 });
 
+                if (response.status === 401) {
+                    setErrorMessage(`An error occurred while fetching user.`);
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    throw new Error("Failed to fetch User");
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();

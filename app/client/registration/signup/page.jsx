@@ -80,8 +80,14 @@ const SignupDetailsPage = () => {
             try {
                 const response = await fetch(`${URL}/api/userTypes`);
 
+                if (response.status === 401) {
+                    setErrorMessage(`An error occurred while fetching user types.`);
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    throw new Error("Something went wrong.");
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();
@@ -101,8 +107,14 @@ const SignupDetailsPage = () => {
             try {
                 const response = await fetch(`${URL}/api/branches`);
 
+                if (response.status === 401) {
+                    setErrorMessage(`An error occurred while fetching branches.`);
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    throw new Error("Something went wrong.");
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();
@@ -121,8 +133,14 @@ const SignupDetailsPage = () => {
             try {
                 const response = await fetch(`${URL}/api/subjectAreas`);
 
+                if (response.status === 401) {
+                    setErrorMessage(`An error occurred while fetching subject areas.`);
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    throw new Error("Something went wrong.");
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();
@@ -141,8 +159,14 @@ const SignupDetailsPage = () => {
             try {
                 const response = await fetch(`${URL}/api/gradeLevels`);
 
+                if (response.status === 401) {
+                    setErrorMessage(`An error occurred while fetching grade levels.`);
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    throw new Error("Something went wrong.");
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();
