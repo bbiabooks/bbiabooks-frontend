@@ -45,7 +45,7 @@ const ReportTable = ({
     }
 
     return (
-        <div className="flex-col flex items-start justify-start min-h-full p-12">
+        <div className="min-h-screen p-12">
             {/* Add a print-only class to the root div for print styling */ }
             <div className={ `print-only flex-grow ${isPrinting ? "print-table" : ""}` }>
                 <h1 className="text-2xl font-bold mb-6 flex justify-start">
@@ -94,7 +94,7 @@ const ReportTable = ({
                         </div>
                     </div>
                 </div>
-                <div className="overflow-y-auto max-h-[calc(100vh-25vh)]">
+                <div className="overflow-y-auto max-h-[calc(100vh-25vh)] w-full md:w-[928px]">
                     <table className="table-auto rounded-lg overflow-hidden shadow-lg w-full text-sm">
                         <thead>
                             <tr className="bg-cyan-900">

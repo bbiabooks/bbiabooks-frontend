@@ -59,7 +59,7 @@ const PaymentTable = ({
     }
 
     return (
-        <div className="flex-col flex items-start justify-start min-h-full p-12">
+        <div className="min-h-screen p-12">
             {/* Add a print-only class to the root div for print styling */ }
             <div className={ `print-only flex-grow ${isPrinting ? "print-table" : ""}` }>
                 <h1 className="text-2xl font-bold mb-6 flex justify-start">
