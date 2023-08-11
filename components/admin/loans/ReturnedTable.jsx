@@ -155,7 +155,7 @@ const ReturnedTable = ({
                         </div>
                     </div>
                 </div>
-                <div className="overflow-y-auto max-h-[calc(100vh-25vh)]">
+                <div className="overflow-y-auto max-h-[calc(100vh-25vh)] max-w-5xl">
                     <table className="table-auto rounded-lg overflow-hidden shadow-lg w-full text-sm">
                         <thead>
                             <tr className="bg-cyan-900">
