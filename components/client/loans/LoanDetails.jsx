@@ -5,7 +5,13 @@ const LoanDetails = ({
     handleLoanList,
     isLoading, }) => {
 
-    let getCurrentDate = new Date();
+    function getCurrentDate() {
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+        const day = String(currentDate.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+    }
 
     function isSaturday() {
         const currentDate = new Date();
@@ -72,7 +78,7 @@ const LoanDetails = ({
                                 <p className="text-base font-semibold text-rose-400">
                                     { `Your requested book is expected to be available on or before ${loan.dueDate.slice(0, 10)}. Please make a new request after the said date.` }
                                 </p>
-                            ) : loan.dueDate.slice(0, 10) < getCurrentDate.slice(0, 10) ? (
+                            ) : loan.dueDate.slice(0, 10) < getCurrentDate() ? (
                                 <p className="text-base font-semibold text-red-600">
                                     { `Your requested book is overdue. Please return the book as soon as possible.` }
                                 </p>

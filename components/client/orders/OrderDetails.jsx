@@ -5,7 +5,13 @@ const OrderDetails = ({
     handleOrderList,
     isLoading, }) => {
 
-    let getCurrentDate = new Date();
+    function getCurrentDate() {
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+        const day = String(currentDate.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+    }
 
     function isSaturday() {
         const currentDate = new Date();
@@ -76,7 +82,7 @@ const OrderDetails = ({
                                             ? "Your order is already available but you can pick it up by Monday since today is Saturday"
                                             : "Your order is already available but you can pick it up by Monday since today is Sunday" }
                                 </p>
-                            ) : order.arrivalDate.slice(0, 10) < getCurrentDate.slice(0, 10) ? (
+                            ) : order.arrivalDate.slice(0, 10) < getCurrentDate() ? (
                                 <p className="text-base font-semibold text-red-600">
                                     { `Your order is already available but wasn't picked up yet. Please pick up your order as soon as possible.` }
                                 </p>
