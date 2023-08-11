@@ -29,10 +29,14 @@ const GradeLevelDetailsPage = ({ params }) => {
                     },
                 });
 
-                if (!response.ok) {
-                    throw new Error("Something went wrong.");
+                if (response.status === 401) {
+                    return; // Stop further execution to prevent errors
                 }
 
+                if (!response.ok) {
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
+                }
                 const data = await response.json();
                 setGradeLevel(data);
 

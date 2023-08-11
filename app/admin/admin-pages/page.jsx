@@ -29,8 +29,13 @@ const DashboardPage = () => {
                     },
                 });
 
+                if (response.status === 401) {
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    throw new Error("Failed to fetch Inventory");
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();
@@ -56,8 +61,13 @@ const DashboardPage = () => {
                     },
                 });
 
+                if (response.status === 401) {
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    throw new Error("Failed to fetch Reports");
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();
@@ -81,8 +91,13 @@ const DashboardPage = () => {
                     },
                 });
 
+                if (response.status === 401) {
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    throw new Error("Failed to fetch User");
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();

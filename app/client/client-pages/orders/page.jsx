@@ -25,7 +25,6 @@ const OrderTablePage = () => {
                 });
 
                 if (response.status === 401) {
-                    setErrorMessage(`An error occurred while fetching orders.`);
                     return; // Stop further execution to prevent errors
                 }
 

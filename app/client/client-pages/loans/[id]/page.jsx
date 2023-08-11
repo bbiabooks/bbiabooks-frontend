@@ -26,7 +26,6 @@ const LoanDetailsPage = ({ params }) => {
                 });
 
                 if (response.status === 401) {
-                    setErrorMessage(`An error occurred while fetching borrowed book.`);
                     return; // Stop further execution to prevent errors
                 }
 

@@ -33,7 +33,6 @@ const CreateLoanDetailsPage = ({ params }) => {
                 });
 
                 if (response.status === 401) {
-                    setErrorMessage(`An error occurred while fetching book.`);
                     return; // Stop further execution to prevent errors
                 }
 
@@ -66,7 +65,6 @@ const CreateLoanDetailsPage = ({ params }) => {
                 });
 
                 if (response.status === 401) {
-                    setErrorMessage(`An error occurred while fetching user.`);
                     return; // Stop further execution to prevent errors
                 }
 

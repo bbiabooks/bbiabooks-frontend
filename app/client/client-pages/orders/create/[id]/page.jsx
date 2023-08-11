@@ -86,7 +86,6 @@ const CreateOrderDetailsPage = ({ params }) => {
                 });
 
                 if (response.status === 401) {
-                    setErrorMessage(`An error occurred while fetching user.`);
                     return; // Stop further execution to prevent errors
                 }
 

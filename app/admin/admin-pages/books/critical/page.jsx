@@ -25,7 +25,6 @@ const CriticalTablePage = () => {
                 });
 
                 if (response.status === 401) {
-                    setErrorMessage(`An error occurred while fetching catalogue.`);
                     return; // Stop further execution to prevent errors
                 }
 

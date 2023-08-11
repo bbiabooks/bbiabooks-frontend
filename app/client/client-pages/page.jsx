@@ -30,7 +30,6 @@ const HomePage = () => {
                 });
 
                 if (response.status === 401) {
-                    setErrorMessage(`An error occurred while fetching transactions.`);
                     return; // Stop further execution to prevent errors
                 }
 
@@ -63,7 +62,6 @@ const HomePage = () => {
                 });
 
                 if (response.status === 401) {
-                    setErrorMessage(`An error occurred while fetching reports.`);
                     return; // Stop further execution to prevent errors
                 }
 
@@ -94,7 +92,6 @@ const HomePage = () => {
                 });
 
                 if (response.status === 401) {
-                    setErrorMessage(`An error occurred while fetching user.`);
                     return; // Stop further execution to prevent errors
                 }
 

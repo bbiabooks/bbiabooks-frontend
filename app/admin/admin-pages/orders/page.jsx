@@ -24,12 +24,13 @@ const OrderTablePage = () => {
                     },
                 });
 
+                if (response.status === 401) {
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    if (response.status === 401) {
-                        setErrorMessage(`An error occurred while fetching orders.`);
-                    } else {
-                        setErrorMessage("Something went wrong.");
-                    }
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();

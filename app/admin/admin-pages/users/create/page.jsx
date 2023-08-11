@@ -96,8 +96,13 @@ const CreateUserDetailsPage = () => {
                     }
                 );
 
+                if (response.status === 401) {
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    throw new Error("Something went wrong.");
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();
@@ -124,8 +129,13 @@ const CreateUserDetailsPage = () => {
                     }
                 );
 
+                if (response.status === 401) {
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    throw new Error("Something went wrong.");
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();
@@ -148,8 +158,13 @@ const CreateUserDetailsPage = () => {
                     },
                 });
 
+                if (response.status === 401) {
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    throw new Error("Something went wrong.");
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();
@@ -172,8 +187,13 @@ const CreateUserDetailsPage = () => {
                     },
                 });
 
+                if (response.status === 401) {
+                    return; // Stop further execution to prevent errors
+                }
+
                 if (!response.ok) {
-                    throw new Error("Something went wrong.");
+                    setErrorMessage("Something went wrong."); // Handle other errors as needed
+                    return; // Stop further execution to prevent errors
                 }
 
                 const data = await response.json();

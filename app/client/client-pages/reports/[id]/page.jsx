@@ -25,7 +25,6 @@ const ReportDetailsPage = ({ params }) => {
                 });
 
                 if (response.status === 401) {
-                    setErrorMessage(`An error occurred while fetching report.`);
                     return; // Stop further execution to prevent errors
                 }
 

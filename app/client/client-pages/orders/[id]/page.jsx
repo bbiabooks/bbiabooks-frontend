@@ -26,7 +26,6 @@ const OrderDetailsPage = ({ params }) => {
                 });
 
                 if (response.status === 401) {
-                    setErrorMessage(`An error occurred while fetching order.`);
                     return; // Stop further execution to prevent errors
                 }
 

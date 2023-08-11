@@ -25,7 +25,6 @@ const ReturnedTablePage = () => {
                 });
 
                 if (response.status === 401) {
-                    setErrorMessage(`An error occurred while fetching returned books.`);
                     return; // Stop further execution to prevent errors
                 }
 

@@ -25,7 +25,6 @@ const DistributedTablePage = () => {
                 });
 
                 if (response.status === 401) {
-                    setErrorMessage(`An error occurred while fetching distributed books.`);
                     return; // Stop further execution to prevent errors
                 }
 
