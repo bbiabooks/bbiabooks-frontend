@@ -167,7 +167,7 @@ const PaymentTable = ({
                         </div>
                     </div>
                 </div>
-                <div className="overflow-y-auto max-h-[calc(100vh-25vh)] max-w-5xl">
+                <div className="overflow-y-auto max-h-[calc(100vh-25vh)] max-w-full">
                     <table className="table-auto rounded-lg overflow-hidden shadow-lg w-full text-sm">
                         <thead>
                             <tr className="bg-cyan-900">
