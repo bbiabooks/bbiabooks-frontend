@@ -26,10 +26,12 @@ const PaymentTable = ({
         const { _id, book, reservedFor, orderStatus, paymentStatus, updatedAt } = order;
         const bookV = book ? book.title : "N/A";
         const reservedForV = reservedFor ? (`${reservedFor.firstName} ${reservedFor.lastName}`) : "N/A";
+        const branchV = reservedFor ? reservedFor.branch.branch : "N/A";
         const formattedDate = new Date(updatedAt).toLocaleString();
 
         return _id.includes(searchTerm) ||
             bookV.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            branchV.toLowerCase().includes(searchTerm.toLowerCase()) ||
             reservedForV.toLowerCase().includes(searchTerm.toLowerCase()) ||
             orderStatus.toLowerCase().includes(searchTerm.toLowerCase()) ||
             paymentStatus.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -167,7 +169,7 @@ const PaymentTable = ({
                         </div>
                     </div>
                 </div>
-                <div className="overflow-y-auto max-h-[calc(100vh-25vh)] max-w-[928px]">
+                <div className="overflow-y-auto max-h-[calc(100vh-25vh)] w-full max-w-[928px]">
                     <table className="table-auto rounded-lg overflow-hidden shadow-lg w-full text-sm">
                         <thead>
                             <tr className="bg-cyan-900">

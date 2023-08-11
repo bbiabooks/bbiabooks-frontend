@@ -3,7 +3,7 @@ import Hero from "@components/main/Hero";
 
 const LandingPage = () => {
   return (
-    <div className="gradient min-h-screen">
+    <div className="gradient min-h-screen w-screen">
       <HeroNav />
       <Hero />
     </div>

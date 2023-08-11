@@ -31,11 +31,13 @@ const OrderTable = ({
         const { _id, book, reservedFor, orderStatus, arrivalDate, updatedAt } = order;
         const bookV = book ? book.title : "N/A";
         const userTypeV = reservedFor ? reservedFor.userType.userType : "N/A";
+        const branchV = reservedFor ? reservedFor.branch.branch : "N/A";
         const reservedForV = reservedFor ? (`${reservedFor.firstName} ${reservedFor.lastName}`) : "N/A";
         const formattedDate = new Date(updatedAt).toLocaleString();
 
         return _id.includes(searchTerm) ||
             bookV.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            branchV.toLowerCase().includes(searchTerm.toLowerCase()) ||
             userTypeV.toLowerCase().includes(searchTerm.toLowerCase()) ||
             reservedForV.toLowerCase().includes(searchTerm.toLowerCase()) ||
             orderStatus.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -199,7 +201,7 @@ const OrderTable = ({
                         </div>
                     </div>
                 </div>
-                <div className="overflow-y-auto max-h-[calc(100vh-25vh)] max-w-[928px]">
+                <div className="overflow-y-auto max-h-[calc(100vh-25vh)] w-full max-w-[928px]">
                     <table className="table-auto rounded-lg overflow-hidden shadow-lg w-full text-sm">
                         <thead>
                             <tr className="bg-cyan-900">

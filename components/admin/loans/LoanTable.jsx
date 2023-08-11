@@ -27,11 +27,13 @@ const LoanTable = ({
         const { _id, book, borrower, loanStatus, dueDate, updatedAt } = loan;
         const bookV = book ? book.title : "N/A";
         const userTypeV = borrower ? borrower.userType.userType : "N/A";
+        const branchV = borrower ? borrower.branch.branch : "N/A";
         const borrowerV = borrower ? (`${borrower.firstName} ${borrower.lastName}`) : "N/A";
         const formattedDate = new Date(updatedAt).toLocaleString();
 
         return _id.includes(searchTerm) ||
             bookV.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            branchV.toLowerCase().includes(searchTerm.toLowerCase()) ||
             userTypeV.toLowerCase().includes(searchTerm.toLowerCase()) ||
             borrowerV.toLowerCase().includes(searchTerm.toLowerCase()) ||
             loanStatus.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -174,7 +176,7 @@ const LoanTable = ({
                         </div>
                     </div>
                 </div>
-                <div className="overflow-y-auto max-h-[calc(100vh-25vh)] max-w-[928px]">
+                <div className="overflow-y-auto max-h-[calc(100vh-25vh)] w-full max-w-[928px]">
                     <table className="table-auto rounded-lg overflow-hidden shadow-lg w-full text-sm">
                         <thead>
                             <tr className="bg-cyan-900">
