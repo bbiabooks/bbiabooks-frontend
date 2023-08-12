@@ -186,7 +186,7 @@ const SignupTable = ({
                         </div>
                     </div>
                 </div>
-                <div className="overflow-y-auto max-h-[calc(100vh-25vh)] w-full md:w-[928px]">
+                <div className="overflow-y-auto max-h-[calc(100vh-25vh)] w-full md:min-w-[928px]">
                     <table className="table-auto rounded-lg overflow-hidden shadow-lg w-full text-sm">
                         <thead>
                             <tr className="bg-cyan-900">
