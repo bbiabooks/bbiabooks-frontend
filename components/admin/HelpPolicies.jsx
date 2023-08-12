@@ -37,7 +37,7 @@ const HelpAndPolicies = ({ isLoading, userKey }) => {
                     <h1 className="text-2xl font-bold text-start mb-4">
                         ADMINISTRATOR USER GUIDE:
                     </h1>
-                    <div className="px-4 max-w-4xl bg-white rounded-lg shadow-lg p-6">
+                    <div className="px-4 min-w-full bg-white rounded-lg shadow-lg p-6">
                         <div>
                             <p>
                                 <strong>Instructions:</strong>
@@ -73,7 +73,7 @@ const HelpAndPolicies = ({ isLoading, userKey }) => {
                     <h1 className="text-2xl font-bold text-start mb-4">
                         LIBRARIAN USER GUIDE:
                     </h1>
-                    <div className="px-4 max-w-4xl bg-white rounded-lg shadow-lg p-6">
+                    <div className="px-4 min-w-full bg-white rounded-lg shadow-lg p-6">
                         <div>
                             <p>
                                 <strong>Instructions:</strong>
@@ -108,7 +108,7 @@ const HelpAndPolicies = ({ isLoading, userKey }) => {
                     <h1 className="text-2xl font-bold text-start mb-4">
                         ACCOUNTANT USER GUIDE:
                     </h1>
-                    <div className="px-4 max-w-4xl bg-white rounded-lg shadow-lg p-6">
+                    <div className="px-4 min-w-full bg-white rounded-lg shadow-lg p-6">
                         <div>
                             <p>
                                 <strong>Instructions:</strong>
