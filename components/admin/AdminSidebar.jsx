@@ -180,7 +180,7 @@ const AdminSidebar = () => {
                                             >
                                                 <div className="flex flex-row items-center space-x-2 text-cyan-600 hover:text-orange-300">
                                                     <Image
-                                                        src="/catalogue.svg"
+                                                        src="/orderCatalogue.svg"
                                                         alt="Catalogue"
                                                         width={ 25 }
                                                         height={ 25 }
@@ -197,7 +197,7 @@ const AdminSidebar = () => {
                                         >
                                             <div className="flex flex-row items-center space-x-2 hover:text-orange-300">
                                                 <Image
-                                                    src="/catalogue.svg"
+                                                    src="/orderCatalogue.svg"
                                                     alt="Catalogue"
                                                     width={ 25 }
                                                     height={ 25 }
@@ -218,7 +218,7 @@ const AdminSidebar = () => {
                                             >
                                                 <div className="flex flex-row items-center space-x-2 text-cyan-600 hover:text-orange-300">
                                                     <Image
-                                                        src="/borrowCatalogue.svg"
+                                                        src="/catalogue.svg"
                                                         alt="Catalogue"
                                                         width={ 25 }
                                                         height={ 25 }
