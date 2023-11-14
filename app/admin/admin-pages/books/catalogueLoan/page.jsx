@@ -3,9 +3,9 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useAuthContext } from "@utils/AuthContext";
 import { URL } from "@utils/URL";
-import BookCatalogue from "@components/admin/books/BookCatalogue";
+import LoanCatalogue from "@components/admin/books/LoanCatalogue";
 
-const BookCataloguePage = () => {
+const LoanCataloguePage = () => {
     const [books, setBooks] = useState([]);
     const [errorMessage, setErrorMessage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -71,10 +71,10 @@ const BookCataloguePage = () => {
         router.push(`/admin/admin-pages/books/catalogue/${id}`);
     };
 
-    const handleOrderBook = (id) => {
+    const handleBorrowBook = (id) => {
         if (userKey === "Librarian" || userKey === "Admin") {
             setIsLoading(true);
-            router.push(`/admin/admin-pages/orders/create/${id}`);
+            router.push(`/admin/admin-pages/loans/create/${id}`);
         } else {
             handleUnauthorizedAction();
         }
@@ -106,10 +106,10 @@ const BookCataloguePage = () => {
                     { errorMessage }
                 </div>
             ) }
-            <BookCatalogue
+            <LoanCatalogue
                 books={ books }
                 handleViewBook={ handleViewBook }
-                handleOrderBook={ handleOrderBook }
+                handleBorrowBook={ handleBorrowBook }
                 isConfirmationModalOpen={ isConfirmationModalOpen }
                 warningMessage={ warningMessage }
                 confirmMessage={ confirmMessage }
@@ -120,4 +120,4 @@ const BookCataloguePage = () => {
     );
 };
 
-export default BookCataloguePage;
+export default LoanCataloguePage;

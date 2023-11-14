@@ -6,7 +6,7 @@ import ConfirmationModal from "@components/main/ConfirmationModal";
 const BookCatalogue = ({
     books,
     handleViewBook,
-    handleOrderBook,
+    handleBorrowBook,
     isLoading,
     isConfirmationModalOpen,
     warningMessage,
@@ -122,27 +122,36 @@ const BookCatalogue = ({
                                                 { book.numberOfCopies < 4 ? 0 : book.numberOfCopies } Available
                                             </p>
                                         </div>
+                                        <div className="flex items-center ml-2">
+                                            <Image
+                                                src="/borrowed.svg"
+                                                alt="Book Borrowed"
+                                                width={ 16 }
+                                                height={ 16 }
+                                                className="object-cover"
+                                            />
+                                            <p className="text-xs text-gray-500 ml-2">
+                                                { book.numberOfLoanedOutCopies } Borrowed
+                                            </p>
+                                        </div>
                                     </div>
                                     <div className="grid grid-cols-2 items-center flex-grow mt-5">
-                                        <div className="flex justify-start mr-3">
-                                            <p className="text-2xl font-bold">{ "₱ " + book.purchasePrice }</p>
-                                        </div>
                                         <div className="flex justify-end mt-4">
                                             <div className="flex flex-col">
                                                 <button
                                                     disabled={ isLoading }
                                                     className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
-                                                        } text-white font-bold py-2 px-3 rounded-md flex flex-row items-center justify-start mb-2` }
-                                                    onClick={ () => handleOrderBook(book._id) }
+                                                        } text-white font-bold py-2 px-3 rounded-md flex flex-row items-center justify-start` }
+                                                    onClick={ () => handleBorrowBook(book._id) }
                                                 >
                                                     <Image
-                                                        src="/order.svg"
-                                                        alt="Order Book"
+                                                        src="/loan.svg"
+                                                        alt="Borrow Book"
                                                         width={ 16 }
                                                         height={ 16 }
                                                         className="object-cover white-icon"
                                                     />
-                                                    <p className="ml-2 text-sm">Order</p>
+                                                    <p className="ml-2 text-sm">Borrow</p>
                                                 </button>
                                             </div>
                                         </div>

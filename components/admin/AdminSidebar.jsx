@@ -186,7 +186,7 @@ const AdminSidebar = () => {
                                                         height={ 25 }
                                                         className="object-contain"
                                                     />
-                                                    <span className="mr-2 font-bold hover:text-orange-300 text-sm">Catalogue</span>
+                                                    <span className="mr-2 font-bold hover:text-orange-300 text-sm">Order Catalogue</span>
                                                 </div>
                                             </button>
                                         </Link>
@@ -203,7 +203,45 @@ const AdminSidebar = () => {
                                                     height={ 25 }
                                                     className="object-contain"
                                                 />
-                                                <span className="mr-2 font-bold hover:text-orange-300 text-sm">Catalogue</span>
+                                                <span className="mr-2 font-bold hover:text-orange-300 text-sm">Order Catalogue</span>
+                                            </div>
+                                        </button>
+                                    ) }
+                                    { (userKey === "Admin" || userKey === "Librarian" || userKey === "Accountant") ? (
+                                        <Link
+                                            href="/admin/admin-pages/books/catalogueLoan"
+                                        >
+                                            <button
+                                                className={ `mb-2 text-cyan-600 font-bold text-sm ${clickedLink === "catalogue" ? "opacity-100" : "opacity-70"
+                                                    }` }
+                                                onClick={ () => handleLinkClick("catalogue") }
+                                            >
+                                                <div className="flex flex-row items-center space-x-2 text-cyan-600 hover:text-orange-300">
+                                                    <Image
+                                                        src="/catalogue.svg"
+                                                        alt="Catalogue"
+                                                        width={ 25 }
+                                                        height={ 25 }
+                                                        className="object-contain"
+                                                    />
+                                                    <span className="mr-2 font-bold hover:text-orange-300 text-sm">Borrow Catalogue</span>
+                                                </div>
+                                            </button>
+                                        </Link>
+                                    ) : (
+                                        <button
+                                            className="mb-2 text-cyan-600 font-bold text-sm opacity-70"
+                                            onClick={ handleUnauthorizedAction }
+                                        >
+                                            <div className="flex flex-row items-center space-x-2 hover:text-orange-300">
+                                                <Image
+                                                    src="/catalogue.svg"
+                                                    alt="Catalogue"
+                                                    width={ 25 }
+                                                    height={ 25 }
+                                                    className="object-contain"
+                                                />
+                                                <span className="mr-2 font-bold hover:text-orange-300 text-sm">Borrow Catalogue</span>
                                             </div>
                                         </button>
                                     ) }
