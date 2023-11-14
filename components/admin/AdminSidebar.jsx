@@ -212,13 +212,13 @@ const AdminSidebar = () => {
                                             href="/admin/admin-pages/books/catalogueLoan"
                                         >
                                             <button
-                                                className={ `mb-2 text-cyan-600 font-bold text-sm ${clickedLink === "catalogue" ? "opacity-100" : "opacity-70"
+                                                className={ `mb-2 text-cyan-600 font-bold text-sm ${clickedLink === "catalogueLoan" ? "opacity-100" : "opacity-70"
                                                     }` }
-                                                onClick={ () => handleLinkClick("catalogue") }
+                                                onClick={ () => handleLinkClick("catalogueLoan") }
                                             >
                                                 <div className="flex flex-row items-center space-x-2 text-cyan-600 hover:text-orange-300">
                                                     <Image
-                                                        src="/catalogue.svg"
+                                                        src="/borrowCatalogue.svg"
                                                         alt="Catalogue"
                                                         width={ 25 }
                                                         height={ 25 }

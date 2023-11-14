@@ -41,7 +41,7 @@ const BookCatalogue = ({
         <div className="flex-col flex items-start justify-start min-h-full p-12">
             <div className="flex-grow">
                 <h1 className="text-2xl font-bold mb-6 flex justify-start">
-                    Book Catalogue
+                    Borrow Catalogue
                 </h1>
                 <div className="flex flex-col items-end space-x-2 text-cyan-600 opacity-70 hover:opacity-100 mb-4">
                     <div className="flex justify-end">
@@ -135,7 +135,7 @@ const BookCatalogue = ({
                                             </p>
                                         </div>
                                     </div>
-                                    <div className="grid grid-cols-2 items-center flex-grow mt-5">
+                                    <div className="items-center flex-grow mt-5">
                                         <div className="flex justify-end mt-4">
                                             <div className="flex flex-col">
                                                 <button
