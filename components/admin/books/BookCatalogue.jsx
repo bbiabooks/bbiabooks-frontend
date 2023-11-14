@@ -132,7 +132,7 @@ const BookCatalogue = ({
                                                 <button
                                                     disabled={ isLoading }
                                                     className={ `bg-cyan-700 ${isLoading ? "cursor-not-allowed" : "hover:bg-orange-300"
-                                                        } text-white font-bold py-2 px-3 rounded-md flex flex-row items-center justify-start mb-2` }
+                                                        } text-white font-bold py-2 px-3 rounded-md flex flex-row items-center justify-start` }
                                                     onClick={ () => handleOrderBook(book._id) }
                                                 >
                                                     <Image
